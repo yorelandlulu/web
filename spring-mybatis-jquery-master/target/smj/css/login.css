@@ -1,0 +1,44 @@
+@charset "utf-8";
+/* CSS Document edit by JiMMyjia*/
+
+img{margin:0px; padding:0px; border:0px;}
+p{margin:0px; padding:0px;}
+ul,li,form{list-style:none; padding:0px; margin:0px;}
+br.clear,div.clear{font:1px/1px Arial; clear:both; display:block;}
+dl,dt,dd{margin:0px; padding:0px;}
+.clear-block:after{content: "."; display: block; height: 0; clear: both; visibility: hidden;}   
+.clear-block{display: inline-block;}   
+*html .clear-block{height: 1%;}   
+.clear-block{display: block;} 
+.left{ float:left;}
+.right{ float:right;}
+a img{ border:0;}
+a{ text-decoration:none;}
+a:hover{ text-decoration:none;}
+
+
+.black{ color:#000; font-weight:bold;}
+.brown{ color:#927560;}
+.b_gray{ font-size:14px; font-family:Arial, Helvetica, sans-serif; line-height:22px;}
+
+
+
+
+body{ font-family:"Microsoft Yahei",  Arial, Helvetica, sans-serif;  padding:0; margin:0;  line-height:18px; color:#666; font-size:12px;}
+
+#container{ width:1000px; margin:auto;}
+#container .top_banner{ width:1000px; height:277px; background:url(../images/banner_login.jpg) no-repeat; position:relative;}
+#container .top .lan{ text-align:right; color:#fff; padding-top:11px; padding-right:10px;}
+#container .top .lan a{ color:#fff; }
+#container .top .lan a:hover{ color:#fff;}
+#container .login_box{ width:990px; margin:auto; border:2px solid #ab9b8d; height:300px; padding-top:100px; background: url(../images/bg_pic.jpg) repeat-x #e2dbd5;}
+
+#container .footer{padding:10px; background-color:#b7a597; color:#fff; border-top:1px solid #967e69; margin-top:10px; text-align:center;}
+#container .footer a{ color:#fff;}
+#container .footer a:hover{ color:#fff;}
+#login_form_pop{ width:300px; margin:auto;}
+#login_form_pop .item{ height:30px; margin-bottom:10px;}
+#login_form_pop .item label{ width:100px; font-size:18px; font-weight:bold; float:left; margin-top:3px; color:#666;}
+#login_form_pop .item input{ border:1px solid #666; height:22px;}
+#login_form_pop .item #sign_in_btn_pop{ background:url(../images/login_button_a.gif) no-repeat; width:106px; height:24px; display:block; text-align:center; color:#fff; padding-top:5px; font-size:14px; float:left; margin-right:10px; margin-left:15px;}
+#login_form_pop .item .sign_lostfound{ background:url(../images/login_button_a.gif) no-repeat; width:106px; height:24px; display:block; text-align:center; color:#fff; padding-top:5px; font-size:14px; float:left;}
