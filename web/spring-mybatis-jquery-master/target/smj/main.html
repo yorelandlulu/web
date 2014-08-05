@@ -1,82 +1,107 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8"
-	content="ie=edge" />
-<meta charset="UTF-8">
-<title>Full Layout - jQuery EasyUI Demo</title>
-<link rel="stylesheet" type="text/css"
-	href="common/widget/jquery/themes/default/easyui.css" />
-<link rel="stylesheet" type="text/css"
-	href="common/widget/jquery/themes/icon.css">
-<link rel="stylesheet" type="text/css" href="common/css/demo.css">
-<script type="text/javascript"
-	src="common/widget/jquery/jquery.min.js"></script>
-<script type="text/javascript"
-	src="common/widget/jquery/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="common/js/public.js"></script>
-<script type="text/javascript">
-	// uses jQuery to bind a function to the document.ready event.
-	// $(document).ready(function() { 
-	/* Handler for .ready() called. */
-	// });
-	$(function() {
-		var tabs = $('#tt').tabs().tabs('tabs');
-		for (var i = 0; i < tabs.length; i++) {
-			tabs[i].panel('options').tab.unbind().bind('mouseenter', {
-				index : i
-			}, function(e) {
-				$('#tt').tabs('select', e.data.index);
-			});
-		}
-	});
-	function addOperaterMenuTab() {
-		addTab('用户管理', 'operater/operater.html');
-	}
-	function addRoleMenuTab() {
-		addTab('角色管理', 'operater/role.html');
-	}
-    function addNewsTab() {
-        addTab('新闻管理', 'news/news.html');
-    }
-	function addNewsCateTab() {
-		addTab('新闻类别管理', 'news/newscate.html');
-	}
-</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>中共上海市委党校第三分校教务管理系统</title>
+    <link href="css/login.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css"
+          href="common/widget/jquery/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css"
+          href="common/widget/jquery/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="common/css/demo.css">
+    <script type="text/javascript"
+            src="common/widget/jquery/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="common/widget/jquery/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="common/js/public.js"></script>
+    <script type="text/javascript">
+        // uses jQuery to bind a function to the document.ready event.
+        // $(document).ready(function() {
+        /* Handler for .ready() called. */
+        // });
+        $(function() {
+            var tabs = $('#tt').tabs().tabs('tabs');
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].panel('options').tab.unbind().bind('mouseenter', {
+                    index : i
+                }, function(e) {
+                    $('#tt').tabs('select', e.data.index);
+                });
+            }
+        });
+        function addOperaterMenuTab() {
+            addTab('用户管理', 'operater/operater.html');
+        }
+        function addRoleMenuTab() {
+            addTab('角色管理', 'operater/role.html');
+        }
+        function addNewsTab() {
+            addTab('新闻管理', 'news/news.html');
+        }
+        function addNewsCateTab() {
+            addTab('新闻类别管理', 'news/newscate.html');
+        }
+        function logout() {
+            $.get("login/logout.do",null,function callback(data)
+            {
+                window.location.href = 'login.html';
+            });
+        }
+    </script>
+
 </head>
-<body class="easyui-layout">
-	<div data-options="region:'north',border:false"
-		style="height: 10px; background: #B3DFDA; padding: 1px"></div>
-	<div data-options="region:'west'" title="West" style="width: 150px;">
-		<div class="easyui-accordion" data-options="multiple: true"
-			id="myaccrdion">
-			<div title="控件使用" data-options="iconCls:'icon-ok'"
-				style="padding: 5px;">
-				<div style="padding: 5px; letter-spacing: 4px;">
-					<span onclick="addOperaterMenuTab()" style="cursor: pointer">用户管理(ok)</span>
-				</div>
-				<div style="padding: 5px; letter-spacing: 4px;">
-					<span onclick="addRoleMenuTab()" style="cursor: pointer">角色管理</span>
-				</div>
-				<div style="padding: 5px; letter-spacing: 4px;">
-					<span onclick="addNewsCateTab()" style="cursor: pointer">新闻分类管理</span>
-				</div>
-                <div style="padding: 5px; letter-spacing: 4px;">
-                    <span onclick="addNewsTab()" style="cursor: pointer">新闻管理</span>
+
+<body>
+<div id="container">
+    <div class="top_banner">
+
+
+    </div>
+    <div class="login_box" style="padding-top: 0;height:500px;">
+
+        <div class="easyui-layout" style="width:980px;height:400px;">
+        <div data-options="region:'north',border:false"
+             style="height: 10px; padding: 1px"></div>
+        <div data-options="region:'west'" title="菜单" style="width: 150px;">
+            <div class="easyui-accordion" data-options="multiple: true"
+                 id="myaccrdion">
+                <div title="网站管理" data-options="iconCls:'icon-ok'"
+                     style="padding: 5px;">
+                    <div style="padding: 5px; letter-spacing: 4px;">
+                        <span onclick="addOperaterMenuTab()" style="cursor: pointer">用户管理</span>
+                    </div>
+                    <div style="padding: 5px; letter-spacing: 4px;">
+                        <span onclick="addRoleMenuTab()" style="cursor: pointer">角色管理</span>
+                    </div>
+                    <div style="padding: 5px; letter-spacing: 4px;">
+                        <span onclick="addNewsCateTab()" style="cursor: pointer">新闻分类管理</span>
+                    </div>
+                    <div style="padding: 5px; letter-spacing: 4px;">
+                        <span onclick="addNewsTab()" style="cursor: pointer">新闻管理</span>
+                    </div>
+                    <div style="padding: 5px; letter-spacing: 4px;">
+                        <span onclick="logout()" style="cursor: pointer">退出登录</span>
+                    </div>
                 </div>
-			</div>
-		</div>
-	</div>
-	<div data-options="region:'south',border:false"
-		style="height: 50px; background: #A9FACD; padding: 10px;">south
-		region</div>
-	<div
-		data-options="region:'center',title:'Main Title',iconCls:'icon-ok'">
-		<div id="tt" class="easyui-tabs" style="width: 700px;"
-			data-options="fit:true,border:false,plain:true">
-			<div title="About" data-options="href:'about.html'"
-				style="padding: 10px"></div>
-		</div>
-	</div>
+            </div>
+        </div>
+        <div
+                data-options="region:'center',title:'',iconCls:'icon-ok'">
+            <div id="tt" class="easyui-tabs" style="width: 400px;"
+                 data-options="fit:true,border:false,plain:true">
+                <div title="About" data-options="href:'about.html'"
+                     style="padding: 10px"></div>
+            </div>
+        </div>
+        </div>
+
+
+
+    </div>
+    <div class="footer">copyright 版权所有 © 2001-2014 中共上海市委党校第三分校 <a href="http://www.miibeian.gov.cn/" target="_blank">沪ICP备05010760号</a><br />
+        地址:上海市虹漕南路123号     邮编:200233     总机:21233333</div>
+
+
+</div>
 </body>
 </html>

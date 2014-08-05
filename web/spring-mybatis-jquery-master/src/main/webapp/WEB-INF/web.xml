@@ -36,7 +36,7 @@
 		<filter-class>com.kun.flow.web.filter.SessionTimeoutCheckFilter</filter-class>
 		<init-param>
 			<param-name>vips</param-name>
-			<param-value>login.html,home.html,survey.html,listAll.html,index.html,login.do,jquery,easyui,validater,listAll.do</param-value>
+			<param-value>js,login.html,home.html,survey.html,listAll.html,index.html,login.do,jquery,easyui,validater,listAll.do</param-value>
 		</init-param>
 	</filter>
 	<filter-mapping>
@@ -122,7 +122,7 @@
         </init-param>
         <init-param>
             <param-name>AllowedExtensionsImage</param-name>
-            <param-value>jpg|gif|jpeg|png|bmp</param-value>
+            <param-value>js|jpg|gif|jpeg|png|bmp</param-value>
         </init-param>
         <init-param>
             <param-name>DeniedExtensionsImage</param-name>

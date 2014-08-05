@@ -1,83 +1,94 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8"
-	content="ie=edge" />
-<title>springmvc-spring-mybatis-jquery</title>
-<meta http-equiv="Content-Type" content="text/json; charset=utf-8" />
-<meta http-equiv="pragma" content="no-cache">
-<meta http-equiv="cache-control" content="no-cache">
-<meta http-equiv="expires" content="0">
-<meta http-equiv="keywords" content="jquery,jquery,jquery,jquery,jquery">
-<meta http-equiv="description"
-	content="jquery,jquery,jquery,jquery,jquery">
-<link rel="stylesheet" type="text/css"
-	href="common/widget/jquery/themes/default/easyui.css" />
-<link rel="stylesheet" type="text/css"
-	href="common/widget/jquery/themes/icon.css">
-<link rel="stylesheet" type="text/css" href="common/css/demo.css">
-<link rel="stylesheet" type="text/css" href="common/css/login.css">
-<script type="text/javascript" src="common/widget/jquery/jquery.min.js"></script>
-<script type="text/javascript"
-	src="common/widget/jquery/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="common/js/validater.js"></script>
-<style type="text/css">
-</style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>中共上海市委党校第三分校教务管理系统</title>
+    <link href="css/login.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css"
+          href="common/widget/jquery/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css"
+          href="common/widget/jquery/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="common/css/demo.css">
+    <link rel="stylesheet" type="text/css" href="common/css/login.css">
+    <script type="text/javascript" src="common/widget/jquery/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="common/widget/jquery/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="common/js/validater.js"></script>
+
 </head>
+
 <body>
-	<div class="center">
-		<div id="p" class="easyui-panel" title="登   陆"
-			style="width: 500px; height: 400px; padding: 10px;">
-			<form id="login_form" class="login-form">
-				<table style="margin: 50px 0 0 30px;" cellspacing="30">
-					<tr>
-						<td>账号</td>
-						<td><input type="text" class="easyui-validatebox form-input"
-							name="code" placeholder="账    号"
-							style="width: 300px; height: 30px"
-							data-options="required:true,missingMessage:'账号不能为空'" /></td>
-					</tr>
-					<tr>
-						<td>密码</td>
-						<td><input type="password"
-							class="easyui-validatebox form-input" name="password"
-							placeholder="密    码" style="width: 300px; height: 30px"
-							data-options="required:true,missingMessage:'密码不能为空',validType:{length:[1,10],numOrLetter:[]}" /></td>
-					</tr>
-					<tr>
-						<td colspan="2" style="padding: 10px 0px 0px 120px"><a
-							id="login_submit" href="javascript:void(0)"
-							class="easyui-linkbutton">登 &nbsp;&nbsp;&nbsp;录</a></td>
-					</tr>
-				</table>
-			</form>
-		</div>
-	</div>
-	<script type="text/javascript">
-		$('#login_submit').click(function(event) {
-			login()
-		});
-		$("body").keydown(function() {
-			if (event.keyCode == "13") {//回车提交
-				$('#login_submit').click();
-			}
-		});
-		function login() {
-			$('#login_form').form(
-					'submit',
-					{
-						url : 'login/login.do',
-						success : function(data) {
-							var jsonData = eval('(' + data + ')');
-							if (data != null && data != ''
-									&& jsonData.success == true) {
-								window.location.href = 'main.html';
-							} else {
-								$.messager.alert('提 示', jsonData.message);
-							}
-						}
-					});
-		}
-	</script>
+<div id="container">
+    <div class="top_banner">
+
+
+    </div>
+    <div class="login_box">
+        <form  id="login_form_pop" action="">
+            <span id="sign_in_tips_pop" class="warnImgWrap visible_none sign_tip"></span>
+            <div class="item first_item">
+                <label id="lblaccount_popup" for="account_pop">
+                    用户名:</label>
+                <input id="account_pop" type="text" class="easyui-validatebox form-input"
+                       name="code"
+                       data-options="required:true,missingMessage:'用户名不能为空'" />
+            </div>
+            <div class="item">
+                <label for="actpwd_pop">
+                    密&nbsp;&nbsp;码:</label>
+                <input type="password" id="actpwd_pop"
+                       class="easyui-validatebox form-input" name="password"
+
+                       data-options="required:true,missingMessage:'密码不能为空',validType:{length:[1,10],numOrLetter:[]}" />
+
+            </div>
+
+
+            <div class="item set_overflow margin_top_fix" style="padding-left:110px">
+                <a id="sign_in_btn_pop" value-data="" onclick="_tcTraObj._tcTrackEvent('click', '登录', '同程用户');" href="javascript:void(0);" class="btn_sign_in" title="登录">
+                    登&nbsp;录</a> <span id="logining_pop" style="display: none;" class="wait4sign">
+                            <img alt="登录中，请等待" src="http://img1.40017.cn/cn/new_ui/public/images/wait.gif">登录中…</span>
+
+                <div class="clear_float">
+                </div>
+            </div>
+        </form>
+
+
+
+
+    </div>
+
+    <script type="text/javascript">
+        $('#sign_in_btn_pop').click(function(event) {
+            login()
+        });
+        $("body").keydown(function() {
+            if (event.keyCode == "13") {//回车提交
+                $('#login_submit').click();
+            }
+        });
+        function login() {
+            $('#login_form_pop').form(
+                    'submit',
+                    {
+                        url : 'login/login.do',
+                        success : function(data) {
+                            var jsonData = eval('(' + data + ')');
+                            if (data != null && data != ''
+                                    && jsonData.success == true) {
+                                window.location.href = 'main.html';
+                            } else {
+                                $.messager.alert('提 示', jsonData.message);
+                            }
+                        }
+                    });
+        }
+    </script>
+    <div class="footer">copyright 版权所有 © 2001-2014 中共上海市委党校第三分校 <a href="http://www.miibeian.gov.cn/" target="_blank">沪ICP备05010760号</a><br />
+        地址:上海市虹漕南路123号     邮编:200233     总机:21233333</div>
+
+
+</div>
 </body>
 </html>

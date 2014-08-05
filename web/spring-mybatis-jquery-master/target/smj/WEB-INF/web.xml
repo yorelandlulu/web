@@ -36,7 +36,7 @@
 		<filter-class>com.kun.flow.web.filter.SessionTimeoutCheckFilter</filter-class>
 		<init-param>
 			<param-name>vips</param-name>
-			<param-value>login.html,home.html,listAll.html,index.html,login.do,jquery,easyui,validater,listAll.do</param-value>
+			<param-value>login.html,home.html,survey.html,listAll.html,index.html,login.do,jquery,easyui,validater,listAll.do</param-value>
 		</init-param>
 	</filter>
 	<filter-mapping>
