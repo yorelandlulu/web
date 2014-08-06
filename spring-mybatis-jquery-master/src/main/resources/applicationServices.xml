@@ -37,6 +37,11 @@
 			<ref bean="permitMapper" />
 		</property>
 	</bean>
+	<bean id="newsService" class="com.kun.flow.service.impl.NewsServiceImpl">
+		<property name="mapper">
+			<ref bean="newsMapper" />
+		</property>
+	</bean>
 	<bean id="roleServiceProxy" parent="baseTxProxy">
 		<property name="proxyInterfaces">
 			<list>

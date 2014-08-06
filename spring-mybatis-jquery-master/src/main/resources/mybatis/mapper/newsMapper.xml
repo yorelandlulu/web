@@ -121,6 +121,13 @@
     from news
     where id = #{id,jdbcType=BIGINT}
   </select>
+
+    <select id="listByCid" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List" />
+        from news
+        where news.categoryid=#{key}
+    </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     <!--
       WARNING - @mbggenerated

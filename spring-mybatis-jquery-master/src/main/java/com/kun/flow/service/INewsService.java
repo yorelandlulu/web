@@ -19,6 +19,7 @@ import com.kun.flow.model.NewsCategory;
  */
 public interface INewsService extends IService<News> {
 
-    public boolean addNews(News news) throws ServiceException;
+    public void save(News news) throws ServiceException;
+    public void listbycid(int cid) throws ServiceException;
 
 }

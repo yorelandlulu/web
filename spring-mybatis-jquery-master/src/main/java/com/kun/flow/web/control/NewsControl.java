@@ -35,8 +35,7 @@ public class NewsControl extends BaseControl<News> {
     @ResponseBody
     public Out<Object> add(News news) {
         try {
-            //TODO add service
-            //this.getService().save(newsCategory);
+            this.getNewsService().save(news);
             return MessageOut.ADD_OK_MESSAGE;
         } catch (Exception e) {
             e.printStackTrace();
@@ -55,8 +54,7 @@ public class NewsControl extends BaseControl<News> {
     @ResponseBody
     public Out<Object> listByCategory(int cid) {
         try {
-            //TODO add service
-            //this.getService().save(newsCategory);
+            this.getNewsService().listbycid(cid);
             return MessageOut.ADD_OK_MESSAGE;
         } catch (Exception e) {
             e.printStackTrace();
