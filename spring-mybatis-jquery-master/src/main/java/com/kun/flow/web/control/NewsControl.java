@@ -1,9 +1,6 @@
 package com.kun.flow.web.control;
 
-import com.kun.flow.exception.ServiceException;
 import com.kun.flow.model.News;
-import com.kun.flow.model.NewsCategory;
-import com.kun.flow.service.INewsCategoryService;
 import com.kun.flow.service.INewsService;
 import com.kun.flow.web.response.MessageOut;
 import com.kun.flow.web.response.Out;
@@ -22,7 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/news")
 public class NewsControl extends BaseControl<News> {
 
-    public INewsService getService() {
+    public INewsService getNewsService() {
         return (INewsService) this.getService();
     }
 

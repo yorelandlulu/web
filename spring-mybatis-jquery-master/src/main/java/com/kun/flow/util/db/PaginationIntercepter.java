@@ -35,7 +35,7 @@ import com.kun.flow.bean.Pagination;
 @Intercepts({@Signature(method = "prepare", type = StatementHandler.class, args = {Connection.class})})
 public class PaginationIntercepter implements Interceptor {
 
-	private Dialect dialect = Dialect.getInstance(Dialect.MYSQL);
+	private Dialect dialect = Dialect.getInstance(Dialect.ORACLE);
 	private final Logger logger = Logger.getLogger(this.getClass());
 
 	@Override

@@ -73,7 +73,7 @@
 		<if test="object.name != null">
 			select
 			<include refid="Role_Columns" />
-			from role name = #{object.name} limit 0,1
+			from role name = #{object.name}
 			<!-- <if test="id != null"> -->
 			<!-- id != #{id} and -->
 			<!-- </if> -->
@@ -103,7 +103,6 @@
 		<include refid="Role_Columns" />
 		from role
 		<include refid="Common_Where_Fragment" />
-		limit 0,1
 	</select>
 	<select id="loadAll" resultMap="RoleResultMap" parameterType="com.kun.flow.model.Role">
 		<!-- 当Operater对象为null需要测试 -->

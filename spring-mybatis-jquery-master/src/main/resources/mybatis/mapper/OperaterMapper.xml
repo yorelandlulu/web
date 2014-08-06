@@ -90,7 +90,6 @@
 					name = #{object.name} or
 				</if>
 			</trim>
-			limit 0,1
 		</if>
 	</select>
 	<select id="findByExample" resultMap="OperaterResultMap" parameterType="com.kun.flow.model.Operater">
@@ -117,7 +116,6 @@
 		<include refid="Operater_Columns" />
 		from operater
 		<include refid="Common_Where_Fragment" />
-		limit 0,1
 	</select>
 	<select id="loadAll" resultMap="OperaterResultMap" parameterType="com.kun.flow.model.Operater">
 		<!-- 当Operater对象为null需要测试 -->

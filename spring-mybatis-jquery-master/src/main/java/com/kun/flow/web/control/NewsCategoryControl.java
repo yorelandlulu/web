@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/newscategory")
 public class NewsCategoryControl  extends BaseControl<NewsCategory> {
 
-    public INewsCategoryService getOperaterService() {
+    public INewsCategoryService getNewsCategoryService() {
         return (INewsCategoryService) this.getService();
     }
 
