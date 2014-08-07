@@ -35,7 +35,7 @@ public class NewsControl extends BaseControl<News> {
     @ResponseBody
     public Out<Object> add(News news) {
         try {
-            this.getNewsService().save(news);
+            this.getService().save(news);
             return MessageOut.ADD_OK_MESSAGE;
         } catch (Exception e) {
             e.printStackTrace();

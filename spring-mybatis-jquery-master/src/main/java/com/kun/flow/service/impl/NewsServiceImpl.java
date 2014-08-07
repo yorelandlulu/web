@@ -22,13 +22,6 @@ public class NewsServiceImpl extends AbstractServiceImpl<News> implements INewsS
     }
 
     private NewsMapper mapper;
-    public void save(News news) throws ServiceException {
-        try {
-            this.getNewMapper().save(news);
-        } catch (Exception e) {
-            throw new ServiceException(e);
-        }
-    }
     public void listbycid(int cid) throws ServiceException{
         try {
             this.getNewMapper().listByCid(cid);

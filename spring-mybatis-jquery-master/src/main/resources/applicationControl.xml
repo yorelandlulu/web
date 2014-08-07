@@ -11,12 +11,12 @@
 	</bean>
 	<bean id="newsControl" class="com.kun.flow.web.control.NewsControl">
 		<property name="service">
-			<ref bean="operaterServiceProxy" />
+			<ref bean="newsServiceProxy" />
 		</property>
 	</bean>
-	<bean id="NewsCategoryControl" class="com.kun.flow.web.control.NewsCategoryControl">
+	<bean id="newsCategoryControl" class="com.kun.flow.web.control.NewsCategoryControl">
 		<property name="service">
-			<ref bean="operaterServiceProxy" />
+			<ref bean="newsCategoryServiceProxy" />
 		</property>
 	</bean>
 
