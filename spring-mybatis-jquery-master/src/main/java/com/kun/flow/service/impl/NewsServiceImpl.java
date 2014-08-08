@@ -13,18 +13,13 @@ import com.kun.flow.service.INewsService;
  * To change this template use File | Settings | File Templates.
  */
 public class NewsServiceImpl extends AbstractServiceImpl<News> implements INewsService {
-    public NewsMapper getNewMapper() {
-        return mapper;
+    public NewsMapper getNewsMapper() {
+        return (NewsMapper) this.getMapper();
     }
 
-    public void setNewMapper(NewsMapper newsMapper) {
-        this.mapper = mapper;
-    }
-
-    private NewsMapper mapper;
     public void listbycid(int cid) throws ServiceException{
         try {
-            this.getNewMapper().listByCid(cid);
+           this.getNewsMapper().listByCid(cid);
         } catch (Exception e) {
             throw new ServiceException(e);
         }

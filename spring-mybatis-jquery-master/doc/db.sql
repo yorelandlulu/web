@@ -2,24 +2,26 @@
 Navicat MySQL Data Transfer
 
 Source Server         : 1
-Source Server Version : 50703
+Source Server Version : 50620
 Source Host           : localhost:3306
-Source Database       : newdb
+Source Database       : edu
 
 Target Server Type    : MYSQL
-Target Server Version : 50703
+Target Server Version : 50620
 File Encoding         : 65001
 
-Date: 2014-07-18 17:23:42
+Date: 2014-08-08 16:22:41
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for `news`
+-- Table structure for news
 -- ----------------------------
 DROP TABLE IF EXISTS `news`;
 CREATE TABLE `news` (
+  `editname` varchar(255) DEFAULT NULL,
+  `auditname` varchar(255) DEFAULT NULL,
   `id` bigint(20) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
   `content` varchar(255) DEFAULT NULL,
@@ -35,13 +37,14 @@ CREATE TABLE `news` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `news_category`
+-- Table structure for news_category
 -- ----------------------------
 DROP TABLE IF EXISTS `news_category`;
 CREATE TABLE `news_category` (
-  `id` bigint(11) NOT NULL,
+  `id` bigint(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `status` int(1) DEFAULT NULL,
+  `parentid` bigint(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -50,7 +53,7 @@ CREATE TABLE `news_category` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `operater`
+-- Table structure for operater
 -- ----------------------------
 DROP TABLE IF EXISTS `operater`;
 CREATE TABLE `operater` (
@@ -84,7 +87,7 @@ INSERT INTO `operater` VALUES ('27', '0', '3', '3', 'eccbc87e4b5ce2fe28308fd9f2a
 INSERT INTO `operater` VALUES ('34', '0', 'd', 'd', '8277e0910d750195b448797616e091ad', '0', '', '', '2014-07-01 20:52:56', '2014-07-01 20:52:56', '1', 'admin', '1');
 
 -- ----------------------------
--- Table structure for `operater_bind_role`
+-- Table structure for operater_bind_role
 -- ----------------------------
 DROP TABLE IF EXISTS `operater_bind_role`;
 CREATE TABLE `operater_bind_role` (
@@ -108,7 +111,7 @@ INSERT INTO `operater_bind_role` VALUES ('4', '3', '2', '2014-07-03 13:36:52', '
 INSERT INTO `operater_bind_role` VALUES ('5', '2', '1', '2014-07-03 13:40:34', '2014-07-03 13:40:34', '1', 'admin', '1');
 
 -- ----------------------------
--- Table structure for `permit`
+-- Table structure for permit
 -- ----------------------------
 DROP TABLE IF EXISTS `permit`;
 CREATE TABLE `permit` (
@@ -129,7 +132,7 @@ INSERT INTO `permit` VALUES ('2', '后台用户', 'operater.operater', '1', '1',
 INSERT INTO `permit` VALUES ('3', '用户角色', 'operater.role', '1', '1', '3');
 
 -- ----------------------------
--- Table structure for `role`
+-- Table structure for role
 -- ----------------------------
 DROP TABLE IF EXISTS `role`;
 CREATE TABLE `role` (
@@ -151,7 +154,7 @@ INSERT INTO `role` VALUES ('1', '厂商', 'test', '2011-05-12 15:23:49', '2011-0
 INSERT INTO `role` VALUES ('2', 'test', 't', '2014-05-05 23:38:32', '2014-05-05 23:38:38', '1', 'admin', '1');
 
 -- ----------------------------
--- Table structure for `role_bind_permit`
+-- Table structure for role_bind_permit
 -- ----------------------------
 DROP TABLE IF EXISTS `role_bind_permit`;
 CREATE TABLE `role_bind_permit` (
