@@ -10,6 +10,8 @@ package com.kun.flow.service;
 import com.kun.flow.exception.ServiceException;
 import com.kun.flow.model.NewsCategory;
 
+import java.util.List;
+
 /**
  *
  * @author songkun
@@ -18,6 +20,7 @@ import com.kun.flow.model.NewsCategory;
  */
 public interface INewsCategoryService extends IService<NewsCategory> {
 
-    public boolean addNewsCategory(NewsCategory newsCategory) throws ServiceException;
+    public List<NewsCategory> listRoot() throws ServiceException;
+    public List<NewsCategory> listByPid(long pid) throws ServiceException;
 
 }

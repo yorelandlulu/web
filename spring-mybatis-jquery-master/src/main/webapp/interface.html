@@ -97,6 +97,21 @@
                         <div  id="fragment-1">
                             <div class="news_list">
                                 <ul>
+                                    <li><a href="#">学员工作处赴德胜公司开展调研活动学员工作处赴德</a><span>2014年8月5日<a href="#" class="edit">查 看</a><a href="#" class="edit">编 辑</a></span></li>
+                                    <li><a href="#">学员工作处赴德胜公司开展调研活动</a><span>2014年8月5日<a href="#" class="edit">查 看</a><a href="#" class="edit">编 辑</a></span></li>
+                                    <li><a href="#">学员工作处赴德胜公司开展调研活动</a><span>2014年8月5日<a href="#" class="edit">查 看</a><a href="#" class="edit">编 辑</a></span></li>
+                                    <li><a href="#">学员工作处赴德胜公司开展调研活动</a><span>2014年8月5日<a href="#" class="edit">查 看</a><a href="#" class="edit">编 辑</a></span></li>
+                                    <li><a href="#">学员工作处赴德胜公司开展调研活动</a><span>2014年8月5日<a href="#" class="edit">查 看</a><a href="#" class="edit">编 辑</a></span></li>
+                                    <li><a href="#">学员工作处赴德胜公司开展调研活动</a><span>2014年8月5日<a href="#" class="edit">查 看</a><a href="#" class="edit">编 辑</a></span></li>
+                                    <li><a href="#">学员工作处赴德胜公司开展调研活动</a><span>2014年8月5日<a href="#" class="edit">查 看</a><a href="#" class="edit">编 辑</a></span></li>
+                                    <li><a href="#">学员工作处赴德胜公司开展调研活动</a><span>2014年8月5日<a href="#" class="edit">查 看</a><a href="#" class="edit">编 辑</a></span></li>
+                                    <li><a href="#">学员工作处赴德胜公司开展调研活动</a><span>2014年8月5日<a href="#" class="edit">查 看</a><a href="#" class="edit">编 辑</a></span></li>
+                                    <li><a href="#">学员工作处赴德胜公司开展调研活动</a><span>2014年8月5<a href="#" class="edit">查 看</a><a href="#" class="edit">编 辑</a>日</span></li>
+                                    <li><a href="#">学员工作处赴德胜公司开展调研活动</a><span>2014年8月5日<a href="#" class="edit">查 看</a><a href="#" class="edit">编 辑</a></span></li>
+                                    <li><a href="#">学员工作处赴德胜公司开展调研活动</a><span>2014年8月5<a href="#" class="edit">查 看</a><a href="#" class="edit">编 辑</a>日</span></li>
+                                    <li><a href="#">学员工作处赴德胜公司开展调研活动</a><span>2014年8月5日<a href="#" class="edit">查 看</a><a href="#" class="edit">编 辑</a></span></li>
+                                    <li><a href="#">学员工作处赴德胜公司开展调研活动</a><span>2014年8月5日<a href="#" class="edit">查 看</a><a href="#" class="edit">编 辑</a></span></li>
+                                    <li><a href="#">学员工作处赴德胜公司开展调研活动</a><span>2014年8月5日<a href="#" class="edit">查 看</a><a href="#" class="edit">编 辑</a></span></li>
 
                                 </ul>
                                 <div class="pages">
@@ -114,15 +129,15 @@
                             </div>
                         </div>
                         <div id="fragment-2">
-                            <form id="fm" method="post" novalidate>
-                                <div class="fitem">
-                                    <label>标题</label>
-                                    <input name="title" class="easyui-validatebox" required="true">
-                                </div>
-                                <div class="fitem">
-                                    <label style="margin-right:2px">类别</label>
-                                    <input id="cc1" class="easyui-combobox" name="categoryid1"
-                                           data-options="valueField:'id',textField:'name',onSelect: function(){
+                                <form id="fm" method="post" novalidate>
+                                    <div class="fitem">
+                                        <label>标题</label>
+                                        <input name="title" class="easyui-validatebox" required="true">
+                                    </div>
+                                    <div class="fitem">
+                                        <label style="margin-right:2px">类别</label>
+                                        <input id="cc1" class="easyui-combobox" name="categoryid1"
+                                               data-options="valueField:'id',textField:'name',onSelect: function(){
                                             $.ajax({
                                                 url:'newscategory/listByPid.do',
                                                 dataType : 'json',
@@ -134,8 +149,8 @@
                                                 }
                                             });
                                         }">
-                                    <input id="cc2" class="easyui-combobox" name="categoryid"
-                                           data-options="valueField:'id',textField:'name',onSelect: function(){
+                                        <input id="cc2" class="easyui-combobox" name="categoryid"
+                                               data-options="valueField:'id',textField:'name',onSelect: function(){
                                             $.ajax({
                                                 url:'newscategory/listByPid.do',
                                                 dataType : 'json',
@@ -147,35 +162,35 @@
                                                 }
                                             });
                                         }">
-                                    <input id="cc3" class="easyui-combobox" name="categoryid3"
-                                           data-options="valueField:'id',textField:'name'">
-                                </div>
-                                <div class="fitem">
-                                    <label>作者</label>
-                                    <input name="author">
-                                </div>
-                                <div class="fitem">
-                                    <label>内容</label>
-                                    <script type="text/javascript">
-                                        var oFCKeditor = new FCKeditor('content');//
-                                        oFCKeditor.BasePath='common/fckeditor/';//指定FCKeditor根路径，也就是fckeditor.js所在的路径
-                                        oFCKeditor.Height='400px';
-                                        //oFCKeditor.ToolbarSet='Demo';
-                                        oFCKeditor.Value="";
-                                        oFCKeditor.Create();
-                                    </script>
-                                    <input type="hidden" value="" id="fckCont" name="content" />
-                                </div>
-                                <div class="item set_overflow margin_top_fix clear-block">
-                                    <a id="sign_in_btn_pop" value-data="" onclick="_tcTraObj._tcTrackEvent('click', '提交', '用户');" href="javascript:saveUser();" class="btn_sign_in" title="登录">
-                                        提&nbsp;交</a> <span id="logining_pop" style="display: none;" class="wait4sign">
-                                            <img alt="提交中，请等待" src="http://img1.40017.cn/cn/new_ui/public/images/wait.gif">登录中…</span>
-                                    <a class="sign_lostfound" target="_blank" href="http://Passport.ly.com/Passport/GetPassword/" rel="nofollow">重&nbsp;置</a>
-                                    <div class="clear_float">
+                                        <input id="cc3" class="easyui-combobox" name="categoryid3"
+                                               data-options="valueField:'id',textField:'name'">
                                     </div>
-                                </div>
+                                    <div class="fitem">
+                                        <label>作者</label>
+                                        <input name="author">
+                                    </div>
+                                    <div class="fitem">
+                                        <label>内容</label>
+                                        <script type="text/javascript">
+                                            var oFCKeditor = new FCKeditor('content');//
+                                            oFCKeditor.BasePath='common/fckeditor/';//指定FCKeditor根路径，也就是fckeditor.js所在的路径
+                                            oFCKeditor.Height='400px';
+                                            //oFCKeditor.ToolbarSet='Demo';
+                                            oFCKeditor.Value="";
+                                            oFCKeditor.Create();
+                                        </script>
+                                        <input type="hidden" value="" id="fckCont" name="content" />
+                                    </div>
+                                    <div class="item set_overflow margin_top_fix clear-block">
+                                        <a id="sign_in_btn_pop" value-data="" onclick="_tcTraObj._tcTrackEvent('click', '提交', '用户');" href="javascript:saveUser();" class="btn_sign_in" title="登录">
+                                            提&nbsp;交</a> <span id="logining_pop" style="display: none;" class="wait4sign">
+                                            <img alt="提交中，请等待" src="http://img1.40017.cn/cn/new_ui/public/images/wait.gif">登录中…</span>
+                                        <a class="sign_lostfound" target="_blank" href="http://Passport.ly.com/Passport/GetPassword/" rel="nofollow">重&nbsp;置</a>
+                                        <div class="clear_float">
+                                        </div>
+                                    </div>
 
-                            </form>
+                                </form>
                         </div>
                     </div>
                 </div>
@@ -193,6 +208,5 @@
 <script>
     gotoNode(1,'学校概况');
     newUser();
-    listnewsbycid();
 </script>
 </html>

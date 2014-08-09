@@ -11,6 +11,8 @@ import com.kun.flow.exception.ServiceException;
 import com.kun.flow.model.News;
 import com.kun.flow.model.NewsCategory;
 
+import java.util.List;
+
 /**
  *
  * @author songkun
@@ -19,7 +21,6 @@ import com.kun.flow.model.NewsCategory;
  */
 public interface INewsService extends IService<News> {
 
-    public void save(News news) throws ServiceException;
-    public void listbycid(int cid) throws ServiceException;
+    public List<News> listbycid(Long cid) throws ServiceException;
 
 }

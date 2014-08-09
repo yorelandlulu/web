@@ -1,13 +1,19 @@
 package com.kun.flow.web.control;
 
+import com.kun.flow.bean.Pagination;
 import com.kun.flow.exception.ServiceException;
+import com.kun.flow.model.CategoryTree;
 import com.kun.flow.model.NewsCategory;
 import com.kun.flow.service.INewsCategoryService;
+import com.kun.flow.web.response.DataOut;
 import com.kun.flow.web.response.MessageOut;
 import com.kun.flow.web.response.Out;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -85,21 +91,112 @@ public class NewsCategoryControl  extends BaseControl<NewsCategory> {
     }
 
     /**
-     * list
+     * listRoot
      *
      * @author songkun
      * @return Out
      */
-    @RequestMapping("/list.do")
+    @RequestMapping("/listRoot.do")
     @ResponseBody
-    public Out<Object> list() {
+    public Out<NewsCategory> list(Pagination pagination) {
         try {
-            // TODO method list category
-            return MessageOut.ADD_OK_MESSAGE;
+            return new DataOut<NewsCategory>(this.getNewsCategoryService().listRoot(), pagination);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return MessageOut.ADD_FAIL_MESSAGE;
+        return null;
+    }
+    /**
+     * listByPid
+     *
+     * @author songkun
+     * @return Out
+     */
+    @RequestMapping("/listByPid.do")
+    @ResponseBody
+    public Out<NewsCategory> list(Pagination pagination, long pid) {
+        try {
+            return new DataOut<NewsCategory>(this.getNewsCategoryService().listByPid(pid), pagination);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
+    /**
+     * listRoot
+     *
+     * @author songkun
+     * @return Out
+     */
+    @RequestMapping("/listAll.do")
+    @ResponseBody
+    public List<CategoryTree> listAll(Pagination pagination) {
+        try {
+            CategoryTree tree = new CategoryTree();
+            tree.setId("0");
+            tree.setText("栏目列表");
+            tree.setState("closed");
+            tree.setChildren(new ArrayList<CategoryTree>());
+            List<CategoryTree> clist = tree.getChildren();
+            for(NewsCategory c : this.getNewsCategoryService().listRoot()){
+                CategoryTree child = new CategoryTree();
+                child.setId(""+c.getId());
+                child.setText(c.getName());
+                child.setChildren(new ArrayList<CategoryTree>());
+                List<CategoryTree> cclist = child.getChildren();
+                for(NewsCategory cc : this.getNewsCategoryService().listByPid(c.getId())){
+                    CategoryTree schild = new CategoryTree();
+                    schild.setId(""+cc.getId());
+                    schild.setText(cc.getName());
+                    cclist.add(schild);
+                    child.setState("closed");
+                }
+                clist.add(child);
+            }
+            List<CategoryTree> res = new ArrayList<CategoryTree>();
+            res.add(tree);
+            return res;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * listTree
+     *
+     * @author songkun
+     * @return Out
+     */
+    @RequestMapping("/listTree.do")
+    @ResponseBody
+    public List<CategoryTree> listAll(Pagination pagination, long cid) {
+        try {
+            List<CategoryTree> clist = new ArrayList<CategoryTree>();
+            for(NewsCategory cc : this.getNewsCategoryService().listByPid(cid)){
+                CategoryTree schild = new CategoryTree();
+                schild.setId(""+cc.getId());
+                schild.setText(cc.getName());
+                List<CategoryTree> list = new ArrayList<CategoryTree>();
+                for(NewsCategory c : this.getNewsCategoryService().listByPid(cc.getId())){
+                    CategoryTree child = new CategoryTree();
+                    schild.setId(""+c.getId());
+                    schild.setText(c.getName());
+                    list.add(schild);
+                    schild.setState("closed");
+                }
+                if (list.size()>0){
+                    schild.setChildren(list);
+                }
+                clist.add(schild);
+            }
+            return clist;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

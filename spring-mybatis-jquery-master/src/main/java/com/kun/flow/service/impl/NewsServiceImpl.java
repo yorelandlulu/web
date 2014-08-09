@@ -5,6 +5,8 @@ import com.kun.flow.exception.ServiceException;
 import com.kun.flow.model.News;
 import com.kun.flow.service.INewsService;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: xianing
@@ -17,9 +19,9 @@ public class NewsServiceImpl extends AbstractServiceImpl<News> implements INewsS
         return (NewsMapper) this.getMapper();
     }
 
-    public void listbycid(int cid) throws ServiceException{
+    public List<News> listbycid(Long cid) throws ServiceException{
         try {
-           this.getNewsMapper().listByCid(cid);
+           return this.getNewsMapper().listByCid(cid);
         } catch (Exception e) {
             throw new ServiceException(e);
         }

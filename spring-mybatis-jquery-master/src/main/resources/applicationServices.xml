@@ -64,7 +64,7 @@
 	</bean>
 	<bean id="newsCategoryService" class="com.kun.flow.service.impl.NewsCategoryServiceImpl">
 		<property name="mapper">
-			<ref bean="newsMapper" />
+			<ref bean="newsCategoryMapper" />
 		</property>
 	</bean>
 	<bean id="roleServiceProxy" parent="baseTxProxy">

@@ -1,12 +1,16 @@
 package com.kun.flow.web.control;
 
+import com.kun.flow.bean.Pagination;
 import com.kun.flow.model.News;
 import com.kun.flow.service.INewsService;
+import com.kun.flow.web.response.DataOut;
 import com.kun.flow.web.response.MessageOut;
 import com.kun.flow.web.response.Out;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.Date;
 
 /**
  * Created with IntelliJ IDEA.
@@ -35,6 +39,7 @@ public class NewsControl extends BaseControl<News> {
     @ResponseBody
     public Out<Object> add(News news) {
         try {
+            news.setPosttime(new Date());
             this.getService().save(news);
             return MessageOut.ADD_OK_MESSAGE;
         } catch (Exception e) {
@@ -52,16 +57,14 @@ public class NewsControl extends BaseControl<News> {
      */
     @RequestMapping("/listbycategory.do")
     @ResponseBody
-    public Out<Object> listByCategory(int cid) {
+    public Out<News> listByCategory(Pagination pagination, Long cid) {
         try {
-            this.getNewsService().listbycid(cid);
-            return MessageOut.ADD_OK_MESSAGE;
+            return new DataOut<News>(this.getNewsService().listbycid(cid), pagination);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return MessageOut.ADD_FAIL_MESSAGE;
+        return null;
     }
-
 
     /**
      * modify

@@ -122,7 +122,7 @@
         </init-param>
         <init-param>
             <param-name>AllowedExtensionsImage</param-name>
-            <param-value>jpg|gif|jpeg|png|bmp</param-value>
+            <param-value>jpg|gif|jpeg|png|bmp|js|json</param-value>
         </init-param>
         <init-param>
             <param-name>DeniedExtensionsImage</param-name>
