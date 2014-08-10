@@ -24,7 +24,7 @@ a:hover{ text-decoration:none;}
 
 
 
-body{ padding:0; margin:0; color:#666; font-size:12px;}
+body{ font-family:"Microsoft Yahei",  Arial, Helvetica, sans-serif; padding:0; margin:0; color:#666; font-size:12px;}
 
 #container{ width:1000px; margin:auto;}
 #container .top_banner{ width:1000px; height:277px; background:url(../images/banner_login.jpg) no-repeat; position:relative;}

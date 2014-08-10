@@ -1,5 +1,6 @@
 package com.kun.flow.service.impl;
 
+import com.kun.flow.bean.Pagination;
 import com.kun.flow.data.NewsMapper;
 import com.kun.flow.exception.ServiceException;
 import com.kun.flow.model.News;
@@ -19,9 +20,9 @@ public class NewsServiceImpl extends AbstractServiceImpl<News> implements INewsS
         return (NewsMapper) this.getMapper();
     }
 
-    public List<News> listbycid(Long cid) throws ServiceException{
+    public List<News> listbycid(Long cid, Pagination page) throws ServiceException{
         try {
-           return this.getNewsMapper().listByCid(cid);
+           return this.getNewsMapper().listByCid(cid, page);
         } catch (Exception e) {
             throw new ServiceException(e);
         }

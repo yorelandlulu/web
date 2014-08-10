@@ -122,6 +122,22 @@ public class NewsCategoryControl  extends BaseControl<NewsCategory> {
         }
         return null;
     }
+    /**
+     * getone
+     *
+     * @author songkun
+     * @return Out
+     */
+    @RequestMapping("/view.do")
+    @ResponseBody
+    public NewsCategory view(Pagination pagination, Long cid) {
+        try {
+            return this.getService().getByKey(cid);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     /**
      * listRoot

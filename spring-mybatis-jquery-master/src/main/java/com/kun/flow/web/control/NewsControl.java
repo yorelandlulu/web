@@ -59,7 +59,26 @@ public class NewsControl extends BaseControl<News> {
     @ResponseBody
     public Out<News> listByCategory(Pagination pagination, Long cid) {
         try {
-            return new DataOut<News>(this.getNewsService().listbycid(cid), pagination);
+            pagination.setTotalRows(this.getService().loadAll().size());
+            return new DataOut<News>(this.getNewsService().listbycid(cid,pagination), pagination);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * getone
+     *
+     * @author songkun
+     * @param nid
+     * @return Out
+     */
+    @RequestMapping("/view.do")
+    @ResponseBody
+    public News view(Pagination pagination, Long nid) {
+        try {
+            return this.getService().getByKey(nid);
         } catch (Exception e) {
             e.printStackTrace();
         }

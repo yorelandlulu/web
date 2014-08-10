@@ -47,15 +47,15 @@ body{ font-family:"Microsoft Yahei",  Arial, Helvetica, sans-serif;  padding:0; 
 #container .menu ul li a:hover{ text-decoration:none;}
 #container .menu ul{ padding:0px; margin:0;}
 #container .menu ul li{ float:left; list-style:none; margin:0 0 2px 0;}
-#container .menu #li1{
+#container .menu .li{
     background-position:0 0px;width:96px;height:28px;
 
 }
-#container .menu #li1.select{
+#container .menu .li.select{
    background-position:0 -28px;
  
 }
-#container .menu #li1:hover{
+#container .menu .li:hover{
    background-position:0 -28px;
 }
 
@@ -128,7 +128,7 @@ body{ font-family:"Microsoft Yahei",  Arial, Helvetica, sans-serif;  padding:0; 
 #container .center_contect .right_con .summary .gundong p{ float:left; margin-left:3px;}
 #container .center_contect .school_part{ background:url(../images/scol_zhuyao.jpg) no-repeat; width:324px; height:78px;  padding:11px;color:#69451d; font-size:14px; line-height:22px; position:absolute; bottom:220px;}
 #container .center_contect .school_part .title{ font-size:16px; font-weight:bold; margin-bottom:5px;} 
-#container .center_contect .copyright{ text-align:center; width:414px; position:absolute; bottom:30px; font-size:12px; font-family:Arial, Helvetica, sans-serif;}
+#container .center_contect .copyright{ text-align:center; width:414px; position:absolute; bottom:50px; font-size:12px; font-family:Arial, Helvetica, sans-serif;}
 #container .center_contect .copyright a{ color:#666;}
 #container .center_contect .copyright .title{ line-height:22px;}
 #container .center_contect .left_news .left_menu{ margin-top:112px;  }

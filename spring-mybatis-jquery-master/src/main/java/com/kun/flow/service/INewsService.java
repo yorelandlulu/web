@@ -7,6 +7,7 @@
 
 package com.kun.flow.service;
 
+import com.kun.flow.bean.Pagination;
 import com.kun.flow.exception.ServiceException;
 import com.kun.flow.model.News;
 import com.kun.flow.model.NewsCategory;
@@ -21,6 +22,6 @@ import java.util.List;
  */
 public interface INewsService extends IService<News> {
 
-    public List<News> listbycid(Long cid) throws ServiceException;
+    public List<News> listbycid(Long cid, Pagination page) throws ServiceException;
 
 }
