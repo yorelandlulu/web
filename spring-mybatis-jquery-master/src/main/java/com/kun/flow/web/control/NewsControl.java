@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -59,7 +60,12 @@ public class NewsControl extends BaseControl<News> {
     @ResponseBody
     public Out<News> listByCategory(Pagination pagination, Long cid) {
         try {
-            pagination.setTotalRows(this.getService().loadAll().size());
+            List<News> list = this.getNewsService().listbycid(cid, pagination);
+            if (list == null || list.size() < pagination.getPageSize()) {
+                pagination.setTotalRows((pagination.getPageNumber() - 1) * pagination.getPageSize() + (list == null ? 0 : list.size()));
+            } else {
+                pagination.setTotalRows(this.getService().loadAll().size());
+            }
             return new DataOut<News>(this.getNewsService().listbycid(cid,pagination), pagination);
         } catch (Exception e) {
             e.printStackTrace();
@@ -96,8 +102,16 @@ public class NewsControl extends BaseControl<News> {
     @ResponseBody
     public Out<Object> modify(News news) {
         try {
-            //TODO add service
-            //this.getService().save(newsCategory);
+            Long nid = news.getId();
+            News cur = this.getService().getByKey(nid);
+            cur.setTitle(news.getTitle());
+            cur.setAuthor(news.getAuthor());
+            cur.setPosttime(news.getPosttime());
+            cur.setCategoryid(news.getCategoryid());
+            cur.setContent(news.getContent());
+            cur.setEditname(""); //TODO hard code for now
+            cur.setAuditname(""); //TODO hard code for now
+            this.getService().update(cur);
             return MessageOut.ADD_OK_MESSAGE;
         } catch (Exception e) {
             e.printStackTrace();
@@ -117,8 +131,8 @@ public class NewsControl extends BaseControl<News> {
     @ResponseBody
     public Out<Object> delete(News news) {
         try {
-            //TODO add service
-            //this.getService().save(newsCategory);
+            Long nid = news.getId();
+            this.getService().deleteByKey(nid);
             return MessageOut.ADD_OK_MESSAGE;
         } catch (Exception e) {
             e.printStackTrace();

@@ -203,6 +203,13 @@
         from news_category
         where id = #{key,jdbcType=BIGINT}
     </select>
+    <select id="getByPid" parameterType="java.io.Serializable" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from news_category
+        where parentid = #{key,jdbcType=BIGINT}
+        order by sortid
+    </select>
   <select id="listByPid" resultMap="BaseResultMap" parameterType="java.lang.Long">
     select
       <include refid="Base_Column_List" />

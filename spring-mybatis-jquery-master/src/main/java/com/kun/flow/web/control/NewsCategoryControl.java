@@ -140,6 +140,24 @@ public class NewsCategoryControl  extends BaseControl<NewsCategory> {
     }
 
     /**
+     * getfirstchild
+     *
+     * @author
+     * @return Out
+     */
+    @RequestMapping("/firstchild.do")
+    @ResponseBody
+    public NewsCategory firstchild(Pagination pagination, Long cid) {
+        try {
+            NewsCategory c = this.getService().getByKey(cid);
+            return this.getService().getByKey(c.getParentid());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
      * listRoot
      *
      * @author songkun
@@ -198,9 +216,9 @@ public class NewsCategoryControl  extends BaseControl<NewsCategory> {
                 List<CategoryTree> list = new ArrayList<CategoryTree>();
                 for(NewsCategory c : this.getNewsCategoryService().listByPid(cc.getId())){
                     CategoryTree child = new CategoryTree();
-                    schild.setId(""+c.getId());
-                    schild.setText(c.getName());
-                    list.add(schild);
+                    child.setId(""+c.getId());
+                    child.setText(c.getName());
+                    list.add(child);
                     schild.setState("closed");
                 }
                 if (list.size()>0){

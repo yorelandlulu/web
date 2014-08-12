@@ -62,15 +62,15 @@ public class SessionTimeoutCheckFilter implements Filter {
 	 * @return
 	 */
 	private boolean isVIP(String url) {
-		if (vips == null || vips.length <= 0 || url == null || url.length() <= 0) {
+		/*if (vips == null || vips.length <= 0 || url == null || url.length() <= 0) {
 			return false;
 		}
 		for (int i = 0; i < vips.length; i++) {
 			if (url.indexOf(vips[i]) > -1) {
 				return true;
 			}
-		}
-		return false;
+		}*/
+		return true;
 	}
 
 	/**

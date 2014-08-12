@@ -3,15 +3,24 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>中共上海市委党校第三分校</title>
-<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/home.css" rel="stylesheet" type="text/css" />
    <script src="js/jquery-1.2.4b.js" type="text/javascript"></script>
-        <script src="js/ui.core.js" type="text/javascript"></script>
-        <script src="js/ui.tabs.js" type="text/javascript"></script>
+    <script src="js/ui.core.js" type="text/javascript"></script>
+    <script src="js/ui.tabs.js" type="text/javascript"></script>
+    <script src="js/jquery.cookie.js" type="text/javascript"></script>
         <script type="text/javascript">
             $(function() {
                 $('.l_c > ul').tabs({ fx: { opacity: 'toggle' } }).tabs('l_c', 0);
 			 
             });
+            function gotolist(cid){
+                $.cookie('categoryid',cid, {expires:7, path:'/',domain:'web.shanghai3fx.com',secure:false});
+                window.location.href = "viewList.html";
+            }
+            function gotoview(nid){
+                $.cookie('newsid',nid, {expires:7, path:'/',domain:'web.shanghai3fx.com',secure:false});
+                window.location.href = "viewArticle.html";
+            }
         </script>  
               <script type="text/javascript">
 function MM_swapImgRestore() { //v3.0
@@ -47,15 +56,15 @@ function MM_swapImage() { //v3.0
 
       <div class="menu clear-block">
       <ul>
-         <li><a href="home.html" title="首页" id="li1" class="select">首页</a></li>
-         <li><a href="survey.html" title="学校概况" id="li1" >学校概况</a></li>
-         <li><a href="strategy.html" title="发展战略" id="li1" >发展战略</a></li>
-         <li><a href="training.html" title="教学培训" id="li1" >教学培训</a></li>
-         <li><a href="consulting.html" title="科研咨询" id="li1" >科研咨询</a></li>
-         <li><a href="teacher.html" title="课程师资" id="li1" >课程师资</a></li>
-         <li><a href="building.html" title="队伍建设" id="li1" >队伍建设</a></li>
-         <li><a href="service.html" title="管理服务" id="li1" >管理服务</a></li>
-         <li><a href="work.html" title="党群工作" id="li1" >党群工作</a></li>
+          <li><a href="home.html" title="首页" id="li0" class="li1 select">首页</a></li>
+         <li><a href="javascript:gotolist(1)" title="学校概况" id="li1" class="li1" >学校概况</a></li>
+         <li><a href="javascript:gotolist(2)" title="发展战略" id="li1" class="li1" >发展战略</a></li>
+         <li><a href="javascript:gotolist(3)" title="教学培训" id="li1" class="li1" >教学培训</a></li>
+         <li><a href="javascript:gotolist(4)" title="科研咨询" id="li1" class="li1" >科研咨询</a></li>
+         <li><a href="javascript:gotolist(5)" title="课程师资" id="li1" class="li1" >课程师资</a></li>
+         <li><a href="javascript:gotolist(6)" title="队伍建设" id="li1" class="li1" >队伍建设</a></li>
+         <li><a href="javascript:gotolist(7)" title="管理服务" id="li1" class="li1" >管理服务</a></li>
+         <li><a href="javascript:gotolist(8)" title="党群工作" id="li1" class="li1" >党群工作</a></li>
         
          </ul>
       </div>
@@ -68,7 +77,7 @@ function MM_swapImage() { //v3.0
                    <div class="box">
                   <div class="title">
                           <p class="icon">视&nbsp;频</p>
-                          <a href="#" target="_blank" class="more">更多>></a>
+                          <a href="javascript:goto" target="_blank" class="more">更多>></a>
                        
                        </div>
                       <div class="pic"><img src="images/video.jpg" width="220" height="176" /></div>
@@ -77,10 +86,10 @@ function MM_swapImage() { //v3.0
               <div class="box_two">
                   <div class="title">
                           <p class="icon">要闻回放</p>
-                          <a href="#" target="_blank" class="more">更多>></a>
+                          <a href="javascript:gotolist(31)" class="more">更多>></a>
                        
                 </div>
-                      <div class="news_list">
+                      <div id="recall" class="news_list">
                            <ul>
                              <li><a href="#" target="_blank">招聘高端人才和2014届博士毕业生</a></li>
                               <li><a href="#" target="_blank">招聘高端人才和2014届博士毕业生</a></li>
@@ -147,10 +156,10 @@ function MM_swapImage() { //v3.0
                <div class="box_three">
                   <div class="title">
                           <p class="icon">通知公告</p>
-                          <a href="#" target="_blank" class="more">更多>></a>
+                          <a href="javascript:gotolist(12)" class="more">更多>></a>
                        
                 </div>
-                      <div class="news_list">
+                      <div id="newslist" class="news_list">
                            <ul>
                              <li><a href="#" target="_blank">总校通知</a></li>
                               <li><a href="#" target="_blank">学校通知</a></li>
@@ -362,8 +371,8 @@ demo3.onmouseout=function() {MyMar=setInterval(Marquee3,speed)}
        
       </div>
       
-        <div class="school_part"><p class="title">学校主要部门：</p> 办公室 / 教务处 / 学员工作处 / <br />行政处
-综合教研中心 / 图文信息中心</div>
+        <div class="school_part"><p class="title">学校主要部门：</p> <a href="javascript:gotolist(22)">办公室</a> / <a href="javascript:gotolist(35)">教务处</a> / <a href="javascript:gotolist(23)">学员工作处</a> / <br /><a href="javascript:gotolist(24)">行政处</a>
+ / <a href="javascript:gotolist(25)">综合教研中心</a> / <a href="javascript:gotolist(26)">图文信息中心</a></div>
      <div class="copyright"><p class="title">版权所有 ©  中共上海市委党校第三分校 <a href="http://www.miitbeian.gov.cn/" target="_blank">沪ICP备14028533号 </a></p>
 通讯地址:上海市虹漕南路123 号 / 邮编:200233 / 电话:021-31233333<br />
 谢谢您访问我们的网站，如有任何问题请联系我们<br />
@@ -380,4 +389,80 @@ demo3.onmouseout=function() {MyMar=setInterval(Marquee3,speed)}
       
 </div>
 </body>
+<script type="text/javascript">
+    loadcontent();
+function trimtitle(str){
+    if(str!=null && str.length>19)
+        return str.subString(0,18)+"...";
+    else
+        return str;
+}
+function loadcontent(){
+//校园动态 232
+    $.ajax({
+        url:'news/listbycategory.do',
+        dataType : 'json',
+        data : {cid: 232, page: 1, rows: 6},
+        type : 'POST',
+        success: function (data){
+            $(".campus ul").empty();
+            for(var i in data.rows){
+                $(".campus ul").append("<li><a href='javascript:gotoview("+data.rows[i].id+")'>"+trimtitle(data.rows[i].title)+"</a><span>"+data.rows[i].posttime+"</span></li>");
+            }
+        }
+    });
+//主体班次 47
+$.ajax({
+    url:'news/listbycategory.do',
+    dataType : 'json',
+    data : {cid: 47, page: 1, rows: 10},
+    type : 'POST',
+    success: function (data){
+        $(".classes #fragment-1 ul").empty();
+        for(var i in data.rows){
+            $(".classes #fragment-1 ul").append("<li><a href='javascript:gotoview("+data.rows[i].id+")'>"+trimtitle(data.rows[i].title)+"</a></li>");
+        }
+    }
+});
+//特色培训 11
+    $.ajax({
+        url:'news/listbycategory.do',
+        dataType : 'json',
+        data : {cid: 11, page: 1, rows: 10},
+        type : 'POST',
+        success: function (data){
+            $(".classes #fragment-2 ul").empty();
+            for(var i in data.rows){
+                $(".classes #fragment-2 ul").append("<li><a href='javascript:gotoview("+data.rows[i].id+")'>"+trimtitle(data.rows[i].title)+"</a></li>");
+            }
+        }
+    });
+//通知公告 12
+    $.ajax({
+        url:'news/listbycategory.do',
+        dataType : 'json',
+        data : {cid: 12, page: 1, rows: 5},
+        type : 'POST',
+        success: function (data){
+            $("#newslist ul").empty();
+            for(var i in data.rows){
+                $("#newslist ul").append("<li><a href='javascript:gotoview("+data.rows[i].id+")'>"+trimtitle(data.rows[i].title)+"</a></li>");
+            }
+        }
+    });
+//要闻回放 31
+    $.ajax({
+        url:'news/listbycategory.do',
+        dataType : 'json',
+        data : {cid: 31, page: 1, rows: 10},
+        type : 'POST',
+        success: function (data){
+            $("#recall ul").empty();
+            for(var i in data.rows){
+                $("#recall ul").append("<li><a target='_blank'' href='javascript:gotoview("+data.rows[i].id+")'>"+trimtitle(data.rows[i].title)+"</a></li>");
+            }
+        }
+    });
+}
+</script>
 </html>

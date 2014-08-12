@@ -140,6 +140,7 @@
       <if test="key != null and key != 0">
       where news.categoryid = #{key}
       </if>
+	  order by news.posttime desc
     </select>
   <select id="loadAll" resultMap="BaseResultMap" >
     select
@@ -360,14 +361,36 @@
       This element was generated on Fri Aug 08 15:55:10 CST 2014.
     -->
     update news
-    set editname = #{editname,jdbcType=VARCHAR},
-      auditname = #{auditname,jdbcType=VARCHAR},
-      title = #{title,jdbcType=VARCHAR},
-      content = #{content,jdbcType=VARCHAR},
-      author = #{author,jdbcType=VARCHAR},
-      posttime = #{posttime,jdbcType=TIMESTAMP},
+    set editname = #{object.editname,jdbcType=VARCHAR},
+      auditname = #{object.auditname,jdbcType=VARCHAR},
+      title = #{object.title,jdbcType=VARCHAR},
+      content = #{object.content,jdbcType=VARCHAR},
+      author = #{object.author,jdbcType=VARCHAR},
+      posttime = #{object.posttime,jdbcType=TIMESTAMP},
       categoryid = #{categoryid,jdbcType=BIGINT},
-      status = #{status,jdbcType=INTEGER}
-    where id = #{id,jdbcType=BIGINT}
+      status = #{object.status,jdbcType=INTEGER}
+    where id = #{object.id,jdbcType=BIGINT}
   </update>
+
+
+    <delete id="deleteByKey" parameterType="java.io.Serializable">
+        <if test="key != null">
+            delete from news where id=#{key}
+        </if>
+    </delete>
+    <!-- 修改 -->
+    <update id="update" parameterType="com.kun.flow.model.News">
+        <if test="object.id != null">
+            update news
+            set editname = #{object.editname,jdbcType=VARCHAR},
+            auditname = #{object.auditname,jdbcType=VARCHAR},
+            title = #{object.title,jdbcType=VARCHAR},
+            content = #{object.content,jdbcType=VARCHAR},
+            author = #{object.author,jdbcType=VARCHAR},
+            posttime = #{object.posttime,jdbcType=TIMESTAMP},
+            categoryid = #{object.categoryid,jdbcType=BIGINT},
+            status = #{object.status,jdbcType=INTEGER}
+            where id = #{object.id,jdbcType=BIGINT}
+        </if>
+    </update>
 </mapper>

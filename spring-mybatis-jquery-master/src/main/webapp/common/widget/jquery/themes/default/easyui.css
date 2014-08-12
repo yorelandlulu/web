@@ -1999,9 +1999,6 @@
 .menu {
   position: absolute;
   margin: 0;
-  padding: 2px;
-  border-width: 1px;
-  border-style: solid;
   overflow: hidden;
 }
 .menu-item {
@@ -2084,7 +2081,7 @@
   border-bottom: 1px solid #fff;
 }
 .menu {
-  background-color: #f3f3f3;
+  background-color: #ffffff;
   border-color: #D3D3D3;
   color: #444;
 }

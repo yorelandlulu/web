@@ -24,7 +24,7 @@ a:hover{ text-decoration:none;}
 
 
 
-body{ font-family:"Microsoft Yahei",  Arial, Helvetica, sans-serif; padding:0; margin:0; color:#666; font-size:12px;}
+body{ font-family:"Microsoft Yahei",  Arial, Helvetica, sans-serif;  padding:0; margin:0;  line-height:18px; color:#666; font-size:12px;}
 
 #container{ width:1000px; margin:auto;}
 #container .top_banner{ width:1000px; height:277px; background:url(../images/banner_login.jpg) no-repeat; position:relative;}
@@ -59,15 +59,15 @@ body{ font-family:"Microsoft Yahei",  Arial, Helvetica, sans-serif; padding:0; m
 #container .menu ul li a:hover{ text-decoration:none;}
 #container .menu ul{ padding:0px; margin:0;}
 #container .menu ul li{ float:left; list-style:none; margin:0 0 2px 0;}
-#container .menu #li1{
+#container .menu .li{
     background-position:0 0px;width:96px;height:28px;
 
 }
-#container .menu #li1.select{
+#container .menu .li.select{
    background-position:0 -28px;
  
 }
-#container .menu #li1:hover{
+#container .menu .li:hover{
    background-position:0 -28px;
 }
 

@@ -36,15 +36,15 @@
 
     <div class="menu clear-block">
         <ul>
-            <li><a href="home.html" title="首页" id="li1" class="select">首页</a></li>
-            <li><a href="javascript:gotoNode(1,'学校概况');" title="学校概况" id="li1"  >学校概况</a></li>
-            <li><a href="javascript:gotoNode(2,'发展战略');" title="发展战略" id="li1" >发展战略</a></li>
-            <li><a href="javascript:gotoNode(3,'教学培训');" title="教学培训" id="li1" >教学培训</a></li>
-            <li><a href="javascript:gotoNode(4,'科研咨询');" title="科研咨询" id="li1" >科研咨询</a></li>
-            <li><a href="javascript:gotoNode(5,'课程师资');" title="课程师资" id="li1" >课程师资</a></li>
-            <li><a href="javascript:gotoNode(6,'队伍建设');" title="队伍建设" id="li1" >队伍建设</a></li>
-            <li><a href="javascript:gotoNode(7,'管理服务');" title="管理服务" id="li1" >管理服务</a></li>
-            <li><a href="javascript:gotoNode(8,'党群工作');" title="党群工作" id="li1" >党群工作</a></li>
+            <li><a href="javascript:gotoNode(231,'首页');" title="首页" id="li231" class="li select">首页</a></li>
+            <li><a href="javascript:gotoNode(1,'学校概况');" title="学校概况" id="li1" class="li" >学校概况</a></li>
+            <li><a href="javascript:gotoNode(2,'发展战略');" title="发展战略" id="li2" class="li" >发展战略</a></li>
+            <li><a href="javascript:gotoNode(3,'教学培训');" title="教学培训" id="li3" class="li" >教学培训</a></li>
+            <li><a href="javascript:gotoNode(4,'科研咨询');" title="科研咨询" id="li4" class="li" >科研咨询</a></li>
+            <li><a href="javascript:gotoNode(5,'课程师资');" title="课程师资" id="li5" class="li" >课程师资</a></li>
+            <li><a href="javascript:gotoNode(6,'队伍建设');" title="队伍建设" id="li6" class="li" >队伍建设</a></li>
+            <li><a href="javascript:gotoNode(7,'管理服务');" title="管理服务" id="li7" class="li" >管理服务</a></li>
+            <li><a href="javascript:gotoNode(8,'党群工作');" title="党群工作" id="li8" class="li" >党群工作</a></li>
 
         </ul>
     </div>
@@ -74,8 +74,8 @@
                 <div class="tab">
                     <div class="l_c">
                         <ul>
-                            <li> <a href="#fragment-1">文章列表</a></li>
-                            <li>  <a href="#fragment-2" >提交文章</a></li>
+                            <li id="fli1"> <a href="#fragment-1">文章列表</a></li>
+                            <li id="fli2">  <a href="#fragment-2" >提交文章</a></li>
                         </ul>
                     </div>
                     <div class="txt_right">
@@ -115,6 +115,7 @@
                                                 success: function (data){
                                                     var jqData = data.rows;
                                                     $('#cc2').combobox( 'loadData' , jqData);
+                                                    $('#cc3').combobox( 'loadData' , null);
                                                 }
                                             });
                                         }">
@@ -142,7 +143,7 @@
                                 <div class="item first_item clear-block">
                                     <label >
                                         发布时间:</label>
-                                    <input class="easyui-datebox" name="posttime" style="width:200px">
+                                    <input class="easyui-datebox" name="posttime1" style="width:200px">
                                 </div>
                                 <div class="item clear-block">
                                     <textarea id="TextArea1" cols="20" rows="2" class="ckeditor" name="content"></textarea>
@@ -165,8 +166,8 @@
 
 
     </div>
-    <div class="footer">copyright 版权所有 © 2001-2014 中共上海市委党校第三分校 <a href="http://www.miibeian.gov.cn/" target="_blank">沪ICP备05010760号</a><br />
-        地址:上海市虹漕南路123号     邮编:200233     总机:64367400   电邮:<a href="mailto:dxbgs@shumc.edu.cn">dxbgs@shumc.edu.cn</a></div>
+    <div class="footer">copyright 版权所有 © 2001-2014 中共上海市委党校第三分校 <a href="http://www.miibeian.gov.cn/" target="_blank">沪ICP备14028533号</a><br />
+        地址:上海市虹漕南路123号     邮编:200233     总机:021-31233333   </div>
 
 
 </div>
