@@ -172,16 +172,16 @@ white-space: nowrap; text-align:left;}
 #container .center_contect .right_neiye_con .news_list ul li span{ color:#999;}
 #container .center_contect .right_neiye_con .news_list ul li a.edit{ background:url(../images/edit_bg.jpg) no-repeat; width:65px; height:21px; color:#fff; margin-left:5px; padding-top:3px;float:right; padding-left:0px; text-align:center;}
 
-#container .center_contect .right_neiye_con .pages {
+.right_neiye_con .pages {
 	text-align:center;
 	padding:20px 0;
 	line-height:26px;
 }
-#container .center_contect .right_neiye_con .pages span {
+ .pages span {
 	display:inline-block;
 	margin:0 3px;
 }
-#container .center_contect .right_neiye_con .pages a {
+ .pages a {
 	display:inline-block;
 	border:solid #dcdcdc 1px;
 	width:26px;
@@ -189,48 +189,48 @@ white-space: nowrap; text-align:left;}
 	margin:0 3px;
 	background-color:#fff;
 }
-#container .center_contect .right_neiye_con .pages a:hover {
+ .pages a:hover {
 	background-color:#967a64;
 	border-color:#967a64;
 	color:white;
 }
-#container .center_contect .right_neiye_con .pages a.on {
+ .pages a.on {
 	background-color:#967a64;
 	border-color:#967a64;
 	color:white;
 }
-#container .center_contect .right_neiye_con a.btn_prev,
-#container .center_contect .right_neiye_con a.btn_next {
+ a.btn_prev,
+ a.btn_next {
 	width:58px;
 	background-repeat:no-repeat;
 	background-image:url(../images/filter-btn.gif);
 }
-#container .center_contect .right_neiye_con a.btn_prev {
+ a.btn_prev {
 	background-position:0 0;
 	text-align:left;
 	padding-left:44px;
 	background-color:#fff;
 }
-#container .center_contect .right_neiye_con a.btn_next {
+ a.btn_next {
 	background-position:100% -52px;
 	text-align:right;
 	padding-right:44px;
 		background-color:#fff;
 }
- #container .center_contect .right_neiye_con a.btn_prev:hover {
+ a.btn_prev:hover {
 	color:white;
 	background-color:#967a64;
 	background-position:0 -26px;
 	border-color:#967a64;
 }
- #container .center_contect .right_neiye_con a.btn_next:hover {
+a.btn_next:hover {
 	color:white;
 	background-color:#967a64;
 	background-position:100% -78px;
 	border-color:#967a64;
 }
 
-#container .center_contect .right_neiye_con a{ color:#967a64;}
+ .right_neiye_con a{ color:#967a64;}
 #container .center_contect .news{ width:724px; margin-top:10px; }
 #container .center_contect .news_title{  height:25px; border-bottom: 1px solid #967c67; margin-bottom:13px;}
 #container .center_contect .news_title .icon{ background:url(../images/summary_off.jpg); width:95px; height:21px; color:#fff; font-size:16px; font-weight: bold; text-align:center; padding-top:4px;}
