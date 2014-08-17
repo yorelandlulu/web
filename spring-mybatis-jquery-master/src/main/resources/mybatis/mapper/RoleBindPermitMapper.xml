@@ -10,8 +10,11 @@
 		<result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
 		<result column="updateTime" property="updateTime" jdbcType="TIMESTAMP" />
 		<result column="operaterId" property="operaterId" jdbcType="BIGINT" />
+		<result column="categoryid" property="categoryid" jdbcType="BIGINT" />
 		<result column="operaterCode" property="operaterCode" jdbcType="VARCHAR" />
 		<result column="status" property="status" jdbcType="INTEGER" />
+		<result column="auditable" property="auditable" jdbcType="BIT" />
+		<result column="editable" property="editable" jdbcType="BIT" />
 		<association property="permit" column="permitId" javaType="com.kun.flow.model.Permit">
 			<id property="id" column="permitId" />
 			<result property="name" column="permit_name" />
