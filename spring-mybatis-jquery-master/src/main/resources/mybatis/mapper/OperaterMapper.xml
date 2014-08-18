@@ -39,16 +39,11 @@
 	<!-- 修改 -->
 	<update id="update" parameterType="com.kun.flow.model.Operater">
 		<if test="object.id != null and object.name != null and object.name != ''">
-			update operater set type = #{object.type},
-			code = #{object.code}, name = #{object.name}, password =
+			update operater set password =
 			#{object.password},
-			superUser = #{object.superUser}, email = #{object.email},
-			phone = #{object.phone}, createTime =
-			#{object.createTime},
+            createTime = #{object.createTime},
 			updateTime = #{object.updateTime},
-			operaterId = #{object.operaterId}, operaterCode =
-			#{object.operaterCode}, status =
-			#{object.status}
+			status = #{object.status}
 			where id=#{object.id}
 		</if>
 	</update>
