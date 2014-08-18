@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import com.kun.flow.service.IRoleService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -36,7 +37,17 @@ import com.kun.flow.web.response.Out;
 @RequestMapping("/roleBindPermit")
 public class RoleBindPermitControl extends BaseControl<RoleBindPermit> {
 
-	public IRoleBindPermitService getRoleBindPermitService() {
+    private IRoleService roleService;
+
+    public IRoleService getRoleService() {
+        return roleService;
+    }
+
+    public void setRoleService(IRoleService roleService) {
+        this.roleService = roleService;
+    }
+
+    public IRoleBindPermitService getRoleBindPermitService() {
 		return (IRoleBindPermitService) this.getService();
 	}
 
@@ -124,4 +135,49 @@ public class RoleBindPermitControl extends BaseControl<RoleBindPermit> {
 		pagination.setTotalRows(treeNodes.size());
 		return new DataOut<TreeGridNode>(treeNodes, pagination);
 	}
+
+    /**
+     * 获取未绑定的角色列表
+     *
+     * @author songkun
+     * @return
+     * @return String
+     * @date 2011-6-20 下午08:02:37
+     * @since 2.0.0
+     */
+/*    @RequestMapping("/listUnbindRole.do")
+    @ResponseBody
+    public Out<NewsCategory> listUnbindRole(Long cid) {
+        try {
+
+            //return new DataOut<Role>(this.getRoleService().listUnbindRolesByOperater(obr.getUserId()), null);
+        } catch (ServiceException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }*/
+
+    /**
+     * 获取已绑定的权限列表
+     *
+     * @author songkun
+     * @return
+     * @return String
+     * @date 2011-6-20 下午08:03:45
+     * @since 2.0.0
+     */
+    @RequestMapping("/listBindedPermit.do")
+    @ResponseBody
+    public Out<RoleBindPermit> listBindedRole(Long roleId, Pagination pagination) {
+        try {
+            return new DataOut<RoleBindPermit>(this.getRoleBindPermitService().listByRole(roleId, pagination), pagination);
+        } catch (ServiceException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

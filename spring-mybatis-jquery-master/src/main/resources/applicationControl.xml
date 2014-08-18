@@ -42,7 +42,7 @@
 	</bean>
 	<bean id="roleBindPermitControl" class="com.kun.flow.web.control.RoleBindPermitControl">
 		<property name="service">
-			<ref bean="operaterBindRoleServiceProxy" />
+			<ref bean="roleBindPermitService" />
 		</property>
 		<property name="roleService">
 			<ref bean="roleServiceProxy" />
