@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import com.kun.flow.service.INewsCategoryService;
 import com.kun.flow.service.IRoleService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,6 +39,15 @@ import com.kun.flow.web.response.Out;
 public class RoleBindPermitControl extends BaseControl<RoleBindPermit> {
 
     private IRoleService roleService;
+    private INewsCategoryService newsCategoryService;
+
+    public INewsCategoryService getNewsCategoryService() {
+        return newsCategoryService;
+    }
+
+    public void setNewsCategoryService(INewsCategoryService newsCategoryService) {
+        this.newsCategoryService = newsCategoryService;
+    }
 
     public IRoleService getRoleService() {
         return roleService;

@@ -185,3 +185,15 @@ function gotoedit(id){
     $.cookie('editnewsid',id, {expires:7, path:'/',domain:'web.shanghai3fx.com',secure:false});
 	window.open ('edit.html','newwindow','height=700,width=900,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
 }
+function popupresetpass(){
+	window.open ('passwordedit.html','newwindow','height=300,width=700,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
+}
+function logout(){
+        $.ajax({
+            url:'login/logout.do',
+            type : 'get',
+            success: function (data){
+                location.reload();
+            }
+        });
+}

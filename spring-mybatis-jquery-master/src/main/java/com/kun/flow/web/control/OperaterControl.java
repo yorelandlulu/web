@@ -123,8 +123,35 @@ public class OperaterControl extends BaseControl<Operater> {
 	}
 
 	/**
-	 * 修改后台用户
+	 * 修改密码
 	 * 
+	 * @author songkun
+	 * @create 2014年6月28日 下午2:30:30
+	 * @param old
+	 * @param newpass
+	 * @return Out
+	 */
+	@RequestMapping("/updatepassword.do")
+	@ResponseBody
+	public Out<Object> update(String old, String newpass) {
+        Operater curOperater = this.getCurrentOperater();
+        if(curOperater.getPassword().equals(MD5Util.getMD5String(old)) && newpass!=null && newpass.length()>0){
+            curOperater.setPassword(MD5Util.getMD5String(newpass));
+            try {
+                this.getService().update(curOperater);
+                return MessageOut.UPDATE_OK_MESSAGE;
+            } catch (ServiceException e) {
+                e.printStackTrace();
+                return MessageOut.UPDATE_FAIL_MESSAGE;
+            }
+        }
+        else{
+            return MessageOut.UPDATE_FAIL_MESSAGE;
+        }
+    }
+	/**
+	 * 修改后台用户
+	 *
 	 * @author songkun
 	 * @create 2014年6月28日 下午2:30:30
 	 * @param operater

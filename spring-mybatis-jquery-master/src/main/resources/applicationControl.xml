@@ -34,7 +34,7 @@
 
 	<bean id="operaterBindRoleControl" class="com.kun.flow.web.control.OperaterBindRoleControl">
 		<property name="service">
-			<ref bean="roleBindPermitServiceProxy" />
+			<ref bean="operaterBindRoleServiceProxy" />
 		</property>
 		<property name="roleService">
 			<ref bean="roleServiceProxy" />
@@ -42,10 +42,13 @@
 	</bean>
 	<bean id="roleBindPermitControl" class="com.kun.flow.web.control.RoleBindPermitControl">
 		<property name="service">
-			<ref bean="roleBindPermitService" />
+			<ref bean="roleBindPermitServiceProxy" />
 		</property>
 		<property name="roleService">
 			<ref bean="roleServiceProxy" />
+		</property>
+		<property name="newsCategoryService">
+			<ref bean="newsCategoryServiceProxy" />
 		</property>
 	</bean>
 

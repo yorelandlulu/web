@@ -1,0 +1,35 @@
+<link href="../css/admin.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" type="text/css"
+      href="../common/widget/jquery/themes/default/easyui.css"/>
+<link rel="stylesheet" type="text/css"
+      href="../common/widget/jquery/themes/icon.css">
+<script type="text/javascript" src="../common/widget/jquery/jquery.min.js"></script>
+<script type="text/javascript"
+        src="../common/widget/jquery/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="js/rolenew.js"></script>
+<form id="fm" method="post" novalidate>
+    <span id="sign_in_tips_pop" class="warnImgWrap visible_none sign_tip"></span>
+
+    <div class="item first_item clear-block">
+        <label id="lblaccount_popup">
+            角色名:</label>
+        <input class="easyui-validatebox" required="true" name="name" type="text" id="title" size="60" maxlength="60"
+               ischeck="true">
+    </div>
+    <div class="item first_item clear-block">
+        <label>
+            备注:</label>
+        <input class="easyui-validatebox" required="true" name="password" type="text" id="author" size="60" maxlength="60"
+               ischeck="true">
+    </div>
+    <div class="item set_overflow margin_top_fix clear-block">
+        <a id="sign_in_btn_pop" value-data=""
+           href="javascript:saveUser();" class="btn_sign_in" title="登录">
+            提&nbsp;交</a>
+        <a class="sign_lostfound" href="javascript:resetform()" rel="nofollow">重&nbsp;置</a>
+
+        <div class="clear_float">
+        </div>
+    </div>
+
+</form>
