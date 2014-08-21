@@ -77,12 +77,10 @@
 		where rbp.categoryid=ca.id and rbp.roleId=r.id and rbp.roleId=#{key}
 	</select>
 	<select id="listByRoleUnbind" resultMap="RoleBindPermitResultMap" parameterType="map">
-        select cc.id as categoryid, '1' as roleId, pp.editable as editable, pp.auditable as auditable, pp.permitId, pp.createTime, pp.updateTime, pp.operaterId, pp.operaterCode,
-		pp.status,cc.name as
-		permit_name, r.name as role_name
-        from news_category cc
-        inner join role r on
-        left join role_bind_permit pp on cc.id = pp.categoryid
+        select cc.id as categoryid, pp.editable as editable, pp.auditable as auditable, pp.permitId, pp.createTime, pp.updateTime, pp.operaterId, pp.operaterCode,
+		pp.status,cc.name as permit_name
+        from role_bind_permit pp
+        right join news_category cc on cc.id = pp.categoryid
         where cc.id not in
         (select c.id from news_category c
         inner join role_bind_permit p on c.id = p.categoryid where p.roleId=1)

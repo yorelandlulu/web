@@ -46,6 +46,7 @@ public class RoleBindPermitServiceImpl extends AbstractServiceImpl<RoleBindPermi
 					rbp = new RoleBindPermit();
 					rbp.setRoleId(roleId);
 					rbp.setPermitId(Long.parseLong(idsStr[i]));
+					rbp.setCategoryid(Long.parseLong(idsStr[i]));
 					rbp.setCreateTime(date);
 					rbp.setUpdateTime(date);
 					rbp.setOperaterCode(operater.getCode());
@@ -76,7 +77,7 @@ public class RoleBindPermitServiceImpl extends AbstractServiceImpl<RoleBindPermi
 
 	public List<RoleBindPermit> listByRoleUnbind(Long roleId, Pagination page) throws ServiceException {
 		try {
-			List<RoleBindPermit> list = this.getRoleBindPermitMapper().listByRoleUnbind(roleId, page);
+			List<RoleBindPermit> list = this.getRoleBindPermitMapper().listByRoleUnbind(roleId);
 			if (list == null || list.size() < page.getPageSize()) {
 				page.setTotalRows((page.getPageNumber() - 1) * page.getPageSize() + (list == null ? 0 : list.size()));
 			} else {

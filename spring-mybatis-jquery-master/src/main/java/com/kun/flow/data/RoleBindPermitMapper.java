@@ -33,7 +33,7 @@ public interface RoleBindPermitMapper extends IMapper<RoleBindPermit> {
 	 * @throws Exception
 	 */
 	public List<RoleBindPermit> listByRole(@Param("key") Serializable key, @Param("page") Pagination page) throws Exception;
-	public List<RoleBindPermit> listByRoleUnbind(@Param("key") Serializable key, @Param("page") Pagination page) throws Exception;
+	public List<RoleBindPermit> listByRoleUnbind(@Param("key") Serializable key) throws Exception;
 
 	/**
 	 * 获取绑定到角色上的权限个数

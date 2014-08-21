@@ -100,4 +100,5 @@ public interface NewsMapper extends IMapper<News> {
 	/* @param cid
      * @throws Exception
      */
+    public int getCountbyCid(@Param("key") Long cid) throws Exception;
 }

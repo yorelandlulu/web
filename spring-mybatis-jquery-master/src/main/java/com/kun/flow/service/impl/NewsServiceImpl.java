@@ -22,7 +22,14 @@ public class NewsServiceImpl extends AbstractServiceImpl<News> implements INewsS
 
     public List<News> listbycid(Long cid, Pagination page) throws ServiceException{
         try {
-           return this.getNewsMapper().listByCid(cid, page);
+
+            List<News> list = this.getNewsMapper().listByCid(cid, page);
+            if (list == null || list.size() < page.getPageSize()) {
+                page.setTotalRows((page.getPageNumber() - 1) * page.getPageSize() + (list == null ? 0 : list.size()));
+            } else {
+                page.setTotalRows(this.getNewsMapper().getCountbyCid(cid));
+            }
+            return list;
         } catch (Exception e) {
             throw new ServiceException(e);
         }

@@ -1,5 +1,5 @@
-//var editnewsid = $.cookie('edituserid');
-var editnewsid = 1;
+var editnewsid = $.cookie('edituserid');
+//var editnewsid = 1;
 var operater_module = 'operater';
 $(function() {
     $('#operater_role_leftDataGrid').datagrid('enableDnd');
@@ -110,8 +110,8 @@ function bandRoles() {
     }
     $.messager.confirm('提 示', '确定绑定?', function(r) {
         if (r) {
-            $.post('../operaterBindRole/update.do', {
-                'userId' : editnewsid,
+            $.post('../roleBindPermit/update.do', {
+                'rbp' : editnewsid,
                 ids : ids
             }, function(data) {
                 var jsonData = eval('(' + data + ')');
@@ -125,9 +125,9 @@ function bandRoles() {
 
 function loadRolesTablebyid(id){
     $('#operater_role_rightDataGrid').datagrid({
-        url:"../operaterBindRole/listBindedRole.do?userId=" + id
+        url:"../roleBindPermit/listBindedPermit.do?roleId=" + id
     });
     $('#operater_role_leftDataGrid').datagrid({
-        url:"js/permitList.json"
+        url:"../roleBindPermit/listBindedPermit.do?roleId=" + id
     });
 }

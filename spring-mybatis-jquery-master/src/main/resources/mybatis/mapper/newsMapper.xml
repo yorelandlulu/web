@@ -142,6 +142,10 @@
       </if>
 	  order by news.posttime desc
     </select>
+
+    <select id="getCountbyCid" parameterType="map" resultType="java.lang.Integer">
+        select count(*) from news where categoryid = #{key}
+    </select>
   <select id="loadAll" resultMap="BaseResultMap" >
     select
       <include refid="Base_Column_List" />
