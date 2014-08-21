@@ -15,11 +15,9 @@
 		<result column="status" property="status" jdbcType="INTEGER" />
 		<result column="auditable" property="auditable" jdbcType="BIT" />
 		<result column="editable" property="editable" jdbcType="BIT" />
-		<association property="permit" column="permitId" javaType="com.kun.flow.model.Permit">
+		<association property="permit" column="permitId" javaType="com.kun.flow.model.NewsCategory">
 			<id property="id" column="permitId" />
 			<result property="name" column="permit_name" />
-			<result property="code" column="permit_code" />
-			<result property="leaf" column="permit_leaf" />
 		</association>
 		<association property="role" column="roleId" javaType="com.kun.flow.model.Role">
 			<id property="id" column="roleId" />
@@ -77,6 +75,17 @@
 		<include refid="RoleBindPermit_Columns" />
 		from role_bind_permit rbp,news_category ca,role r
 		where rbp.categoryid=ca.id and rbp.roleId=r.id and rbp.roleId=#{key}
+	</select>
+	<select id="listByRoleUnbind" resultMap="RoleBindPermitResultMap" parameterType="map">
+        select cc.id as categoryid, '1' as roleId, pp.editable as editable, pp.auditable as auditable, pp.permitId, pp.createTime, pp.updateTime, pp.operaterId, pp.operaterCode,
+		pp.status,cc.name as
+		permit_name, r.name as role_name
+        from news_category cc
+        inner join role r on
+        left join role_bind_permit pp on cc.id = pp.categoryid
+        where cc.id not in
+        (select c.id from news_category c
+        inner join role_bind_permit p on c.id = p.categoryid where p.roleId=1)
 	</select>
 	<select id="getCountByRole" resultType="int" parameterType="java.io.Serializable">
 		select count(*) from role_bind_permit rbp where

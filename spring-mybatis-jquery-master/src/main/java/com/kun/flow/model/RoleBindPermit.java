@@ -227,7 +227,7 @@ public class RoleBindPermit {
 	}
 	
 	private Role role;
-	private Permit permit;
+	private NewsCategory permit;
 
 	public Role getRole() {
 		return role;
@@ -237,11 +237,11 @@ public class RoleBindPermit {
 		this.role = role;
 	}
 
-	public Permit getPermit() {
+	public NewsCategory getPermit() {
 		return permit;
 	}
 
-	public void setPermit(Permit permit) {
+	public void setPermit(NewsCategory permit) {
 		this.permit = permit;
 	}
 	

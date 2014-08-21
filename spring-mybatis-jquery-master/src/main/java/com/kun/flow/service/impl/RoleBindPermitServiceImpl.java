@@ -74,4 +74,18 @@ public class RoleBindPermitServiceImpl extends AbstractServiceImpl<RoleBindPermi
 		}
 	}
 
+	public List<RoleBindPermit> listByRoleUnbind(Long roleId, Pagination page) throws ServiceException {
+		try {
+			List<RoleBindPermit> list = this.getRoleBindPermitMapper().listByRoleUnbind(roleId, page);
+			if (list == null || list.size() < page.getPageSize()) {
+				page.setTotalRows((page.getPageNumber() - 1) * page.getPageSize() + (list == null ? 0 : list.size()));
+			} else {
+				page.setTotalRows(this.getRoleBindPermitMapper().getCountByRole(roleId));
+			}
+			return list;
+		} catch (Exception e) {
+			throw new ServiceException(e);
+		}
+	}
+
 }

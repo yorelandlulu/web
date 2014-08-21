@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import com.kun.flow.model.NewsCategory;
 import com.kun.flow.service.INewsCategoryService;
 import com.kun.flow.service.IRoleService;
 import org.springframework.stereotype.Controller;
@@ -114,32 +115,7 @@ public class RoleBindPermitControl extends BaseControl<RoleBindPermit> {
 		List<TreeGridNode> treeNodes = new ArrayList<TreeGridNode>();
 		for (Iterator<RoleBindPermit> iterator = list.iterator(); iterator.hasNext();) {
 			RoleBindPermit rbp = (RoleBindPermit) iterator.next();
-			Permit tn = (Permit) rbp.getPermit();
-			if (tn.getLeaf() == 0) {// 非叶子节点
-				treeNode = new TreeGridNode();
-				treeNode.setId(tn.getId());
-				treeNode.setName(tn.getName());
-				treeNode.setOperaterCode(rbp.getOperaterCode());
-				treeNode.setCreateTime(rbp.getCreateTime());
-				treeNode.setCls("bind-folder");
-				treeNode.setLeaf(false);
-				treeNode.setSingleClickExpand(true);
-				for (Iterator<RoleBindPermit> ite = list.iterator(); ite.hasNext();) {
-					RoleBindPermit rbp2 = (RoleBindPermit) ite.next();
-					Permit tn2 = (Permit) rbp2.getPermit();
-					if (!tn2.getCode().equals(tn.getCode()) && tn2.getCode().startsWith(tn.getCode())) {
-						childNode = new TreeGridNode();
-						childNode.setId(tn2.getId());
-						childNode.setName(tn2.getName());
-						childNode.setOperaterCode(rbp2.getOperaterCode());
-						childNode.setCreateTime(rbp2.getCreateTime());
-						childNode.setCls("file");
-						childNode.setIconCls("file-icon");
-						treeNode.addToChildren(childNode);
-					}
-				}
-				treeNodes.add(treeNode);
-			}
+            NewsCategory tn = (NewsCategory) rbp.getPermit();
 		}
 		Pagination pagination = new Pagination();
 		pagination.setTotalRows(treeNodes.size());
@@ -155,19 +131,18 @@ public class RoleBindPermitControl extends BaseControl<RoleBindPermit> {
      * @date 2011-6-20 下午08:02:37
      * @since 2.0.0
      */
-    /*@RequestMapping("/listUnbindRole.do")
+    @RequestMapping("/listUnbindRole.do")
     @ResponseBody
-    public Out<RoleBindPermit> listUnbindRole(Long roleId) {
+    public Out<RoleBindPermit> listUnbindRole(Long roleId, Pagination pagination) {
         try {
-
-            //return new DataOut<Role>(this.getRoleService().listUnbindRolesByOperater(obr.getUserId()), null);
+            return new DataOut<RoleBindPermit>(this.getRoleBindPermitService().listByRoleUnbind(roleId, pagination), pagination);
         } catch (ServiceException e) {
             e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
-    }*/
+    }
 
     /**
      * 获取已绑定的权限列表
