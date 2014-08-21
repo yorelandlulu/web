@@ -40,7 +40,7 @@ public class NewsControl extends BaseControl<News> {
     @ResponseBody
     public Out<Object> add(News news) {
         try {
-            news.setPosttime(new Date());
+            news.setPosttime(new Date(news.getPosttime1()));
             this.getService().save(news);
             return MessageOut.ADD_OK_MESSAGE;
         } catch (Exception e) {
@@ -106,7 +106,7 @@ public class NewsControl extends BaseControl<News> {
             News cur = this.getService().getByKey(nid);
             cur.setTitle(news.getTitle());
             cur.setAuthor(news.getAuthor());
-            cur.setPosttime(news.getPosttime());
+            news.setPosttime(new Date(news.getPosttime1()));
             cur.setCategoryid(news.getCategoryid());
             cur.setContent(news.getContent());
             cur.setEditname(""); //TODO hard code for now

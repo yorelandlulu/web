@@ -66,7 +66,7 @@ public class SessionTimeoutCheckFilter implements Filter {
 			return false;
 		}
 		for (int i = 0; i < vips.length; i++) {
-			if (url.indexOf(vips[i]) > -1||url.contains(".js")||url.contains(".css")) {
+			if (url.indexOf(vips[i]) > -1||vips[i].contains(".js")||vips[i].contains(".css")) {
 				return true;
 			}
 		}

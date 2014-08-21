@@ -155,7 +155,7 @@ public class RoleBindPermitControl extends BaseControl<RoleBindPermit> {
      * @date 2011-6-20 下午08:02:37
      * @since 2.0.0
      */
-    @RequestMapping("/listUnbindRole.do")
+    /*@RequestMapping("/listUnbindRole.do")
     @ResponseBody
     public Out<RoleBindPermit> listUnbindRole(Long roleId) {
         try {
@@ -167,7 +167,7 @@ public class RoleBindPermitControl extends BaseControl<RoleBindPermit> {
             e.printStackTrace();
         }
         return null;
-    }
+    }*/
 
     /**
      * 获取已绑定的权限列表
