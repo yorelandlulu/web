@@ -106,7 +106,7 @@ public class NewsControl extends BaseControl<News> {
             News cur = this.getService().getByKey(nid);
             cur.setTitle(news.getTitle());
             cur.setAuthor(news.getAuthor());
-            news.setPosttime(new Date(news.getPosttime1()));
+            cur.setPosttime(new Date(news.getPosttime1()));
             cur.setCategoryid(news.getCategoryid());
             cur.setContent(news.getContent());
             cur.setEditname(""); //TODO hard code for now
