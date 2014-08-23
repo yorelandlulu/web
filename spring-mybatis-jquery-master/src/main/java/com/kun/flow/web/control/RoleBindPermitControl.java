@@ -89,9 +89,9 @@ public class RoleBindPermitControl extends BaseControl<RoleBindPermit> {
 	 */
 	@RequestMapping("/update.do")
 	@ResponseBody
-	public Out<Object> update(RoleBindPermit rbp, String ids) {
+	public Out<Object> update(Long rbp, String ids) {
 		try {
-			this.getRoleBindPermitService().updateBindsByRole(rbp.getRole().getId(), ids, this.getCurrentOperater());
+			this.getRoleBindPermitService().updateBindsByRole(rbp, ids, this.getCurrentOperater());
 			return MessageOut.UPDATE_OK_MESSAGE;
 		} catch (ServiceException ex) {
 			getLogger().error(ex.getMessage(), ex);
@@ -133,9 +133,13 @@ public class RoleBindPermitControl extends BaseControl<RoleBindPermit> {
      */
     @RequestMapping("/listUnbindRole.do")
     @ResponseBody
-    public Out<RoleBindPermit> listUnbindRole(Long roleId, Pagination pagination) {
+    public Out<RoleBindPermit> listUnbindRole(Long roleId, String keyword, Pagination pagination) {
         try {
-            return new DataOut<RoleBindPermit>(this.getRoleBindPermitService().listByRoleUnbind(roleId, pagination), pagination);
+            List<RoleBindPermit> list = this.getRoleBindPermitService().listByRoleUnbind(roleId, keyword, pagination);
+            for(RoleBindPermit p : list){
+                p.setRole(this.getRoleService().getByKey(p.getRoleId()));
+            }
+            return new DataOut<RoleBindPermit>(list, pagination);
         } catch (ServiceException e) {
             e.printStackTrace();
         } catch (Exception e) {

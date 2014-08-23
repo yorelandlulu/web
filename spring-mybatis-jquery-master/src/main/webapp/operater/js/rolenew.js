@@ -11,7 +11,7 @@ function listuser(pid){
         success: function (data){
             $(".news_list ul").empty();
             for(var i in data.rows){
-                $(".news_list ul").append("<li><a href='#'>"+data.rows[i].name+"</a><span>&nbsp;</span><span><a href='javascript:gotopermit(10)' class='edit'>权限管理</a><a href='javascript:gotoview(10)' class='edit'>编 辑</a></span></li>");
+                $(".news_list ul").append("<li><a href='#'>"+data.rows[i].name+"</a><span>&nbsp;</span><span><a href='javascript:gotopermit("+data.rows[i].id+")' class='edit'>权限管理</a><a href='javascript:gotoedit("+data.rows[i].id+")' class='edit'>编 辑</a></span></li>");
             }
         }
     });
@@ -48,6 +48,9 @@ function saveUser(){
     });
 }
 
+function resetform(){
+    $("#fm input").val("");
+}
 function gotoedit(id){
     $.cookie('edituserid',id, {expires:7, path:'/',domain:'web.shanghai3fx.com',secure:false});
     window.open ('editrole.html','newwindow','height=700,width=900,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');

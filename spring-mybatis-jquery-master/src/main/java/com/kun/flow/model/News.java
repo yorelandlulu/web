@@ -4,6 +4,7 @@ import com.kun.flow.util.JsonDateSerializer;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class News {
@@ -75,11 +76,16 @@ public class News {
     private String posttime1;
 
     public String getPosttime1() {
-        return posttime1;
+        SimpleDateFormat sdf=new SimpleDateFormat("MM/dd/yyyy");
+        if(posttime==null && posttime1==null) posttime = new Date();
+        return sdf.format(posttime);
     }
 
-    public void setPosttime1(String posttime1) {
+    public void setPosttime1(String posttime1)
+    {
+        SimpleDateFormat sdf=new SimpleDateFormat("MM/dd/yyyy");
         this.posttime1 = posttime1;
+        this.posttime = new Date(posttime1);
     }
 
     /**
@@ -250,10 +256,13 @@ public class News {
      *
      * @mbggenerated Fri Aug 08 16:19:05 CST 2014
      */
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern="MM/dd/yyyy")
     @JsonSerialize(using=JsonDateSerializer.class)
     public Date getPosttime() {
-        return posttime;
+        if(posttime==null||posttime.getTime()==0)
+            return new Date();
+        else
+            return posttime;
     }
 
     /**

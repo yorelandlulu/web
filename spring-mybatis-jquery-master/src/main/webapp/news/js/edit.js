@@ -1,6 +1,6 @@
 var editnewsid = $.cookie('editnewsid');
 //CKEDITOR.replace("TextArea2");
-//var editnewsid = 2;
+//var editnewsid =14;
 loadFormData();
 function loadFormData(){
     $.ajax({
@@ -14,7 +14,7 @@ function loadFormData(){
             $('#dd').datebox({
                 required:true
             });
-            $('#dd').datebox('setValue', d.posttime);
+            $('#dd').datebox('setValue', d.posttime1);
             $("input[name='author']").val(d.author);
             $("#TextArea2").val(d.content);
             init();

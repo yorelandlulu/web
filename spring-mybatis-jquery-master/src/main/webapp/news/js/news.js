@@ -2,6 +2,32 @@ var url;
 var firstLevelCategory;
 var editor = CKEDITOR.replace("TextArea1");
 
+
+function listTopMenus(){
+    $.ajax({
+        url:'newscategory/listRootPremission.do',
+        dataType : 'json',
+        type : 'POST',
+        success: function (d) {
+            var rootids= [231,1,2,3,4,5,6,7,8];
+            var jqData = d.rows;
+            var reslist = new Array();
+            for(var i in jqData){
+                reslist[i] = jqData[i].id
+            }
+            for(var j in rootids){
+                if($.inArray(rootids[j], reslist)==-1){
+                    $("#li"+rootids[j]).parent().remove();
+                }
+            }
+            var menuid = $(".topMenu:first-child").attr("id");
+            menuid = menuid.substring(2,menuid.length);
+            var menuname = $(".topMenu:first-child").attr("title");
+            gotoNode(menuid,menuname);
+        }
+    });
+}
+
 function togglefragment(isFirst){
     if(isFirst){
         $("#fragment-1").show();
@@ -31,7 +57,7 @@ function gotoNode(i, text){
     $("#li"+i).addClass("select");
     $("#ctitle").html(text);
     $.ajax({
-        url:'newscategory/listTree.do',
+        url:'newscategory/listTreePermission.do',
         data: {cid: i},
         dataType : 'json',
         type : 'POST',

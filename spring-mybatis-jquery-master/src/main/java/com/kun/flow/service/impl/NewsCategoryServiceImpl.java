@@ -5,7 +5,9 @@ import com.kun.flow.exception.ServiceException;
 import com.kun.flow.model.NewsCategory;
 import com.kun.flow.service.INewsCategoryService;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -25,9 +27,26 @@ public class NewsCategoryServiceImpl extends AbstractServiceImpl<NewsCategory> i
             throw new ServiceException(e);
         }
     }
+    public List<NewsCategory> listRootPremission(Long userid) throws ServiceException {
+        try {
+            return this.getNewsCategoryMapper().listRootPremission(userid);
+        } catch (Exception e) {
+            throw new ServiceException(e);
+        }
+    }
     public List<NewsCategory> listByPid(long pid) throws ServiceException {
         try {
             return this.getNewsCategoryMapper().listByPid(pid);
+        } catch (Exception e) {
+            throw new ServiceException(e);
+        }
+    }
+    public List<NewsCategory> listByPidPremission(long pid,Long userid) throws ServiceException {
+        try {
+            Map<String, Object> param=new HashMap<String, Object>();
+            param.put("pid",pid);
+            param.put("userid",userid);
+            return this.getNewsCategoryMapper().listByPidPremission(param);
         } catch (Exception e) {
             throw new ServiceException(e);
         }

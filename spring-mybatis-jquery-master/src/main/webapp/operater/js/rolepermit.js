@@ -104,9 +104,9 @@ function bandRoles() {
         $.messager.alert('提 示', '请选择权限');
         return;
     }
-    var ids = rows[0]['id'];
+    var ids = rows[0]['permit']['id'];
     for (var i = 1; i < rows.length; i++) {
-        ids = ids + ',' + rows[i]['id'];
+        ids = ids + ',' + rows[i]['permit']['id'];
     }
     $.messager.confirm('提 示', '确定绑定?', function(r) {
         if (r) {
@@ -128,6 +128,19 @@ function loadRolesTablebyid(id){
         url:"../roleBindPermit/listBindedPermit.do?roleId=" + id
     });
     $('#operater_role_leftDataGrid').datagrid({
-        url:"../roleBindPermit/listBindedPermit.do?roleId=" + id
+        url:"../roleBindPermit/listUnbindRole.do?roleId=" + id
     });
+}
+
+
+/**
+ * 查询权限
+ */
+function searchPermits() {
+    var formSer = $('#role_permit_searchForm').serializeObject();
+    $('#operater_role_leftDataGrid').datagrid('options').url = "../roleBindPermit/listUnbindRole.do?roleId="
+        + editnewsid;
+    $('#operater_role_leftDataGrid').datagrid('options').queryParams = formSer;
+    $('#operater_role_leftDataGrid').datagrid('options').method = 'post';
+    $("#operater_role_leftDataGrid").datagrid('load');
 }

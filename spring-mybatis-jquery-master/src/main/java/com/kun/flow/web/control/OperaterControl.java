@@ -109,7 +109,7 @@ public class OperaterControl extends BaseControl<Operater> {
 				operater.setCreateTime(date);
 				operater.setUpdateTime(date);
 				operater.setOperaterId(this.getCurrentOperater().getId());
-				operater.setOperaterCode(this.getCurrentOperater().getCode());
+				operater.setOperaterCode(operater.getName());
 				operater.setStatus(1);
 				this.getService().save(operater);
 			}

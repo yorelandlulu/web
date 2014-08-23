@@ -84,7 +84,8 @@ public class NewsControl extends BaseControl<News> {
     @ResponseBody
     public News view(Pagination pagination, Long nid) {
         try {
-            return this.getService().getByKey(nid);
+            News n = this.getService().getByKey(nid);
+            return n;
         } catch (Exception e) {
             e.printStackTrace();
         }

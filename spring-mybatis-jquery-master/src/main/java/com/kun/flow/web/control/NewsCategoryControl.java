@@ -107,6 +107,23 @@ public class NewsCategoryControl  extends BaseControl<NewsCategory> {
         return null;
     }
     /**
+     * listRoot
+     *
+     * @author songkun
+     * @return Out
+     */
+    @RequestMapping("/listRootPremission.do")
+    @ResponseBody
+    public Out<NewsCategory> listPremission(Pagination pagination) {
+        try {
+            Long userid = this.getCurrentOperater().getId();
+            return new DataOut<NewsCategory>(this.getNewsCategoryService().listRootPremission(userid), pagination);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    /**
      * listByPid
      *
      * @author songkun
@@ -215,6 +232,43 @@ public class NewsCategoryControl  extends BaseControl<NewsCategory> {
                 schild.setText(cc.getName());
                 List<CategoryTree> list = new ArrayList<CategoryTree>();
                 for(NewsCategory c : this.getNewsCategoryService().listByPid(cc.getId())){
+                    CategoryTree child = new CategoryTree();
+                    child.setId(""+c.getId());
+                    child.setText(c.getName());
+                    list.add(child);
+                    schild.setState("closed");
+                }
+                if (list.size()>0){
+                    schild.setChildren(list);
+                }
+                clist.add(schild);
+            }
+            return clist;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * listTree
+     *
+     * @author songkun
+     * @return Out
+     */
+    @RequestMapping("/listTreePermission.do")
+    @ResponseBody
+    public List<CategoryTree> listPermission(Pagination pagination, long cid) {
+        try {
+            Long userid = this.getCurrentOperater().getId();
+            List<CategoryTree> clist = new ArrayList<CategoryTree>();
+            for(NewsCategory cc : this.getNewsCategoryService().listByPidPremission(cid,userid)){
+                CategoryTree schild = new CategoryTree();
+                schild.setId(""+cc.getId());
+                schild.setText(cc.getName());
+                List<CategoryTree> list = new ArrayList<CategoryTree>();
+                for(NewsCategory c : this.getNewsCategoryService().listByPidPremission(cc.getId(),userid)){
                     CategoryTree child = new CategoryTree();
                     child.setId(""+c.getId());
                     child.setText(c.getName());

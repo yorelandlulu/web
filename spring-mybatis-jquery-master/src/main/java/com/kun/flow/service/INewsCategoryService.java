@@ -21,6 +21,8 @@ import java.util.List;
 public interface INewsCategoryService extends IService<NewsCategory> {
 
     public List<NewsCategory> listRoot() throws ServiceException;
+    public List<NewsCategory> listRootPremission(Long userid) throws ServiceException;
     public List<NewsCategory> listByPid(long pid) throws ServiceException;
+    public List<NewsCategory> listByPidPremission(long pid,Long userid) throws ServiceException;
 
 }

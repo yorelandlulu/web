@@ -3,6 +3,8 @@ package com.kun.flow.data;
 import com.kun.flow.model.NewsCategory;
 import com.kun.flow.model.NewsCategoryExample;
 import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface NewsCategoryMapper extends IMapper<NewsCategory> {
@@ -18,7 +20,9 @@ public interface NewsCategoryMapper extends IMapper<NewsCategory> {
 
     List<NewsCategory> selectByExample(NewsCategoryExample example);
     List<NewsCategory> listRoot();
+    List<NewsCategory> listRootPremission(@Param("key") Long userid);
     List<NewsCategory> listByPid(@Param("key") Long pid);
+    List<NewsCategory> listByPidPremission(@Param("map") Map<String, Object> map);
 
     NewsCategory selectByPrimaryKey(Long id);
 

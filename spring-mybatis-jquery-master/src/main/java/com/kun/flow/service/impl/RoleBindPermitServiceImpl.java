@@ -7,12 +7,12 @@
 
 package com.kun.flow.service.impl;
 
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 import com.kun.flow.bean.Pagination;
 import com.kun.flow.data.RoleBindPermitMapper;
 import com.kun.flow.exception.ServiceException;
+import com.kun.flow.model.NewsCategory;
 import com.kun.flow.model.Operater;
 import com.kun.flow.model.Role;
 import com.kun.flow.model.RoleBindPermit;
@@ -75,18 +75,30 @@ public class RoleBindPermitServiceImpl extends AbstractServiceImpl<RoleBindPermi
 		}
 	}
 
-	public List<RoleBindPermit> listByRoleUnbind(Long roleId, Pagination page) throws ServiceException {
+	public List<RoleBindPermit> listByRoleUnbind(Long roleId, String keyword, Pagination page) throws ServiceException {
 		try {
-			List<RoleBindPermit> list = this.getRoleBindPermitMapper().listByRoleUnbind(roleId);
+            Map<String, Object> param=new HashMap<String, Object>();
+            param.put("key",roleId);
+            param.put("keyword",keyword);
+			List<NewsCategory> list = this.getRoleBindPermitMapper().listByRoleUnbind(param);
+            List<RoleBindPermit> list1 = new ArrayList<RoleBindPermit>();
+            for(NewsCategory category : list){
+                RoleBindPermit p = new RoleBindPermit();
+                p.setPermit(category);
+                p.setCategoryid(category.getId());
+                p.setRoleId(roleId);
+                list1.add(p);
+            }
 			if (list == null || list.size() < page.getPageSize()) {
 				page.setTotalRows((page.getPageNumber() - 1) * page.getPageSize() + (list == null ? 0 : list.size()));
 			} else {
 				page.setTotalRows(this.getRoleBindPermitMapper().getCountByRole(roleId));
 			}
-			return list;
+			return list1;
 		} catch (Exception e) {
 			throw new ServiceException(e);
 		}
 	}
+
 
 }

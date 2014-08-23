@@ -2,7 +2,9 @@ package com.kun.flow.data;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 
+import com.kun.flow.model.NewsCategory;
 import org.apache.ibatis.annotations.Param;
 
 import com.kun.flow.bean.Pagination;
@@ -33,7 +35,7 @@ public interface RoleBindPermitMapper extends IMapper<RoleBindPermit> {
 	 * @throws Exception
 	 */
 	public List<RoleBindPermit> listByRole(@Param("key") Serializable key, @Param("page") Pagination page) throws Exception;
-	public List<RoleBindPermit> listByRoleUnbind(@Param("key") Serializable key) throws Exception;
+	public List<NewsCategory> listByRoleUnbind(@Param("paramMap")Map<String,Object> paramMap) throws Exception;
 
 	/**
 	 * 获取绑定到角色上的权限个数

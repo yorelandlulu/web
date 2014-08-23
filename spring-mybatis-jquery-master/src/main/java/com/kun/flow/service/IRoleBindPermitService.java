@@ -47,5 +47,5 @@ public interface IRoleBindPermitService extends IService<RoleBindPermit> {
 	 * @throws ServiceException
 	 */
 	public List<RoleBindPermit> listByRole(Long roleId, Pagination page) throws ServiceException;
-	public List<RoleBindPermit> listByRoleUnbind(Long roleId, Pagination page) throws ServiceException;
+	public List<RoleBindPermit> listByRoleUnbind(Long roleId, String keyword, Pagination page) throws ServiceException;
 }
