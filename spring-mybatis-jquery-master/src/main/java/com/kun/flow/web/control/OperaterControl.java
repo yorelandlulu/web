@@ -110,6 +110,7 @@ public class OperaterControl extends BaseControl<Operater> {
 				operater.setUpdateTime(date);
 				operater.setOperaterId(this.getCurrentOperater().getId());
 				operater.setOperaterCode(operater.getName());
+                operater.setCode(operater.getName());
 				operater.setStatus(1);
 				this.getService().save(operater);
 			}
