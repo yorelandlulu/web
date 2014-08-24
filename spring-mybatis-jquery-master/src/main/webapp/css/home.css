@@ -31,7 +31,7 @@ body{ font-family:"Microsoft Yahei",  Arial, Helvetica, sans-serif;  padding:0; 
 #container .top .lan{ text-align:right; color:#fff; padding-top:11px; padding-right:10px;}
 #container .top .lan a{ color:#fff; }
 #container .top .lan a:hover{ color:#fff;}
-#container .menu { width:865px; text-align:right; border-bottom:3px solid #b5947a; padding-left:135px; }
+#container .menu { width:1000px; text-align:right; border-bottom:3px solid #b5947a;  height:30px; }
 #container .menu ul li a{ 
     display:block;
 	background-image:url(../images/menu.jpg);
@@ -45,7 +45,7 @@ body{ font-family:"Microsoft Yahei",  Arial, Helvetica, sans-serif;  padding:0; 
 
 }
 #container .menu ul li a:hover{ text-decoration:none;}
-#container .menu ul{ padding:0px; margin:0;}
+#container .menu ul{ padding:0px; margin:0; float:right;}
 #container .menu ul li{ float:left; list-style:none; margin:0 0 2px 0;}
 #container .menu .li1{
     background-position:0 0px;width:96px;height:28px;
@@ -139,14 +139,19 @@ body{ font-family:"Microsoft Yahei",  Arial, Helvetica, sans-serif;  padding:0; 
 #container .center_contect .left_news .left_menu .bottom{ background:url(../images/left_menu_bottom.jpg) no-repeat; height:25px; }
 #container .center_contect .left_news .left_menu .center ul { margin-left:30px; }
 #container .center_contect .left_news .left_menu .center ul li { border-bottom:1px solid #a77c49; width:200px;  padding-top:6px; padding-bottom:5px;}
-#container .center_contect .left_news .left_menu .center ul li a{ padding-left:29px; color:#666; margin-left:10px; font-size:16px; color:#666; font-weight:bold;  }
-#container .center_contect .left_news .left_menu .center ul li a:hover{background:url(../images/point_big.jpg) no-repeat left center; padding-left:29px; color:#967a64; margin-left:10px; font-size:16px;  font-weight:bold; text-decoration:none;}
+#container .center_contect .left_news .left_menu .center ul li a{ padding-left:20px; color:#666; margin-left:10px; font-size:16px; color:#666; font-weight:bold; display:block; }
+#container .center_contect .left_news .left_menu .center ul li a:hover{background:url(../images/point_big.jpg) no-repeat left center; padding-left:20px; color:#967a64; margin-left:10px; font-size:16px;  font-weight:bold; text-decoration:none;display:block; }
 #container .center_contect .left_news .left_menu .center ul li a.on{background:url(../images/point_big.jpg) no-repeat left center; padding-left:29px; color:#967a64; margin-left:10px; font-size:16px;  font-weight:bold; text-decoration:none;}
 #container .center_contect .right_neiye_con{width:714px; float:right; }
 #container .center_contect .right_neiye_con .right_neiye_bg{ background:url(../images/home_right_bg2.jpg) no-repeat  center top; margin-top:10px; position:relative; width:714px;  }
 #container .center_contect .right_neiye_con .right_neiye_bg .news{ width:586px; margin-left:16px; padding-top:211px;}
 #container .center_contect .right_neiye_con .right_neiye_bg .news_title{  height:25px; border-bottom: 1px solid #967c67; margin-bottom:13px;}
-#container .center_contect .right_neiye_con .right_neiye_bg .news_title .icon{ background:url(../images/summary_off.jpg); width:95px; height:21px; color:#fff; font-size:16px; font-weight: bold; text-align:center; padding-top:4px;}
+
+#container .center_contect .right_neiye_con .right_neiye_bg .news_title .icon{ background-color:#967a64; display:inline-block; padding-left:15px; padding-right:15px; height:21px; color:#fff; font-size:16px; font-weight: bold; text-align:center; padding-top:4px;  background:    -moz-linear-gradient(220deg, transparent 10px, #ad1c1c 10px);
+    background:    -webkit-linear-gradient(220deg, transparent 8px, #967a64 8px);
+    background:     -ms-linear-gradient(220deg, transparent 8px, #967a64 5px);
+    background:      -o-linear-gradient(220deg, transparent 8px, #967a64 5px);
+    background:         linear-gradient(220deg, transparent 8px, #967a64 5px);}
 #container .center_contect .right_neiye_con .right_neiye_bg .news_list{}
 #container .center_contect .right_neiye_con .right_neiye_bg .news_list ul li{border-bottom:1px dotted #cecece; height:20px; padding-top:5px; padding-left:10px; text-align:right;}
 #container .center_contect .right_neiye_con .right_neiye_bg .news_list ul li a{ background:url(../images/point.jpg) no-repeat left center; padding-left:10px; color:#666; float:left;width:470px;
@@ -255,4 +260,68 @@ white-space: nowrap; text-align:left;}
     .ui-tabs-nav {
         display: none;
     }
+}
+DL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+DT {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+DD {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+
+IMG {
+	BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none
+}
+
+#newsSlider .container {
+	MARGIN: 10px 0px; OVERFLOW: hidden; WIDTH: 230px; POSITION: relative; HEIGHT: 170px;
+}
+#newsSlider DIV.slides {
+	LEFT: 0px; POSITION: absolute; TOP: 0px
+}
+#newsSlider UL.slides {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; LIST-STYLE-TYPE: none; POSITION: absolute; TOP: 0px
+}
+#newsSlider UL.slides DL {
+	MARGIN-TOP: 32px
+}
+#newsSlider UL.slides DT A {
+	FONT: bold 14px/30px "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif; COLOR: #2a609f
+}
+#newsSlider UL.slides DD {
+	LINE-HEIGHT: 22px
+}
+#newsSlider UL.slides DD .more {
+	MARGIN-TOP: -18px; BACKGROUND: url(../images/more.gif); FLOAT: right; OVERFLOW: hidden; WIDTH: 14px; TEXT-INDENT: -100em; HEIGHT: 12px
+}
+#newsSlider DIV.slides DIV {
+	PADDING-RIGHT: 0px; DISPLAY: none; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; WIDTH: 230px; PADDING-TOP: 0px; POSITION: absolute; TOP: 0px
+}
+UL.slides LI {
+	PADDING-RIGHT: 0px; DISPLAY: none; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; WIDTH: 230px; PADDING-TOP: 0px; POSITION: absolute; TOP: 0px
+}
+#newsSlider #loopedSlider {
+	CLEAR: both; MARGIN: 0px auto; WIDTH: 230px; POSITION: relative
+}
+#newsSlider {
+	CLEAR: both; MARGIN: 0px auto; WIDTH: 230px; POSITION: relative
+}
+
+#newsSlider UL.pagination {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; POSITION: absolute; TOP: 205px
+}
+#newsSlider UL.pagination LI {
+	FLOAT: left; MARGIN-RIGHT: 5px
+}
+#newsSlider UL.pagination LI A {
+	DISPLAY: block; BACKGROUND: url(../images/imgnews_side_Number.gif) no-repeat 0px 0px; FONT: bold 12px/15px "Times New Roman", Times, serif; WIDTH: 15px; COLOR: #fff; TEXT-ALIGN: center;
+	text-decoration:none;
+}
+#newsSlider UL.pagination LI.active A {
+	BACKGROUND-POSITION: 0px 100%; COLOR: #fff; TEXT-DECORATION: none
+}
+UL.pagination LI A:hover {
+	BACKGROUND-POSITION: 0px 100%; COLOR: #fff; TEXT-DECORATION: none
 }

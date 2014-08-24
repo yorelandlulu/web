@@ -207,12 +207,12 @@ public class OperaterControl extends BaseControl<Operater> {
 	 */
 	@RequestMapping("/delete.do")
 	@ResponseBody
-	public Out<Object> delete(String ids) {
+	public Out<Object> delete(String id) {
 		try {
 			boolean flag = true;
 			String msg = null;
-			if (ids != null && ids.length() > 0) {
-				String[] idsArr = ids.split(",");
+			if (id != null && id.length() > 0) {
+				String[] idsArr = id.split(",");
 				for (int i = 0; i < idsArr.length; i++) {
 					Operater operater = (Operater) this.getService().getByKey(Long.parseLong(idsArr[i]));
 					if (1 == operater.getSuperUser()) {
@@ -385,4 +385,17 @@ public class OperaterControl extends BaseControl<Operater> {
 		}
 		return MessageOut.UPDATE_FAIL_MESSAGE;
 	}
+
+    @RequestMapping("/getByKey.do")
+    @ResponseBody
+    public Operater list(Long key) {
+        try {
+            return (Operater)this.getService().getByKey(key);
+        } catch (ServiceException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

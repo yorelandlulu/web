@@ -52,11 +52,11 @@ function loadLeftMenu(cid, text){
         success: function (d){
             $("#tc").empty();
             for(var obj in d){
-                $("#tc").append(" <li id='menuli"+obj+"'><a href=javascript:LoadRightContent("+d[obj].id+",'"+d[obj].text+"',1)>"+ d[obj].text+"</a></li>");
+                $("#tc").append(" <li onclick='javascript:toggleLeft("+obj+")' id='menuli"+obj+"'><a href=javascript:LoadRightContent("+d[obj].id+",'"+d[obj].text+"',1)>"+ d[obj].text+"</a></li>");
                 if(d[obj].children){
                     $("#menuli"+obj).append("<ul id='ul"+obj+"'></ul>");
                     for(var sub in d[obj].children){
-                        $("#ul"+obj).append("<li><a href=javascript:LoadRightContent("+d[obj].children[sub].id+",'"+d[obj].children[sub].text+"',1)>"+ d[obj].children[sub].text+"</a></li>");
+                        $("#ul"+obj).append("<li class='hidden'><a href=javascript:LoadRightContent("+d[obj].children[sub].id+",'"+d[obj].children[sub].text+"',1)>"+ d[obj].children[sub].text+"</a></li>");
                     }
                 }
             }
@@ -96,4 +96,9 @@ function LoadRightContent(cid, text, pageno){
 function gotoview(id){
     $.cookie('newsid',id, {expires:7, path:'/',domain:'web.shanghai3fx.com',secure:false});
     window.location.href = "viewArticle.html";
+}
+
+function toggleLeft(id){
+    $("#container .center_contect .left_news .left_menu .center ul li ul li").addClass("hidden");
+    $("#menuli"+id).children("ul").children("li").removeClass("hidden");
 }

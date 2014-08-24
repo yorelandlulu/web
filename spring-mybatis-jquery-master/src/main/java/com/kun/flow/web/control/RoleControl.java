@@ -58,6 +58,19 @@ public class RoleControl extends BaseControl<Role> {
 		return null;
 	}
 
+	@RequestMapping("/getByKey.do")
+	@ResponseBody
+	public Role list(Long key) {
+		try {
+			return (Role)this.getService().getByKey(key);
+		} catch (ServiceException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 	/**
 	 * 新增角色
 	 * 
@@ -140,10 +153,10 @@ public class RoleControl extends BaseControl<Role> {
 	 */
 	@RequestMapping("/delete.do")
 	@ResponseBody
-	public Out<Object> delete(String ids) {
+	public Out<Object> delete(String id) {
 		try {
-			if (ids != null && ids.length() > 0) {
-				String[] idsArr = ids.split(",");
+			if (id != null && id.length() > 0) {
+				String[] idsArr = id.split(",");
 				for (int i = 0; i < idsArr.length; i++) {
 					this.getService().deleteByKey(Long.parseLong(idsArr[i]));
 				}

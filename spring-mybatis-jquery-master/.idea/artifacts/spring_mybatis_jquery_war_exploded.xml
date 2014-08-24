@@ -63,7 +63,6 @@
           <element id="library" level="project" name="Maven: org.apache.geronimo.specs:geronimo-servlet_3.0_spec:1.0" />
           <element id="library" level="project" name="Maven: com.sun.xml.bind:jaxb-xjc:2.2.6" />
           <element id="library" level="project" name="Maven: javax.xml.stream:stax-api:1.0-2" />
-          <element id="library" level="project" name="Maven: com.oracle:ojdbc6:11.2.0.1.0" />
         </element>
       </element>
     </root>

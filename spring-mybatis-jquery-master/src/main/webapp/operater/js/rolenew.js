@@ -52,7 +52,7 @@ function resetform(){
     $("#fm input").val("");
 }
 function gotoedit(id){
-    $.cookie('edituserid',id, {expires:7, path:'/',domain:'web.shanghai3fx.com',secure:false});
+    $.cookie('editroleid',id, {expires:7, path:'/',domain:'web.shanghai3fx.com',secure:false});
     window.open ('editrole.html','newwindow','height=700,width=900,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
 }
 

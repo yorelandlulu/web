@@ -61,3 +61,27 @@ function gotorole(id){
     window.open ('userrole.html','newwindow','height=500,width=720,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
 }
 
+function gotoNode(id){
+    $.cookie('nodeid',id, {expires:7, path:'/',domain:'web.shanghai3fx.com',secure:false});
+    window.location.href = "../main.html";
+}
+
+
+    $.ajax({
+        url:'newscategory/listRootPremission.do',
+        dataType : 'json',
+        type : 'POST',
+        success: function (d) {
+            var rootids= [231,1,2,3,4,5,6,7,8];
+            var jqData = d.rows;
+            var reslist = new Array();
+            for(var i in jqData){
+                reslist[i] = jqData[i].id
+            }
+            for(var j in rootids){
+                if($.inArray(rootids[j], reslist)==-1){
+                    $("#li"+rootids[j]).parent().remove();
+                }
+            }
+        }
+    });

@@ -41,6 +41,7 @@
 		<if test="object.id != null and object.name != null and object.name != ''">
 			update operater set password =
 			#{object.password},
+            name = #{object.name},
             createTime = #{object.createTime},
 			updateTime = #{object.updateTime},
 			status = #{object.status}
