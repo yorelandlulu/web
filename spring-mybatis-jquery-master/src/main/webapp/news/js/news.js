@@ -165,10 +165,10 @@ function saveUser(){
         },
         success: function(result){
             var result = eval('('+result+')');
-            if (result.errorMsg){
+            if (!result.success){
                 $.messager.show({
                     title: 'Error',
-                    msg: result.errorMsg
+                    msg: result.message
                 });
             }
             else{
