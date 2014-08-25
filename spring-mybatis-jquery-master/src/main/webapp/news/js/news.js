@@ -1,8 +1,19 @@
 var url;
 var firstLevelCategory;
 var editor = CKEDITOR.replace("TextArea1");
-
-
+checkAdmin();
+function checkAdmin(){
+    $.ajax({
+        url:'operater/getMyInfo.do',
+        dataType : 'json',
+        type : 'POST',
+        success: function (d) {
+            if(d.type==1){
+                $("#menuli91").remove();
+            }
+        }
+    });
+}
 function listTopMenus(){
     $.ajax({
         url:'newscategory/listRootPremission.do',

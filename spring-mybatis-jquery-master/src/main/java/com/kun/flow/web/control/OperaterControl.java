@@ -203,7 +203,7 @@ public class OperaterControl extends BaseControl<Operater> {
 	 * 
 	 * @author songkun
 	 * @create 2014年6月28日 下午2:30:30
-	 * @param ids
+	 * @param id
 	 * @return Out
 	 */
 	@RequestMapping("/delete.do")
@@ -281,6 +281,7 @@ public class OperaterControl extends BaseControl<Operater> {
 		operater.setEmail(this.getCurrentOperater().getEmail());
 		operater.setName(this.getCurrentOperater().getName());
 		operater.setPhone(this.getCurrentOperater().getPhone());
+        operater.setType(this.getCurrentOperater().getType());
 		return operater;
 	}
 
