@@ -1,7 +1,6 @@
 var url;
 var firstLevelCategory;
 var editor = CKEDITOR.replace("TextArea1");
-checkAdmin();
 function checkAdmin(){
     $.ajax({
         url:'operater/getMyInfo.do',

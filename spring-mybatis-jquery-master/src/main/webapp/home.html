@@ -8,6 +8,20 @@
     <script src="js/ui.core.js" type="text/javascript"></script>
     <script src="js/ui.tabs.js" type="text/javascript"></script>
     <script src="js/jquery.cookie.js" type="text/javascript"></script>
+   <SCRIPT src="js/loopedslider.min.js" type=text/javascript></SCRIPT>
+
+<SCRIPT type=text/javascript>
+	$(function(){
+		 $('#newsSlider').loopedSlider({
+		 	autoStart: 4000
+			});
+		$('.validate_Slider').loopedSlider({
+			autoStart: 4000
+			});
+	$("#enter_lab").click(function(){
+	  window.location=$(this).find("a").attr("href"); return false;});
+	});
+</SCRIPT>
         <script type="text/javascript">
             $(function() {
                 $('.l_c > ul').tabs({ fx: { opacity: 'toggle' } }).tabs('l_c', 0);
@@ -80,7 +94,48 @@ function MM_swapImage() { //v3.0
                           <a href="javascript:goto" target="_blank" class="more">更多>></a>
                        
                        </div>
-                      <div class="pic"><img src="images/video.jpg" width="220" height="176" /></div>
+                      <div class="pic"><DIV id=newsSlider>
+<DIV class=container>
+<UL class=slides>
+
+  <LI><A href="#" target="_blank"><IMG src="images/01.jpg"></A>
+  
+  </LI>
+	
+  <LI><A href="#" target="_blank"><IMG src="images/02.jpg"></A>
+ 
+  </LI>
+  
+    <LI><A href="#" target="_blank"><IMG src="images/03.jpg"></A>
+  
+  </LI>
+  
+    <LI><A href="#" target="_blank"><IMG src="images/04.jpg"></A>
+  
+  </LI>
+  
+    <LI><A href="#" target="_blank"><IMG src="images/05.jpg"></A>
+ 
+  </LI>
+  
+    <LI><A href="#" target="_blank"><IMG src="images/06.jpg"></A>
+   
+  </LI>
+
+</UL></DIV>
+
+<DIV class=validate_Slider></DIV>
+
+<!--<UL class=pagination>
+  <LI><A href="http://www.mobanwang.com/#">1</A> </LI>
+  <LI><A href="http://www.mobanwang.com/#">2</A> </LI>
+  <LI><A href="http://www.mobanwang.com/#">3</A> </LI>
+  <LI><A href="http://www.mobanwang.com/#">4</A> </LI>
+  <LI><A href="http://www.mobanwang.com/#">5</A> </LI>
+  <LI><A href="http://www.mobanwang.com/#">6</A> </LI>
+</UL>-->
+
+</DIV></div>
                    </div>
               
               <div class="box_two">
@@ -104,8 +159,8 @@ function MM_swapImage() { //v3.0
                <a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image12','','images/dx_icon_2_on.jpg',1)" class="noright"><img src="images/dx_icon_2.jpg" name="Image12" border="0" id="Image12" /></a>
                 <a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image13','','images/dx_icon_3_on.jpg',1)"><img src="images/dx_icon_3.jpg" name="Image13"  border="0" id="Image13" /></a>
                   <a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image14','','images/dx_icon_4_on.jpg',1)" class="noright"><img src="images/dx_icon_4.jpg" name="Image14"  border="0" id="Image14" /></a>
-                  <a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image15','','images/dx_icon_5_on.jpg',1)"><img src="images/dx_icon_5.jpg" name="Image15"  border="0" id="Image15" /></a>
-                    <a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image16','','images/dx_icon_6_on.jpg',1)" class="noright"><img src="images/dx_icon_6.jpg" name="Image16"  border="0" id="Image16" /></a>
+                  <a href="javascript:gotolist(252)" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image15','','images/dx_icon_5_on.jpg',1)"><img src="images/dx_icon_5.jpg" name="Image15"  border="0" id="Image15" /></a>
+                    <a href="javascript:gotolist(251)" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image16','','images/dx_icon_6_on.jpg',1)" class="noright"><img src="images/dx_icon_6.jpg" name="Image16"  border="0" id="Image16" /></a>
                       <a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image17','','images/dx_icon_7_on.jpg',1)"><img src="images/dx_icon_7.jpg" name="Image17"  border="0" id="Image17" /></a>
                        <a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image18','','images/dx_icon_8_on.jpg',1)" class="noright"><img src="images/dx_icon_8.jpg" name="Image18" border="0" id="Image18" /></a>
            <a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image19','','images/dx_icon_9_on.jpg',1)"><img src="images/dx_icon_9.jpg" name="Image19"  border="0" id="Image19" /></a>
@@ -290,15 +345,31 @@ demo.onmouseout=function() {MyMar=setInterval(Marquee,speed)}
 	<table border="0" align="center" cellpadding="1" cellspacing="1" cellspace="0" >
 		<tr><td valign="top" bgcolor="ffffff" id="marquePic3">
 	<table width="100%" border="0" cellspacing="0">
-      <tr>
-       <td align=center><a href="#"><img src="images/summary_pic_2.jpg"/></a></td>
-       <td align=center><a href="#"><img src="images/summary_pic_1.jpg"/></a></td>
-       <td align=center><a href="#"><img src="images/summary_pic_3.jpg"/></a></td>
-       <td align=center><a href="#"><img src="images/summary_pic_4.jpg"/></a></td>
-      <td align=center><a href="#"><img src="images/summary_pic_2.jpg"/></a></td>
-       <td align=center><a href="#"><img src="images/summary_pic_1.jpg"/></a></td>
-       <td align=center><a href="#"><img src="images/summary_pic_3.jpg"/></a></td>
-       <td align=center><a href="#"><img src="images/summary_pic_4.jpg"/></a></td>
+      <tr> 
+      <td align="center"><a href="#"><img src="images/fenxiao_1.gif"/></a></td>
+      <td align="center"><a href="#"><img src="images/summary_pic_2.jpg"/></a></td>
+      <td align="center"><a href="#"><img src="images/summary_pic_1.jpg"/></a></td>
+      <td align="center"><a href="#"><img src="images/fenxiao_2.gif"/></a></td>
+      <td align="center"><a href="#"><img src="images/summary_pic_3.jpg"/></a></td>
+      <td align="center"><a href="#"><img src="images/summary_pic_4.jpg"/></a></td>
+      <td align="center" ><a href="#"><img src="images/fenxiao_3.gif"/></a></td>
+      <td align="center"><a href="#"><img src="images/summary_pic_2.jpg"/></a></td>
+      <td align="center"><a href="#"><img src="images/summary_pic_1.jpg"/></a></td>
+      <td align="center"><a href="#" ><img src="images/fenxiao_4.gif"/></a></td>
+      <td align="center"><a href="#"><img src="images/summary_pic_3.jpg"/></a></td>
+      <td align="center"><a href="#"><img src="images/summary_pic_4.jpg"/></a></td>
+       <td align="center"><a href="#"><img src="images/fenxiao_1.gif"/></a></td>
+      <td align="center"><a href="#"><img src="images/summary_pic_2.jpg"/></a></td>
+      <td align="center"><a href="#"><img src="images/summary_pic_1.jpg"/></a></td>
+      <td align="center"><a href="#"><img src="images/fenxiao_2.gif"/></a></td>
+      <td align="center"><a href="#"><img src="images/summary_pic_3.jpg"/></a></td>
+      <td align="center"><a href="#"><img src="images/summary_pic_4.jpg"/></a></td>
+      <td align="center" ><a href="#"><img src="images/fenxiao_3.gif"/></a></td>
+      <td align="center"><a href="#"><img src="images/summary_pic_2.jpg"/></a></td>
+      <td align="center"><a href="#"><img src="images/summary_pic_1.jpg"/></a></td>
+      <td align="center"><a href="#" ><img src="images/fenxiao_4.gif"/></a></td>
+      <td align="center"><a href="#"><img src="images/summary_pic_3.jpg"/></a></td>
+      <td align="center"><a href="#"><img src="images/summary_pic_4.jpg"/></a></td>
 
        </tr></table>
 		</td><td id="marquePic4" valign="top"></td></tr>

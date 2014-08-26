@@ -57,7 +57,7 @@ body{ font-family:"Microsoft Yahei",  Arial, Helvetica, sans-serif;  padding:0; 
 
 }
 #container .menu ul li a:hover{ text-decoration:none;}
-#container .menu ul{ padding:0px; margin:0;}
+#container .menu ul{ padding:0px; margin:0;  float:right;}
 #container .menu ul li{ float:left; list-style:none; margin:0 0 2px 0;}
 #container .menu .li{
     background-position:0 0px;width:96px;height:28px;
