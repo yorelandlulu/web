@@ -31,6 +31,20 @@ function MM_swapImage() { //v3.0
    if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
 }
 </script>
+        <script type="text/javascript">
+            $(function() {
+                $('.l_c > ul').tabs({ fx: { opacity: 'toggle' } }).tabs('l_c', 0);
+			 
+            });
+            function gotolist(cid){
+                $.cookie('categoryid',cid, {expires:7, path:'/',domain:'web.shanghai3fx.com',secure:false});
+                window.location.href = "viewList.html";
+            }
+            function gotoview(nid){
+                $.cookie('newsid',nid, {expires:7, path:'/',domain:'web.shanghai3fx.com',secure:false});
+                window.location.href = "viewArticle.html";
+            }
+        </script> 
 <style type="text/css">
     #container .center_contect .left_news .left_menu .center ul li ul li.hidden{
         display:none;
@@ -73,14 +87,14 @@ function MM_swapImage() { //v3.0
               </div>
            <div  class="dx_icon">
               <a href="http://education.shanghai3fx.com/login.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image11','','images/dx_icon_1_on.jpg',1)"><img src="images/dx_icon_1.jpg" name="Image11"  border="0" id="Image11" /></a>
-               <a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image12','','images/dx_icon_2_on.jpg',1)" class="noright"><img src="images/dx_icon_2.jpg" name="Image12" border="0" id="Image12" /></a>
-                <a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image13','','images/dx_icon_3_on.jpg',1)"><img src="images/dx_icon_3.jpg" name="Image13"  border="0" id="Image13" /></a>
-                  <a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image14','','images/dx_icon_4_on.jpg',1)" class="noright"><img src="images/dx_icon_4.jpg" name="Image14"  border="0" id="Image14" /></a>
-                  <a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image15','','images/dx_icon_5_on.jpg',1)"><img src="images/dx_icon_5.jpg" name="Image15"  border="0" id="Image15" /></a>
-                    <a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image16','','images/dx_icon_6_on.jpg',1)" class="noright"><img src="images/dx_icon_6.jpg" name="Image16"  border="0" id="Image16" /></a>
-                      <a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image17','','images/dx_icon_7_on.jpg',1)"><img src="images/dx_icon_7.jpg" name="Image17"  border="0" id="Image17" /></a>
-                       <a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image18','','images/dx_icon_8_on.jpg',1)" class="noright"><img src="images/dx_icon_8.jpg" name="Image18" border="0" id="Image18" /></a>
-           <a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image19','','images/dx_icon_9_on.jpg',1)"><img src="images/dx_icon_9.jpg" name="Image19"  border="0" id="Image19" /></a>
+               <a href="mailto:xzxx_3fx@163.com" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image12','','images/dx_icon_2_on.jpg',1)" class="noright"><img src="images/dx_icon_2.jpg" name="Image12" border="0" id="Image12" /></a>
+                <a href="javascript:gotolist(15)" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image13','','images/dx_icon_3_on.jpg',1)"><img src="images/dx_icon_3.jpg" name="Image13"  border="0" id="Image13" /></a>
+                  <a href="mailto:xxyx_3fx@163.com" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image14','','images/dx_icon_4_on.jpg',1)" class="noright"><img src="images/dx_icon_4.jpg" name="Image14"  border="0" id="Image14" /></a>
+                  <a href="javascript:gotolist(252)" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image15','','images/dx_icon_5_on.jpg',1)"><img src="images/dx_icon_5.jpg" name="Image15"  border="0" id="Image15" /></a>
+                    <a href="javascript:gotolist(251)" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image16','','images/dx_icon_6_on.jpg',1)" class="noright"><img src="images/dx_icon_6.jpg" name="Image16"  border="0" id="Image16" /></a>
+                      <a href="javascript:gotolist(17)" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image17','','images/dx_icon_7_on.jpg',1)"><img src="images/dx_icon_7.jpg" name="Image17"  border="0" id="Image17" /></a>
+                       <a href="javascript:gotolist(250)" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image18','','images/dx_icon_8_on.jpg',1)" class="noright"><img src="images/dx_icon_8.jpg" name="Image18" border="0" id="Image18" /></a>
+           <a href="http://oa.shanghai3fx.com/" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image19','','images/dx_icon_9_on.jpg',1)"><img src="images/dx_icon_9.jpg" name="Image19"  border="0" id="Image19" /></a>
            
            
            
