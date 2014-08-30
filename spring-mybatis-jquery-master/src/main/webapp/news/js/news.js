@@ -19,16 +19,11 @@ function listTopMenus(){
         dataType : 'json',
         type : 'POST',
         success: function (d) {
-            var rootids= [231,1,2,3,4,5,6,7,8];
             var jqData = d.rows;
             var reslist = new Array();
             for(var i in jqData){
-                reslist[i] = jqData[i].id
-            }
-            for(var j in rootids){
-                if($.inArray(rootids[j], reslist)==-1){
-                    $("#li"+rootids[j]).parent().remove();
-                }
+                reslist[i] = jqData[i].id;
+                $(".menu ul").append("<li ><a href=javascript:gotoNode("+jqData[i].id+",'"+jqData[i].name+"'); title='"+jqData[i].name+"' id='li"+jqData[i].id+"' class='topMenu li select'>"+jqData[i].name+"</a></li>");
             }
             var cookieid = $.cookie('nodeid');
             if (cookieid!=null){
@@ -227,6 +222,10 @@ function gotoview(id){
 function gotoedit(id){
     $.cookie('editnewsid',id, {expires:7, path:'/',domain:'web.shanghai3fx.com',secure:false});
 	window.open ('edit.html','newwindow','height=700,width=900,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
+}
+function gotosearch(id){
+    $.cookie('search',id, {expires:7, path:'/',domain:'web.shanghai3fx.com',secure:false});
+    window.location.href = "searchList.html";
 }
 function popupresetpass(){
 	window.open ('passwordedit.html','newwindow','height=300,width=700,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');

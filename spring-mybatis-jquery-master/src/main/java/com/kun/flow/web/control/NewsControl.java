@@ -74,6 +74,32 @@ public class NewsControl extends BaseControl<News> {
     }
 
     /**
+     * list
+     *
+     * @author songkun
+     * @param keyword
+     * @return Out
+     */
+    @RequestMapping("/search.do")
+    @ResponseBody
+    public Out<News> search(Pagination pagination, String keyword) {
+        try {
+            News o = new News();
+            o.setTitle(keyword);
+            List<News> list = this.getNewsService().search(o, pagination);
+            if (list == null || list.size() < pagination.getPageSize()) {
+                pagination.setTotalRows((pagination.getPageNumber()==0?0:pagination.getPageNumber() - 1) * pagination.getPageSize() + (list == null ? 0 : list.size()));
+            } else {
+                pagination.setTotalRows(this.getService().loadAll().size());
+            }
+            return new DataOut<News>(this.getNewsService().search(o, pagination), pagination);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
      * getone
      *
      * @author songkun

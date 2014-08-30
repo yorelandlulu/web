@@ -161,6 +161,7 @@ public class RoleBindPermitControl extends BaseControl<RoleBindPermit> {
     @ResponseBody
     public Out<RoleBindPermit> listBindedRole(Long roleId, Pagination pagination) {
         try {
+            pagination.setPageSize(500);
             return new DataOut<RoleBindPermit>(this.getRoleBindPermitService().listByRole(roleId, pagination), pagination);
         } catch (ServiceException e) {
             e.printStackTrace();

@@ -37,11 +37,21 @@ function gotoNode(i){
         success: function (d){
             $("#tc").empty();
             for(var obj in d){
-                $("#tc").append(" <li onclick='javascript:toggleLeft("+obj+")' id='menuli"+obj+"'><a href=javascript:gotolist("+d[obj].id+",'"+d[obj].text+"',1)>"+ d[obj].text+"</a></li>");
+                if (d[obj].viewarticle != 1) {
+                    $("#tc").append(" <li onclick='javascript:toggleLeft(" + obj + ")' id='menuli" + obj + "'><a href=javascript:gotolist("+d[obj].id+",'"+d[obj].text+"',1)>"+ d[obj].text+"</a></li>");
+                }
+                else {
+                    $("#tc").append(" <li onclick='javascript:toggleLeft(" + obj + ")' id='menuli" + obj + "'><a href=javascript:gotoview(" + d[obj].articleid + ")>" + d[obj].text + "</a></li>");
+                }
                 if(d[obj].children){
                     $("#menuli"+obj).append("<ul id='ul"+obj+"'></ul>");
                     for(var sub in d[obj].children){
-                        $("#ul"+obj).append("<li class='hidden'><a href=javascript:gotolist("+d[obj].children[sub].id+")>"+ d[obj].children[sub].text+"</a></li>");
+                        if (d[obj].children[sub].viewarticle != 1) {
+                            $("#ul" + obj).append("<li class='hidden'><a href=javascript:gotolist("+d[obj].children[sub].id+")>"+ d[obj].children[sub].text+"</a></li>");
+                        }
+                        else {
+                            $("#ul" + obj).append("<li class='hidden'><a href=javascript:gotoview(" + d[obj].children[sub].articleid + ")>" + d[obj].children[sub].text + "</a></li>");
+                        }
                     }
                 }
             }

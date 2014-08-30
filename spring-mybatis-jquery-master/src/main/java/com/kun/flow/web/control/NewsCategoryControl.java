@@ -133,7 +133,8 @@ public class NewsCategoryControl  extends BaseControl<NewsCategory> {
     @ResponseBody
     public Out<NewsCategory> list(Pagination pagination, long pid) {
         try {
-            return new DataOut<NewsCategory>(this.getNewsCategoryService().listByPid(pid), pagination);
+            List<NewsCategory> list = this.getNewsCategoryService().listByPid(pid);
+            return new DataOut<NewsCategory>(list, pagination);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -228,6 +229,8 @@ public class NewsCategoryControl  extends BaseControl<NewsCategory> {
             List<CategoryTree> clist = new ArrayList<CategoryTree>();
             for(NewsCategory cc : this.getNewsCategoryService().listByPid(cid)){
                 CategoryTree schild = new CategoryTree();
+                schild.setViewarticle(cc.getViewarticle());
+                schild.setArticleid(cc.getArticleid());
                 schild.setId(""+cc.getId());
                 schild.setText(cc.getName());
                 List<CategoryTree> list = new ArrayList<CategoryTree>();
@@ -235,6 +238,8 @@ public class NewsCategoryControl  extends BaseControl<NewsCategory> {
                     CategoryTree child = new CategoryTree();
                     child.setId(""+c.getId());
                     child.setText(c.getName());
+                    child.setViewarticle(c.getViewarticle());
+                    child.setArticleid(c.getArticleid());
                     list.add(child);
                     schild.setState("closed");
                 }

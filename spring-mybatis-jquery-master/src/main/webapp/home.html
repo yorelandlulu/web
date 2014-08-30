@@ -196,8 +196,8 @@ function MM_swapImage() { //v3.0
       <div class="right_con">
           <div class="search">
              <p class="title">搜 索</p>
-              <input name="" type="text" class="shuru"/> 
-              <input name="" type="button" class="button"/>
+              <input id="keyword" name="keyword" type="text" class="shuru"/>
+              <input onclick="javascript:gotosearch($('#keyword').val())" type="button" class="button"/>
           </div>
              
          <div class="row_one clear-block">
@@ -492,7 +492,12 @@ swfobject.registerObject("FLVPlayer");
 </script>
 </body>
 <script type="text/javascript">
-    loadcontent();
+
+function gotosearch(id){
+    $.cookie('search',id, {expires:7, path:'/',domain:'web.shanghai3fx.com',secure:false});
+    window.location.href = "searchList.html";
+}
+loadcontent();
 function trimtitle(str){
     if(str!=null && str.length>19)
         return str.substring(0,18)+"...";
@@ -526,11 +531,11 @@ $.ajax({
         }
     }
 });
-//特色培训 11
+//特色培训 48
     $.ajax({
         url:'news/listbycategory.do',
         dataType : 'json',
-        data : {cid: 11, page: 1, rows: 10},
+        data : {cid: 48, page: 1, rows: 10},
         type : 'POST',
         success: function (data){
             $(".classes #fragment-2 ul").empty();

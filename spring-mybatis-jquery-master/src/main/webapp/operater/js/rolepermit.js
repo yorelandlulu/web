@@ -1,5 +1,5 @@
-var editnewsid = $.cookie('edituserid');
-//var editnewsid = 1;
+//var editnewsid = $.cookie('edituserid');
+var editnewsid = 3;
 var operater_module = 'operater';
 $(function() {
     $('#operater_role_leftDataGrid').datagrid('enableDnd');

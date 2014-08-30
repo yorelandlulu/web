@@ -12,6 +12,24 @@ public class CategoryTree {
     private String id;
     private String text;
     private String state;
+    private Integer viewarticle;
+    private Integer articleid;
+
+    public Integer getViewarticle() {
+        return viewarticle;
+    }
+
+    public void setViewarticle(Integer viewarticle) {
+        this.viewarticle = viewarticle;
+    }
+
+    public Integer getArticleid() {
+        return articleid;
+    }
+
+    public void setArticleid(Integer articleid) {
+        this.articleid = articleid;
+    }
 
     public String getState() {
         return state;

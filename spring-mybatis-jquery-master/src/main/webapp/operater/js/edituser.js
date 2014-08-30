@@ -11,7 +11,7 @@ function loadFormData(){
         success: function (d){
             $("#hid").val(d.id);
             $("input[name='name']").val(d.name);
-            $("input[name='type']").val(d.type);
+            $("select[name='type']").val(d.type);
         }
     });
 }

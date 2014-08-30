@@ -1,6 +1,5 @@
 var categoryid = $.cookie('categoryid');
 
-
 loadMe(categoryid);
 function loadFromTop(cid, text){
     loadLeftMenu(cid, text);
@@ -49,14 +48,24 @@ function loadLeftMenu(cid, text){
         data: {cid: cid},
         dataType : 'json',
         type : 'POST',
-        success: function (d){
+        success: function (d) {
             $("#tc").empty();
-            for(var obj in d){
-                $("#tc").append(" <li onclick='javascript:toggleLeft("+obj+")' id='menuli"+obj+"'><a href=javascript:LoadRightContent("+d[obj].id+",'"+d[obj].text+"',1)>"+ d[obj].text+"</a></li>");
-                if(d[obj].children){
-                    $("#menuli"+obj).append("<ul id='ul"+obj+"'></ul>");
-                    for(var sub in d[obj].children){
-                        $("#ul"+obj).append("<li class='hidden'><a href=javascript:LoadRightContent("+d[obj].children[sub].id+",'"+d[obj].children[sub].text+"',1)>"+ d[obj].children[sub].text+"</a></li>");
+            for (var obj in d) {
+                if (d[obj].viewarticle != 1) {
+                    $("#tc").append(" <li onclick='javascript:toggleLeft(" + obj + ")' id='menuli" + obj + "'><a href=javascript:LoadRightContent(" + d[obj].id + ",'" + d[obj].text + "',1)>" + d[obj].text + "</a></li>");
+                }
+                else {
+                    $("#tc").append(" <li onclick='javascript:toggleLeft(" + obj + ")' id='menuli" + obj + "'><a href=javascript:gotoview(" + d[obj].articleid + ")>" + d[obj].text + "</a></li>");
+                }
+                if (d[obj].children) {
+                    $("#menuli" + obj).append("<ul id='ul" + obj + "'></ul>");
+                }
+                for (var sub in d[obj].children) {
+                    if (d[obj].children[sub].viewarticle != 1) {
+                        $("#ul" + obj).append("<li class='hidden'><a href=javascript:LoadRightContent(" + d[obj].children[sub].id + ",'" + d[obj].children[sub].text + "',1)>" + d[obj].children[sub].text + "</a></li>");
+                    }
+                    else {
+                        $("#ul" + obj).append("<li class='hidden'><a href=javascript:gotoview(" + d[obj].children[sub].articleid + ")>" + d[obj].children[sub].text + "</a></li>");
                     }
                 }
             }
@@ -101,4 +110,9 @@ function gotoview(id){
 function toggleLeft(id){
     $("#container .center_contect .left_news .left_menu .center ul li ul li").addClass("hidden");
     $("#menuli"+id).children("ul").children("li").removeClass("hidden");
+}
+
+function gotosearch(id){
+    $.cookie('search',id, {expires:7, path:'/',domain:'web.shanghai3fx.com',secure:false});
+    window.location.href = "searchList.html";
 }
