@@ -24,6 +24,16 @@
 			<ref local="newsService" />
 		</property>
 	</bean>
+	<bean id="logsServiceProxy" parent="baseTxProxy">
+		<property name="proxyInterfaces">
+			<list>
+				<value>com.kun.flow.service.ILogsService</value>
+			</list>
+		</property>
+		<property name="target">
+			<ref local="logsService" />
+		</property>
+	</bean>
 	<bean id="newsCategoryServiceProxy" parent="baseTxProxy">
 		<property name="proxyInterfaces">
 			<list>
@@ -60,6 +70,11 @@
 	<bean id="newsService" class="com.kun.flow.service.impl.NewsServiceImpl">
 		<property name="mapper">
 			<ref bean="newsMapper" />
+		</property>
+	</bean>
+	<bean id="logsService" class="com.kun.flow.service.impl.LogsServiceImpl">
+		<property name="mapper">
+			<ref bean="logsMapper" />
 		</property>
 	</bean>
 	<bean id="newsCategoryService" class="com.kun.flow.service.impl.NewsCategoryServiceImpl">
