@@ -8,28 +8,43 @@
 		<property name="service">
 			<ref bean="operaterServiceProxy" />
 		</property>
+        <property name="logsService">
+            <ref bean="logsServiceProxy" />
+        </property>
 	</bean>
 	<bean id="newsControl" class="com.kun.flow.web.control.NewsControl">
 		<property name="service">
 			<ref bean="newsServiceProxy" />
 		</property>
+        <property name="logsService">
+            <ref bean="logsServiceProxy" />
+        </property>
 	</bean>
 	<bean id="newsCategoryControl" class="com.kun.flow.web.control.NewsCategoryControl">
 		<property name="service">
 			<ref bean="newsCategoryServiceProxy" />
 		</property>
+        <property name="logsService">
+            <ref bean="logsServiceProxy" />
+        </property>
 	</bean>
 
 	<bean id="loginControl" class="com.kun.flow.web.control.LoginControl">
 		<property name="service">
 			<ref bean="operaterServiceProxy" />
 		</property>
+        <property name="logsService">
+            <ref bean="logsServiceProxy" />
+        </property>
 	</bean>
 
 	<bean id="permitControl" class="com.kun.flow.web.control.PermitControl">
 		<property name="service">
 			<ref bean="permitServiceProxy" />
 		</property>
+        <property name="logsService">
+            <ref bean="logsServiceProxy" />
+        </property>
 	</bean>
 
 	<bean id="operaterBindRoleControl" class="com.kun.flow.web.control.OperaterBindRoleControl">
@@ -39,6 +54,9 @@
 		<property name="roleService">
 			<ref bean="roleServiceProxy" />
 		</property>
+        <property name="logsService">
+            <ref bean="logsServiceProxy" />
+        </property>
 	</bean>
 	<bean id="roleBindPermitControl" class="com.kun.flow.web.control.RoleBindPermitControl">
 		<property name="service">
@@ -50,11 +68,17 @@
 		<property name="newsCategoryService">
 			<ref bean="newsCategoryServiceProxy" />
 		</property>
+        <property name="logsService">
+            <ref bean="logsServiceProxy" />
+        </property>
 	</bean>
 
 	<bean id="roleControl" class="com.kun.flow.web.control.RoleControl">
 		<property name="service">
 			<ref bean="roleServiceProxy" />
 		</property>
+        <property name="logsService">
+            <ref bean="logsServiceProxy" />
+        </property>
 	</bean>
 </beans>

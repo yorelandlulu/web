@@ -119,8 +119,8 @@
     insert into weblogs (operaterid, operation,
       comments, status, operatetime
       )
-    values #{operaterid,jdbcType=INTEGER}, #{operation,jdbcType=VARCHAR},
-      #{comments,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{operatetime,jdbcType=TIMESTAMP}
+    values (#{object.operaterid,jdbcType=INTEGER}, #{object.operation,jdbcType=VARCHAR},
+      #{object.comments,jdbcType=VARCHAR}, #{object.status,jdbcType=INTEGER}, #{object.operatetime,jdbcType=TIMESTAMP}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.kun.flow.model.WebLogs" >

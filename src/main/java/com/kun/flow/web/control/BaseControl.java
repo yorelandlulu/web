@@ -9,7 +9,9 @@ package com.kun.flow.web.control;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.kun.flow.service.ILogsService;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -39,7 +41,17 @@ public abstract class BaseControl<T> {
 		this.service = service;
 	}
 
-	/**
+    protected ILogsService logsService;
+
+    public ILogsService getLogsService() {
+        return logsService;
+    }
+
+    public void setLogsService(ILogsService logsService) {
+        this.logsService = logsService;
+    }
+
+    /**
 	 * 获取当前登录的用户信息
 	 * 
 	 * @author songkun

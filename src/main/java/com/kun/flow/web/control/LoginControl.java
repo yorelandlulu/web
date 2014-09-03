@@ -1,5 +1,6 @@
 package com.kun.flow.web.control;
 
+import com.kun.flow.model.WebLogs;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -12,6 +13,8 @@ import com.kun.flow.model.Operater;
 import com.kun.flow.service.IOperaterService;
 import com.kun.flow.web.response.MessageOut;
 import com.kun.flow.web.response.Out;
+
+import java.util.Date;
 
 @Controller
 @RequestMapping("/login")
@@ -39,6 +42,12 @@ public class LoginControl extends BaseControl<Operater> {
 			}
 			((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest().getSession(true)
 					.setAttribute(Constants.USER_INFO, tmp);
+            WebLogs logs = new WebLogs();
+            logs.setOperaterid(tmp.getId().intValue());
+            logs.setOperatetime(new Date());
+            logs.setOperation(Thread.currentThread().getStackTrace()[1].getMethodName());
+            logs.setComments(String.format(Constants.LOGS_LOGIN,tmp.getName()));
+            logsService.save(logs);
 			return MessageOut.LOGIN_OK_MESSAGE;
 		} catch (ServiceException e) {
 			this.getLogger().error(e);

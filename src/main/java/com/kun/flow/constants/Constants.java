@@ -10,4 +10,7 @@ public class Constants {
 	// 系统分隔符
 	public static final String SYSTEM_SEPARATOR = System.getProperty("file.separator");
 
+    // Logs System
+    public static final String LOGS_LOGIN = "用户{0}登录系统后台";
+
 }
