@@ -76,14 +76,14 @@ public class News {
     private String posttime1;
 
     public String getPosttime1() {
-        SimpleDateFormat sdf=new SimpleDateFormat("MM/dd/yyyy");
+        SimpleDateFormat sdf=new SimpleDateFormat("MM/dd/yyyy HH:mm");
         if(posttime==null && posttime1==null) posttime = new Date();
         return sdf.format(posttime);
     }
 
     public void setPosttime1(String posttime1)
     {
-        SimpleDateFormat sdf=new SimpleDateFormat("MM/dd/yyyy");
+        SimpleDateFormat sdf=new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
         this.posttime1 = posttime1;
         this.posttime = new Date(posttime1);
     }

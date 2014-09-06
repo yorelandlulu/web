@@ -3,6 +3,7 @@ var cobj;
 loadMe(categoryid);
 function loadFromTop(cid, text){
     loadLeftMenu(cid, text);
+    recordCookie('categoryid',cid);
     $.ajax({
         url:'newscategory/listByPid.do',
         dataType : 'json',
@@ -88,6 +89,7 @@ function loadLeftMenu(cid, text){
 
 function LoadRightContent(cid, text, pageno){
     $("#subTitle").html(text);
+    recordCookie('categoryid',cid);
     $.ajax({
         url:'news/listbycategory.do',
         dataType : 'json',
@@ -101,7 +103,7 @@ function LoadRightContent(cid, text, pageno){
             $(".pages span").empty();
 			if(pageno>1)
 				$(".btn_prev").attr("href","javascript:LoadRightContent("+cid+",'"+text+"',"+(pageno-1)+")");
-			if(pageno<=(data.total/10-1))
+			if(pageno<=(data.total/10))
 				$(".btn_next").attr("href","javascript:LoadRightContent("+cid+",'"+text+"',"+(pageno+1)+")");
             for(var i=0; i <data.total/10; i++ ){
                 if(i==pageno-1){
