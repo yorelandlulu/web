@@ -1,6 +1,15 @@
 var categoryid = $.cookie('categoryid');
 var cobj;
 loadMe(categoryid);
+function expendMenu(){
+    var str = $("#tc ul a:first-child").attr("href");
+    if(str!=null){
+        toggleLeft(0);
+        return false;
+    }
+    else
+        return true;
+}
 function loadFromTop(cid, text){
     loadLeftMenu(cid, text);
     recordCookie('categoryid',cid);
@@ -14,7 +23,8 @@ function loadFromTop(cid, text){
                 if(data.rows[0].viewarticle == 1) {
                     gotoview(data.rows[0].articleid);
                 }
-                LoadRightContent(data.rows[0].id, data.rows[0].name, 1);
+                if(expendMenu())
+                    LoadRightContent(data.rows[0].id, data.rows[0].name, 1);
             }
             else{
                 if(cobj.viewarticle == 1) {
@@ -33,12 +43,9 @@ function loadMe(){
         type: 'POST',
         success: function (d) {
             cobj = d;
-            if(d.parentid==0)
-                loadFromTop(categoryid, d.name);
-            else{
-                loadLeftMenuWithoutName(d.parentid);
+            loadFromTop(categoryid, d.name);
+            if(expendMenu())
                 LoadRightContent(categoryid, d.name, 1);
-            }
         }
     });
 }
@@ -60,6 +67,7 @@ function loadLeftMenu(cid, text){
     $.ajax({
         url:'newscategory/listTree.do',
         data: {cid: cid},
+        async:false,
         dataType : 'json',
         type : 'POST',
         success: function (d) {
@@ -73,6 +81,7 @@ function loadLeftMenu(cid, text){
                 }
                 if (d[obj].children) {
                     $("#menuli" + obj).append("<ul id='ul" + obj + "'></ul>");
+                    $("#menuli" + obj+" a").attr("href","javascript:void(0)");
                 }
                 for (var sub in d[obj].children) {
                     if (d[obj].children[sub].viewarticle != 1) {
@@ -125,6 +134,12 @@ function gotoview(id){
 function toggleLeft(id){
     $("#container .center_contect .left_news .left_menu .center ul li ul li").addClass("hidden");
     $("#menuli"+id).children("ul").children("li").removeClass("hidden");
+    var str = $("#menuli"+id+" ul a:first-child").attr("href");
+    var left = str.split(",")[0];
+    var right = str.split(",")[1];
+    var gotoid = left.substring(28,left.length);
+    var goname = right.substring(1,right.length-1);
+    LoadRightContent(gotoid, goname, 1);
 }
 
 function gotosearch(id){

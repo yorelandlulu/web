@@ -45,6 +45,7 @@ function gotoNode(i){
                 }
                 if(d[obj].children){
                     $("#menuli"+obj).append("<ul id='ul"+obj+"'></ul>");
+                    $("#menuli"+obj+" a").attr("href","javascript:void(0)");
                     for(var sub in d[obj].children){
                         if (d[obj].children[sub].viewarticle != 1) {
                             $("#ul" + obj).append("<li class='hidden'><a href=javascript:gotolist("+d[obj].children[sub].id+")>"+ d[obj].children[sub].text+"</a></li>");
