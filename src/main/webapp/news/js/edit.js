@@ -1,24 +1,35 @@
 var editnewsid = $.cookie('editnewsid');
-//CKEDITOR.replace("TextArea2");
 //var editnewsid =14;
-loadFormData();
+window.onload = function()
+{
+    loadFormData();
+    CKEDITOR.replace("content");
+};
 function loadFormData(){
     $.ajax({
         url:'news/view.do',
+        async:false,
         data: {nid: editnewsid},
         dataType : 'json',
         type : 'POST',
         success: function (d){
+            $("#editdiv").hide();
             $("#idh").val(d.id);
             $("input[name='title']").val(d.title);
-            $('#dd').datebox({
-                required:true
+            $('#dd').datetimebox({
+                value: d.posttime1,
+                required: true,
+                showSeconds: false
             });
-            $('#dd').datebox('setValue', d.posttime1);
             $("input[name='author']").val(d.author);
+            $("input[name='editname']").val(d.editname);
+            $("input[name='auditname']").val(d.auditname);
             $("#TextArea2").val(d.content);
             init();
             loadMe(d.categoryid);
+            if(d.categoryid=="232"){
+                $("#editdiv").show();
+            }
         }
     });
 }

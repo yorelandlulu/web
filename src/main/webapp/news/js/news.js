@@ -94,6 +94,12 @@ function gotoNode(i, text){
 function listnewsbycid(cid, text, pageno){
     $("#subTitle").html(text);
     togglefragment(true);
+    if(cid=="232"){
+        $("#editdiv").show();
+    }
+    else{
+        $("#editdiv").hide();
+    }
     $.ajax({
         url:'news/listbycategory.do',
         dataType : 'json',

@@ -136,8 +136,8 @@ public class NewsControl extends BaseControl<News> {
             cur.setPosttime(new Date(news.getPosttime1()));
             cur.setCategoryid(news.getCategoryid());
             cur.setContent(news.getContent());
-            cur.setEditname(""); //TODO hard code for now
-            cur.setAuditname(""); //TODO hard code for now
+            cur.setEditname(news.getEditname());
+            cur.setAuditname(news.getAuditname());
             this.getService().update(cur);
             return MessageOut.ADD_OK_MESSAGE;
         } catch (Exception e) {

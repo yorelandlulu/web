@@ -41,7 +41,7 @@ public class OperaterServiceImpl extends AbstractServiceImpl<Operater> implement
 	public Operater validate(Operater operater) throws ServiceException {
 		try {
 			Operater temp = new Operater();
-			temp.setCode(operater.getCode());
+			temp.setName(operater.getName());
 			temp.setStatus(1);
 			temp = (Operater) findOneByExample(temp);
 			if (temp == null || !temp.getPassword().equals(MD5Util.getMD5String(operater.getPassword())))

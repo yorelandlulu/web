@@ -100,13 +100,23 @@
                                         作者:</label>
                                     <input class="easyui-validatebox validatebox-text" required="true" name="author" type="text" id="author" size="60" maxlength="60" ischeck="true">
                                 </div>
+                                <div id="editdiv" class="item first_item clear-block" style="display: none">
+                                    <label>
+                                        编辑人:</label>
+                                    <input name="editname" type="text" id="editname" size="60" maxlength="60" ischeck="false">
+                                </div>
+                                <div class="item first_item clear-block">
+                                    <label>
+                                        审核人:</label>
+                                    <input name="auditname" type="text" id="auditname" size="60" maxlength="60" ischeck="false">
+                                </div>
                                 <div class="item first_item clear-block">
                                     <label>
                                         发布时间:</label>
-                                    <input class="easyui-datetimebox" name="posttime1" style="width:200px">
+                                    <input id="dd" type="text" name="posttime1" style="width:200px">
                                 </div>
                                 <div class="item clear-block">
-                                    <textarea id="TextArea2" cols="20" rows="2" class="ckeditor" name="content"></textarea>
+                                    <textarea id="TextArea2" cols="20" rows="2" name="content"></textarea>
                                 </div>
                                 <div class="item set_overflow margin_top_fix clear-block">
                                     <a id="sign_in_btn_pop" value-data="" onclick="_tcTraObj._tcTrackEvent('click', '提交', '用户');" href="javascript:update();" class="btn_sign_in" title="登录">

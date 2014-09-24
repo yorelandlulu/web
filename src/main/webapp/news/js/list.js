@@ -1,10 +1,11 @@
 var categoryid = $.cookie('categoryid');
 var cobj;
+var expid = 0;
 loadMe(categoryid);
 function expendMenu(){
     var str = $("#tc ul a:first-child").attr("href");
     if(str!=null){
-        toggleLeft(0);
+        toggleLeft(expid);
         return false;
     }
     else
@@ -12,28 +13,46 @@ function expendMenu(){
 }
 function loadFromTop(cid, text){
     loadLeftMenu(cid, text);
-    recordCookie('categoryid',cid);
-    $.ajax({
-        url:'newscategory/listByPid.do',
-        dataType : 'json',
-        data : {pid :cid },
-        type : 'POST',
-        success: function (data){
-            if (data.rows.length>0){
-                if(data.rows[0].viewarticle == 1) {
-                    gotoview(data.rows[0].articleid);
+    if(cobj.parentid==0){
+        recordCookie('categoryid',cid);
+        $.ajax({
+            url:'newscategory/listByPid.do',
+            dataType : 'json',
+            async: false,
+            data : {pid :cid },
+            type : 'POST',
+            success: function (data){
+                if (data.rows.length>0){
+                    if(data.rows[0].viewarticle == 1) {
+                        gotoview(data.rows[0].articleid);
+                    }
+                    else{
+                        $.ajax({
+                            url:'newscategory/listByPid.do',
+                            dataType : 'json',
+                            async: false,
+                            data : {pid :data.rows[0].id },
+                            type : 'POST',
+                            success: function (subdata){
+                                if(subdata.rows.length>0 && subdata.rows[0].viewarticle == 1) {
+                                    gotoview(subdata.rows[0].articleid);
+                                }
+                            }
+                        });
+                    }
+                    if(expendMenu())
+                        LoadRightContent(data.rows[0].id, data.rows[0].name, 1);
                 }
-                if(expendMenu())
-                    LoadRightContent(data.rows[0].id, data.rows[0].name, 1);
-            }
-            else{
-                if(cobj.viewarticle == 1) {
-                    gotoview(cobj.articleid);
+                else{
+                    if(cobj.viewarticle == 1) {
+                        gotoview(cobj.articleid);
+                    }
+                    LoadRightContent(cid, text, 1);
                 }
-                LoadRightContent(cid, text, 1);
             }
-        }
-    });
+        });
+    }
+
 }
 function loadMe(){
     $.ajax({
@@ -43,9 +62,30 @@ function loadMe(){
         type: 'POST',
         success: function (d) {
             cobj = d;
-            loadFromTop(categoryid, d.name);
-            if(expendMenu())
+            $(".news_title p.icon").html(d.name);
+            if (d.parentid != 0){
+                loadsubMenus(d.parentid);
                 LoadRightContent(categoryid, d.name, 1);
+                expendMenu();
+            }
+            else {
+                loadFromTop(categoryid, d.name);
+            }
+        }
+    });
+}
+function loadsubMenus(cid){
+    $.ajax({
+        url: 'newscategory/view.do',
+        async: false,
+        data: {cid: cid},
+        dataType: 'json',
+        type: 'POST',
+        success: function (d) {
+            if(d.parentid!=0)
+                loadsubMenus(d.parentid);
+            else
+                loadFromTop(d.id, d.name);
         }
     });
 }
@@ -54,6 +94,7 @@ function loadLeftMenuWithoutName(cid){
         url:'newscategory/view.do',
         data: {cid: cid},
         dataType : 'json',
+        async: false,
         type : 'POST',
         success: function (d){
             loadLeftMenu(cid, d.name);
@@ -84,6 +125,9 @@ function loadLeftMenu(cid, text){
                     $("#menuli" + obj+" a").attr("href","javascript:void(0)");
                 }
                 for (var sub in d[obj].children) {
+                    if(d[obj].children[sub].id == categoryid){
+                        expid = obj;
+                    }
                     if (d[obj].children[sub].viewarticle != 1) {
                         $("#ul" + obj).append("<li class='hidden'><a href=javascript:LoadRightContent(" + d[obj].children[sub].id + ",'" + d[obj].children[sub].text + "',1)>" + d[obj].children[sub].text + "</a></li>");
                     }
@@ -102,6 +146,7 @@ function LoadRightContent(cid, text, pageno){
     $.ajax({
         url:'news/listbycategory.do',
         dataType : 'json',
+        async: false,
         data : {cid: cid, page: pageno, rows: 10},
         type : 'POST',
         success: function (data){
@@ -134,12 +179,17 @@ function gotoview(id){
 function toggleLeft(id){
     $("#container .center_contect .left_news .left_menu .center ul li ul li").addClass("hidden");
     $("#menuli"+id).children("ul").children("li").removeClass("hidden");
-    var str = $("#menuli"+id+" ul a:first-child").attr("href");
-    var left = str.split(",")[0];
-    var right = str.split(",")[1];
-    var gotoid = left.substring(28,left.length);
-    var goname = right.substring(1,right.length-1);
-    LoadRightContent(gotoid, goname, 1);
+    if(cobj.parentid==0){
+        var str = $("#menuli"+id+" ul a:first-child").attr("href");
+        if(str==null||str==""){
+            var str = $("#menuli"+id+" a").attr("href");
+        }
+        var left = str.split(",")[0];
+        var right = str.split(",")[1];
+        var gotoid = left.substring(28,left.length);
+        var goname = right.substring(1,right.length-1);
+        LoadRightContent(gotoid, goname, 1);
+    }
 }
 
 function gotosearch(id){
