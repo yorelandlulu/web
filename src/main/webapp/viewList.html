@@ -63,14 +63,14 @@ function MM_swapImage() { //v3.0
       <div class="menu clear-block">
       <ul>
             <li><a href="home.html" title="首页" id="li0" class="li1 select">首页</a></li>
-            <li><a href="javascript:loadFromTop(1,'学校概况');" title="学校概况" id="li232" class="li1" >学校概况</a></li>
-            <li><a href="javascript:loadFromTop(2,'发展战略');" title="发展战略" id="li2" class="li1" >发展战略</a></li>
-            <li><a href="javascript:loadFromTop(3,'教学培训');" title="教学培训" id="li3" class="li1" >教学培训</a></li>
-            <li><a href="javascript:loadFromTop(4,'科研咨询');" title="科研咨询" id="li4" class="li1" >科研咨询</a></li>
-            <li><a href="javascript:loadFromTop(5,'课程师资');" title="课程师资" id="li5" class="li1" >课程师资</a></li>
-            <li><a href="javascript:loadFromTop(6,'队伍建设');" title="队伍建设" id="li6" class="li1" >队伍建设</a></li>
-            <li><a href="javascript:loadFromTop(7,'管理服务');" title="管理服务" id="li7" class="li1" >管理服务</a></li>
-            <li><a href="javascript:loadFromTop(8,'党群工作');" title="党群工作" id="li8" class="li1" >党群工作</a></li>
+            <li><a href="javascript:loadTop(1,'学校概况');" title="学校概况" id="li232" class="li1" >学校概况</a></li>
+            <li><a href="javascript:loadTop(2,'发展战略');" title="发展战略" id="li2" class="li1" >发展战略</a></li>
+            <li><a href="javascript:loadTop(3,'教学培训');" title="教学培训" id="li3" class="li1" >教学培训</a></li>
+            <li><a href="javascript:loadTop(4,'科研咨询');" title="科研咨询" id="li4" class="li1" >科研咨询</a></li>
+            <li><a href="javascript:loadTop(5,'课程师资');" title="课程师资" id="li5" class="li1" >课程师资</a></li>
+            <li><a href="javascript:loadTop(6,'队伍建设');" title="队伍建设" id="li6" class="li1" >队伍建设</a></li>
+            <li><a href="javascript:loadTop(7,'管理服务');" title="管理服务" id="li7" class="li1" >管理服务</a></li>
+            <li><a href="javascript:loadTop(8,'党群工作');" title="党群工作" id="li8" class="li1" >党群工作</a></li>
         
          </ul>
       </div>
@@ -93,7 +93,7 @@ function MM_swapImage() { //v3.0
                 <a href="javascript:gotolist(15)" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image13','','images/dx_icon_3_on.jpg',1)"><img src="images/dx_icon_3.jpg" name="Image13"  border="0" id="Image13" /></a>
                   <a href="mailto:xxyx_3fx@163.com" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image14','','images/dx_icon_4_on.jpg',1)" class="noright"><img src="images/dx_icon_4.jpg" name="Image14"  border="0" id="Image14" /></a>
                   <a href="javascript:gotolist(252)" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image15','','images/dx_icon_5_on.jpg',1)"><img src="images/dx_icon_5.jpg" name="Image15"  border="0" id="Image15" /></a>
-                    <a href="javascript:gotolist(251)" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image16','','images/dx_icon_6_on.jpg',1)" class="noright"><img src="images/dx_icon_6.jpg" name="Image16"  border="0" id="Image16" /></a>
+                    <a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image16','','images/dx_icon_6_on.jpg',1)" class="noright"><img src="images/dx_icon_6.jpg" name="Image16"  border="0" id="Image16" /></a>
                       <a href="javascript:gotolist(17)" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image17','','images/dx_icon_7_on.jpg',1)"><img src="images/dx_icon_7.jpg" name="Image17"  border="0" id="Image17" /></a>
                        <a href="javascript:gotolist(250)" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image18','','images/dx_icon_8_on.jpg',1)" class="noright"><img src="images/dx_icon_8.jpg" name="Image18" border="0" id="Image18" /></a>
            <a href="http://oa.shanghai3fx.com/" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image19','','images/dx_icon_9_on.jpg',1)"><img src="images/dx_icon_9.jpg" name="Image19"  border="0" id="Image19" /></a>
@@ -105,12 +105,8 @@ function MM_swapImage() { //v3.0
     </div>
       
       <div class="right_neiye_con">
-         <div class="right_neiye_bg right_neiye_bg2">
-          <div class="search">
-             <p class="title">搜 索</p>
-              <input id="keyword" name="keyword" type="text" class="shuru"/>
-              <input onclick="javascript:gotosearch($('#keyword').val())" type="button" class="button"/>
-          </div>
+         <div class="right_neiye_bg right_neiye_bg">
+          
              <div class="news">
              <div class="news_title"><p id="subTitle" class="icon"></p></div>
              <div class="news_list">

@@ -11,6 +11,19 @@ function expendMenu(){
     else
         return true;
 }
+function loadTop(cid, text){
+     $.ajax({
+        url: 'newscategory/view.do',
+        data: {cid: cid},
+        dataType: 'json',
+	async: false,
+        type: 'POST',
+        success: function (d) {
+            cobj = d;
+        }
+    }); 
+    loadFromTop(cid, text);
+}
 function loadFromTop(cid, text){
     loadLeftMenu(cid, text);
     if(cobj.parentid==0){
