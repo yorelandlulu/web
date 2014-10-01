@@ -72,14 +72,14 @@ function MM_swapImage() { //v3.0
       <div class="menu clear-block">
       <ul>
           <li><a href="home.html" title="首页" id="li0" class="li1 select">首页</a></li>
-         <li><a href="javascript:gotolist(1)" title="学校概况" id="li1" class="li1" >学校概况</a></li>
-         <li><a href="javascript:gotolist(2)" title="发展战略" id="li1" class="li1" >发展战略</a></li>
-         <li><a href="javascript:gotolist(3)" title="教学培训" id="li1" class="li1" >教学培训</a></li>
-         <li><a href="javascript:gotolist(4)" title="科研咨询" id="li1" class="li1" >科研咨询</a></li>
-         <li><a href="javascript:gotolist(5)" title="课程师资" id="li1" class="li1" >课程师资</a></li>
-         <li><a href="javascript:gotolist(6)" title="队伍建设" id="li1" class="li1" >队伍建设</a></li>
-         <li><a href="javascript:gotolist(7)" title="管理服务" id="li1" class="li1" >管理服务</a></li>
-         <li><a href="javascript:gotolist(8)" title="党群工作" id="li1" class="li1" >党群工作</a></li>
+         <li><a href="javascript:redirect(1)" title="学校概况" id="li1" class="li1" >学校概况</a></li>
+         <li><a href="javascript:redirect(2)" title="发展战略" id="li1" class="li1" >发展战略</a></li>
+         <li><a href="javascript:redirect(3)" title="教学培训" id="li1" class="li1" >教学培训</a></li>
+         <li><a href="javascript:redirect(4)" title="科研咨询" id="li1" class="li1" >科研咨询</a></li>
+         <li><a href="javascript:redirect(5)" title="课程师资" id="li1" class="li1" >课程师资</a></li>
+         <li><a href="javascript:redirect(6)" title="队伍建设" id="li1" class="li1" >队伍建设</a></li>
+         <li><a href="javascript:redirect(7)" title="管理服务" id="li1" class="li1" >管理服务</a></li>
+         <li><a href="javascript:redirect(8)" title="党群工作" id="li1" class="li1" >党群工作</a></li>
         
          </ul>
       </div>
@@ -515,6 +515,7 @@ function gotosearch(id){
     window.location.href = "searchList.html";
 }
 loadcontent();
+recordCookie('pageno',1);
 function trimtitle(str){
     if(str!=null && str.length>19)
         return str.substring(0,18)+"...";

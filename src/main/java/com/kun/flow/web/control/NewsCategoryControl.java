@@ -158,6 +158,49 @@ public class NewsCategoryControl  extends BaseControl<NewsCategory> {
     }
 
     /**
+     * getone
+     *
+     * @author songkun
+     * @return Out
+     */
+    @RequestMapping("/redirect.do")
+    @ResponseBody
+    public NewsCategory redirect(Pagination pagination, Long cid) {
+        try {
+            NewsCategory self = this.getService().getByKey(cid);
+            if(self.getViewarticle()!=null&&self.getViewarticle()==1)
+                return self;
+            else{
+                if(self.getParentid()!=0)
+                    return self;
+                else{
+                    List<NewsCategory> levelTwoList = this.getNewsCategoryService().listByPid(cid);
+                    if(levelTwoList==null||levelTwoList.size()==0)
+                        return self;
+                    else{
+                        NewsCategory firstLevelTwo = levelTwoList.get(0);
+                        if(firstLevelTwo.getViewarticle()!=null&&firstLevelTwo.getViewarticle()==1)
+                            return firstLevelTwo;
+                        else{
+                            List<NewsCategory> levelThreeList = this.getNewsCategoryService().listByPid(firstLevelTwo.getId());
+                            if(levelThreeList==null||levelThreeList.size()==0)
+                                return firstLevelTwo;
+                            else{
+                                NewsCategory firstLevelThree = levelThreeList.get(0);
+                                    return firstLevelThree;
+                            }
+                        }
+                    }
+                }
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
      * getfirstchild
      *
      * @author

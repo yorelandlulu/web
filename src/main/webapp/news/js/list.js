@@ -1,4 +1,5 @@
 var categoryid = $.cookie('categoryid');
+var publicpageno = $.cookie('pageno');
 var cobj;
 var expid = 0;
 loadMe(categoryid);
@@ -26,6 +27,7 @@ function loadTop(cid, text){
 }
 function loadFromTop(cid, text){
     loadLeftMenu(cid, text);
+    recordCookie('pageno',1);
     if(cobj.parentid==0){
         recordCookie('categoryid',cid);
         $.ajax({
@@ -78,7 +80,7 @@ function loadMe(){
             $(".news_title p.icon").html(d.name);
             if (d.parentid != 0){
                 loadsubMenus(d.parentid);
-                LoadRightContent(categoryid, d.name, 1);
+                LoadRightContent(categoryid, d.name, publicpageno);
                 expendMenu();
             }
             else {
@@ -156,6 +158,7 @@ function loadLeftMenu(cid, text){
 function LoadRightContent(cid, text, pageno){
     $("#subTitle").html(text);
     recordCookie('categoryid',cid);
+    recordCookie('pageno',pageno);
     $.ajax({
         url:'news/listbycategory.do',
         dataType : 'json',

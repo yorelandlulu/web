@@ -6,7 +6,25 @@
  * To change this template use File | Settings | File Templates.
  */
 //var domain_name = "web.shanghai3fx.com";
-var domain_name = "localhost";
+var domain_name = "221.133.229.138";
 function recordCookie(key, value){
     $.cookie(key, value, {expires:7, path:'/web/',domain:domain_name,secure:false});
+}
+function redirect(cid){
+    $.ajax({
+        url: 'newscategory/redirect.do',
+        data: {cid: cid},
+        dataType: 'json',
+        type: 'POST',
+        success: function (d) {
+            if (d.viewarticle == 1){
+                recordCookie('newsid', d.articleid);
+                window.location.href = "viewArticle.html";
+            }
+            else {
+                recordCookie('categoryid', d.id);
+                window.location.href = "viewList.html";
+            }
+        }
+    });
 }
