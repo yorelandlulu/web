@@ -27,6 +27,9 @@
         <property name="logsService">
             <ref bean="logsServiceProxy" />
         </property>
+        <property name="newsService">
+            <ref bean="newsServiceProxy" />
+        </property>
 	</bean>
 
 	<bean id="loginControl" class="com.kun.flow.web.control.LoginControl">
