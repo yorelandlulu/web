@@ -63,6 +63,7 @@ function togglefragment(isFirst){
     }
 }
 function gotoNode(i, text){
+    recordCookie('categoryid',i);
     togglefragment(true);
     firstLevelCategory = i;
     $(".menu a").removeClass("select");

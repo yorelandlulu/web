@@ -3,11 +3,14 @@ package com.kun.flow.web.control;
 import com.kun.flow.bean.Pagination;
 import com.kun.flow.exception.ServiceException;
 import com.kun.flow.model.CategoryTree;
+import com.kun.flow.model.News;
 import com.kun.flow.model.NewsCategory;
 import com.kun.flow.service.INewsCategoryService;
+import com.kun.flow.service.INewsService;
 import com.kun.flow.web.response.DataOut;
 import com.kun.flow.web.response.MessageOut;
 import com.kun.flow.web.response.Out;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -30,6 +33,15 @@ public class NewsCategoryControl  extends BaseControl<NewsCategory> {
         return (INewsCategoryService) this.getService();
     }
 
+    private INewsService newsService;
+
+    public INewsService getNewsService() {
+        return newsService;
+    }
+
+    public void setNewsService(INewsService newsService) {
+        this.newsService = newsService;
+    }
 
     /**
      * 新增
@@ -171,24 +183,25 @@ public class NewsCategoryControl  extends BaseControl<NewsCategory> {
             if(self.getViewarticle()!=null&&self.getViewarticle()==1)
                 return self;
             else{
-                if(self.getParentid()!=0)
+                if(self.getParentid()!=0){
+                    List<News> newsList = newsService.listbycid(cid,pagination);
+                    if(newsList!=null && newsList.size()>0)
+                        return self;
+                }
+                List<NewsCategory> levelTwoList = this.getNewsCategoryService().listByPid(cid);
+                if(levelTwoList==null||levelTwoList.size()==0)
                     return self;
                 else{
-                    List<NewsCategory> levelTwoList = this.getNewsCategoryService().listByPid(cid);
-                    if(levelTwoList==null||levelTwoList.size()==0)
-                        return self;
+                    NewsCategory firstLevelTwo = levelTwoList.get(0);
+                    if(firstLevelTwo.getViewarticle()!=null&&firstLevelTwo.getViewarticle()==1)
+                        return firstLevelTwo;
                     else{
-                        NewsCategory firstLevelTwo = levelTwoList.get(0);
-                        if(firstLevelTwo.getViewarticle()!=null&&firstLevelTwo.getViewarticle()==1)
+                        List<NewsCategory> levelThreeList = this.getNewsCategoryService().listByPid(firstLevelTwo.getId());
+                        if(levelThreeList==null||levelThreeList.size()==0)
                             return firstLevelTwo;
                         else{
-                            List<NewsCategory> levelThreeList = this.getNewsCategoryService().listByPid(firstLevelTwo.getId());
-                            if(levelThreeList==null||levelThreeList.size()==0)
-                                return firstLevelTwo;
-                            else{
-                                NewsCategory firstLevelThree = levelThreeList.get(0);
-                                    return firstLevelThree;
-                            }
+                            NewsCategory firstLevelThree = levelThreeList.get(0);
+                                return firstLevelThree;
                         }
                     }
                 }

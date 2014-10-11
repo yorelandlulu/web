@@ -84,7 +84,13 @@ function loadMe(){
                 expendMenu();
             }
             else {
-                loadFromTop(categoryid, d.name);
+                if(categoryid == '232'){
+                    loadLeftMenu(232, "校园动态");
+                    LoadRightContent(categoryid, "校园动态", publicpageno);
+                    expendMenu();
+                }
+                else
+                    loadFromTop(categoryid, d.name);
             }
         }
     });
@@ -129,6 +135,9 @@ function loadLeftMenu(cid, text){
         success: function (d) {
             $("#tc").empty();
             for (var obj in d) {
+                if(d[obj].id == categoryid){
+                    expid = obj;
+                }
                 if (d[obj].viewarticle != 1) {
                     $("#tc").append(" <li onclick='javascript:toggleLeft(" + obj + ")' id='menuli" + obj + "'><a href=javascript:LoadRightContent(" + d[obj].id + ",'" + d[obj].text + "',1)>" + d[obj].text + "</a></li>");
                 }

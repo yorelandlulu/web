@@ -1,6 +1,21 @@
 var newsid = $.cookie('newsid');
 var expid = 0;
 var caid;
+function credirect(rid){
+    recordCookie("isRedirectByView",1);
+    redirect(rid);
+    recordCookie("isRedirectByView",0);
+}
+function goback(){
+    var oldnewsid = $.cookie('oldnewsid');
+    if(oldnewsid!=null&&oldnewsid!="null"){
+        recordCookie("newsid",oldnewsid);
+        recordCookie("oldnewsid",newsid);
+        window.location.reload();
+    }
+    else
+        window.history.go(-1);
+}
 function loadArticle(newsid){
     $.ajax({
         url:'news/view.do',

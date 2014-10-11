@@ -181,7 +181,7 @@ white-space: nowrap; text-align:left;}
 #container .center_contect .right_neiye_con .right_neiye_bg .tag{ text-align:center; margin-bottom:10px; color:#999;}
 #container .center_contect .right_neiye_con .right_neiye_bg .wenzhang{ line-height:22px;}
 #container .center_contect .right_neiye_con .right_neiye_bg .wenzhang img{ margin:10px;}
-#container .center_contect .right_neiye_con .right_neiye_bg .wenzhang p{ padding-bottom:10px; text-indent:24px;}
+#container .center_contect .right_neiye_con .right_neiye_bg .wenzhang p{ color:#606060; text-indent:24px; font-size:14px; line-height:30px; font-family:Arial, Helvetica, sans-serif;}
 #container .center_contect .right_neiye_con .right_neiye_bg .wenzhang ul li{background:url(../images/point.jpg) no-repeat left center; padding-left:10px; color:#666; }
 #container .center_contect .right_neiye_con .right_neiye_bg .wenzhang ol { margin-left:0px; padding-left:16px;}
 #container .center_contect .right_neiye_con .right_neiye_bg .wenzhang ol li{ list-style: decimal; }
