@@ -67,6 +67,7 @@ body{ font-family:"Microsoft Yahei",  Arial, Helvetica, sans-serif;  padding:0; 
 #container .center_contect .left_news .dang_news .box{ width:230px; margin:30px auto 15px;}
 #container .center_contect .left_news .dang_news .box a{ color:#666;}
 #container .center_contect .left_news .dang_news .box a:hover{ color:#666;}
+
 #container .center_contect .left_news .dang_news .title{width:230px; height:27px; border-bottom:1px solid #967c67; margin-bottom:8px;}
 #container .center_contect .left_news .dang_news .box .title .icon{ background:url(../images/news_icon.jpg) no-repeat; width:71px; height:22px; padding-top:5px; padding-left:35px; color:#fff; font-weight:bold;color:#fff; font-size:14px; font-family:Arial, Helvetica, sans-serif; float:left;}
 #container .center_contect .title a.more { float:right; color:#967a64;padding-top:3px;}
@@ -175,10 +176,10 @@ white-space: nowrap; text-align:left;}
 #container .center_contect .right_neiye_con .right_neiye_bg .news_list ul li a:hover{ color:#666; }
 #container .center_contect .right_neiye_con .right_neiye_bg .news_list ul li span{ color:#999;}
 
-#container .center_contect .right_neiye_con .right_neiye_bg h1{  font-size:22px; line-height:30px;color:#666; text-align:center; font-weight:bold; border-bottom:1px dotted #b1b1b1; margin-bottom:10px; padding-bottom:10px;}
-#container .center_contect .right_neiye_con .right_neiye_bg h2{ font-size:16px; line-height:16px;}
-#container .center_contect .right_neiye_con .right_neiye_bg h3{ font-size:14px; line-height:14px;}
-#container .center_contect .right_neiye_con .right_neiye_bg .tag{ text-align:center; margin-bottom:10px; color:#999;}
+#container .center_contect .right_neiye_con .right_neiye_bg h1{  font-size:22px; line-height:30px;color:#666; text-align:center; font-weight:bold; border-bottom:1px dotted #b1b1b1; margin-bottom:10px; padding-bottom:10px; font-family:SimHei,Arial, Helvetica, sans-serif;}
+#container .center_contect .right_neiye_con .right_neiye_bg h2{ font-size:16px; line-height:16px;font-family:Arial, Helvetica, sans-serif;}
+#container .center_contect .right_neiye_con .right_neiye_bg h3{ font-size:14px; line-height:14px;font-family:Arial, Helvetica, sans-serif;}
+#container .center_contect .right_neiye_con .right_neiye_bg .tag{ text-align:center; margin-bottom:10px; color:#999;font-family:Arial, Helvetica, sans-serif;}
 #container .center_contect .right_neiye_con .right_neiye_bg .wenzhang{ line-height:22px;}
 #container .center_contect .right_neiye_con .right_neiye_bg .wenzhang img{ margin:10px;}
 #container .center_contect .right_neiye_con .right_neiye_bg .wenzhang p{ color:#606060; text-indent:24px; font-size:14px; line-height:30px; font-family:Arial, Helvetica, sans-serif;}
