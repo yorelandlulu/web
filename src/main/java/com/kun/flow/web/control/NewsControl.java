@@ -41,6 +41,7 @@ public class NewsControl extends BaseControl<News> {
     public Out<Object> add(News news) {
         try {
             news.setPosttime(new Date(news.getPosttime1()));
+            news.setViewcount(new Long(0));
             this.getService().save(news);
             return MessageOut.ADD_OK_MESSAGE;
         } catch (Exception e) {
@@ -111,6 +112,8 @@ public class NewsControl extends BaseControl<News> {
     public News view(Pagination pagination, Long nid) {
         try {
             News n = this.getService().getByKey(nid);
+            n.setViewcount(n.getViewcount()+1);
+            this.getService().update(n);
             return n;
         } catch (Exception e) {
             e.printStackTrace();

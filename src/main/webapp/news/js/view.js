@@ -27,6 +27,7 @@ function loadArticle(newsid){
             $("#posttime").html(d.posttime);
             $("#audit").html(d.auditname);
             $("#author").html(d.author);
+            $("#viewcount").html(d.viewcount);
             if(d.editname!=null&&d.editname!=""){
                 $("#editbox").show();
                 $("#edit").html(d.editname);
@@ -97,7 +98,7 @@ function loadMenus(cid){
         dataType : 'json',
         type : 'POST',
         success: function (d){
-            $(".news_title p.icon").html(d.name);
+            $(".news_title p.icon").html(getContentTitle(d));
             if(d.parentid!=0)
                 loadsubMenus(d.parentid);
             else
@@ -134,4 +135,9 @@ function gotolist(cid){
 function toggleLeft(id){
     $("#container .center_contect .left_news .left_menu .center ul li ul li").addClass("hidden");
     $("#menuli"+id).children("ul").children("li").removeClass("hidden");
+}
+
+
+function goPrint(id){
+    window.open ('print.html','newwindow','height=800,width=900,top=0,left=0,toolbar=no,menubar=no,scrollbars=vertical, resizable=no,location=no, status=no');
 }

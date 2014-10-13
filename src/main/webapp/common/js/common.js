@@ -36,3 +36,34 @@ function redirect(cid){
         }
     });
 }
+function getContentTitle(cobj){
+    var str = "<a href='home.html' style='color:white' >首页</a> ->"
+    if(cobj.parentid!=0)
+    {
+        $.ajax({
+            url:'newscategory/view.do',
+            data: {cid: cobj.parentid},
+            async: false,
+            dataType : 'json',
+            type : 'POST',
+            success: function (d){
+                str = str+"<a href='javascript:redirect(" + d.id + ")' style='color:white'>" + d.name + "</a> ->";
+                var str1 = "<a href='javascript:redirect(" + d.id + ")' style='color:white'>" + d.name + "</a> ->";
+                if(d.parentid!=0)
+                {
+                    $.ajax({
+                        url:'newscategory/view.do',
+                        data: {cid: d.parentid},
+                        async: false,
+                        dataType : 'json',
+                        type : 'POST',
+                        success: function (d1){
+                            str = "<a href='home.html' style='color:white'>首页</a> ->"+"<a href='javascript:redirect(" + d1.id + ")' style='color:white'>" + d1.name + "</a> ->"+str1;
+                        }
+                    });
+                }
+            }
+        });
+    }
+    return str + cobj.name;
+}

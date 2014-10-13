@@ -16,6 +16,7 @@
     <result column="posttime" jdbcType="TIMESTAMP" property="posttime" />
     <result column="categoryid" jdbcType="BIGINT" property="categoryid" />
     <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="viewcount" jdbcType="BIGINT" property="viewcount" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--
@@ -86,7 +87,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    news.id as id, editname, auditname, title, content, author, posttime, categoryid, news.status as status
+    news.id as id, editname, auditname, title, content, author, posttime, categoryid, news.status as status, viewcount
   </sql>
     <sql id="Column_List_Listview">
         news.id as id, editname, auditname, title, author, posttime, categoryid, news.status as status
@@ -412,6 +413,7 @@
             author = #{object.author,jdbcType=VARCHAR},
             posttime = #{object.posttime,jdbcType=TIMESTAMP},
             categoryid = #{object.categoryid,jdbcType=BIGINT},
+            viewcount = #{object.viewcount,jdbcType=BIGINT},
             status = #{object.status,jdbcType=INTEGER}
             where id = #{object.id,jdbcType=BIGINT}
         </if>

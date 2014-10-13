@@ -88,31 +88,31 @@
 		where rbp.categoryid=ca.id and rbp.roleId=r.id and rbp.roleId=#{key}
 	</select>
 	<select id="listByRoleUnbind" resultMap="BaseResultMap" parameterType="map">
-        select  cc.id, cc.name, cc.status, cc.parentid,cc.level, cc.sortid,
-        case cc.level
-        when "1" then cc.id
-        when "2" then cc.parentid
-        when "3" then (select x.parentid from news_category x where x.id = cc.parentid)
+        select  cc.id, cc.name, cc.status, cc.parentid,cc.level_, cc.sortid,
+        case cc.level_
+        when 1 then cc.id
+        when 2 then cc.parentid
+        when 3 then (select x.parentid from news_category x where x.id = cc.parentid)
         end level1,
-        case cc.level
-        when "1" then "0"
-        when "2" then cc.id
-        when "3" then cc.parentid
+        case cc.level_
+        when 1 then 0
+        when 2 then cc.id
+        when 3 then cc.parentid
         end level2,
-        case cc.level
-        when "1" then "0"
-        when "2" then "0"
-        when "3" then cc.id
+        case cc.level_
+        when 1 then 0
+        when 2 then 0
+        when 3 then cc.id
         end level3
         from news_category cc
         where cc.id not in
         (select c.id from news_category c
         inner join role_bind_permit p on c.id = p.categoryid where p.roleId=#{paramMap.key})
         and
-        (case cc.level
-        when "1" then cc.id
-        when "2" then cc.parentid
-        when "3" then (select x.parentid from news_category x where x.id = cc.parentid)
+        (case cc.level_
+        when 1 then cc.id
+        when 2 then cc.parentid
+        when 3 then (select x.parentid from news_category x where x.id = cc.parentid)
         end ) is not null
         <if test="paramMap.keyword != null and paramMap.keyword != ''">
             <bind name="objkeyword" value="'%'+paramMap.keyword+'%'" />

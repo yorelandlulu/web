@@ -77,7 +77,7 @@ function loadMe(){
         type: 'POST',
         success: function (d) {
             cobj = d;
-            $(".news_title p.icon").html(d.name);
+            $("#subTitle").html(getContentTitle(d));
             if (d.parentid != 0){
                 loadsubMenus(d.parentid);
                 LoadRightContent(categoryid, d.name, publicpageno);
@@ -165,7 +165,6 @@ function loadLeftMenu(cid, text){
 }
 
 function LoadRightContent(cid, text, pageno){
-    $("#subTitle").html(text);
     recordCookie('categoryid',cid);
     recordCookie('pageno',pageno);
     $.ajax({

@@ -228,14 +228,14 @@ function gotoview(id){
 }
 function gotoedit(id){
     recordCookie('editnewsid',id);
-	window.open ('edit.html','newwindow','height=700,width=900,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
+	window.open ('edit.html','newwindow','height=700,width=900,top=0,left=0,toolbar=no,menubar=no,scrollbars=vertical, resizable=no,location=no, status=no');
 }
 function gotosearch(id){
     recordCookie('search',id);
     window.location.href = "searchList.html";
 }
 function popupresetpass(){
-	window.open ('passwordedit.html','newwindow','height=300,width=700,top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
+	window.open ('passwordedit.html','newwindow','height=300,width=700,top=0,left=0,toolbar=no,menubar=no,scrollbars=vertical, resizable=no,location=no, status=no');
 }
 function logout(){
         $.ajax({
