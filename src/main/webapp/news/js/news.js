@@ -242,7 +242,7 @@ function logout(){
             url:'login/logout.do',
             type : 'get',
             success: function (data){
-                location.reload();
+                window.location.href = "index.html";
             }
         });
 }
