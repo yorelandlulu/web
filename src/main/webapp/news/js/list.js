@@ -77,7 +77,6 @@ function loadMe(){
         type: 'POST',
         success: function (d) {
             cobj = d;
-            $("#subTitle").html(getContentTitle(d));
             if (d.parentid != 0){
                 loadsubMenus(d.parentid);
                 LoadRightContent(categoryid, d.name, publicpageno);
@@ -110,7 +109,7 @@ function loadsubMenus(cid){
         }
     });
 }
-function loadLeftMenuWithoutName(cid){
+function loadTitle(cid){
     $.ajax({
         url:'newscategory/view.do',
         data: {cid: cid},
@@ -118,7 +117,7 @@ function loadLeftMenuWithoutName(cid){
         async: false,
         type : 'POST',
         success: function (d){
-            loadLeftMenu(cid, d.name);
+            $("#subTitle").html(getContentTitle(d));
         }
     });
 }
@@ -165,6 +164,7 @@ function loadLeftMenu(cid, text){
 }
 
 function LoadRightContent(cid, text, pageno){
+    loadTitle(cid);
     recordCookie('categoryid',cid);
     recordCookie('pageno',pageno);
     $.ajax({
