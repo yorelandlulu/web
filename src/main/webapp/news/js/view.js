@@ -66,14 +66,14 @@ function gotoNode(i){
             $("#tc").empty();
             for(var obj in d){
                 if (d[obj].viewarticle != 1) {
-                    $("#tc").append(" <li onclick='javascript:toggleLeft(" + obj + ")' id='menuli" + obj + "'><a href=javascript:gotolist("+d[obj].id+",'"+d[obj].text+"',1)>"+ d[obj].text+"</a></li>");
+                    $("#tc").append(" <li id='menuli" + obj + "'><a href=javascript:gotolist("+d[obj].id+",'"+d[obj].text+"',1)>"+ d[obj].text+"</a></li>");
                 }
                 else {
-                    $("#tc").append(" <li onclick='javascript:toggleLeft(" + obj + ")' id='menuli" + obj + "'><a href=javascript:gotoview(" + d[obj].articleid + ")>" + d[obj].text + "</a></li>");
+                    $("#tc").append(" <li id='menuli" + obj + "'><a href=javascript:gotoview(" + d[obj].articleid + ")>" + d[obj].text + "</a></li>");
                 }
                 if(d[obj].children){
                     $("#menuli"+obj).append("<ul id='ul"+obj+"'></ul>");
-                    $("#menuli"+obj+" a").attr("href","javascript:void(0)");
+                    $("#menuli" + obj+" a").attr("href","javascript:redirect(" + d[obj].id + ")");
                     for(var sub in d[obj].children){
                         if(d[obj].children[sub].id == caid){
                             expid = obj;
