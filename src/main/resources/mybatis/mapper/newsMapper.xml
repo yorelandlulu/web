@@ -11,6 +11,7 @@
     <result column="editname" jdbcType="VARCHAR" property="editname" />
     <result column="auditname" jdbcType="VARCHAR" property="auditname" />
     <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="subtitle" jdbcType="VARCHAR" property="subtitle" />
     <result column="content" jdbcType="VARCHAR" property="content" />
     <result column="author" jdbcType="VARCHAR" property="author" />
     <result column="posttime" jdbcType="TIMESTAMP" property="posttime" />
@@ -87,10 +88,10 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    news.id as id, editname, auditname, title, content, author, posttime, categoryid, news.status as status, viewcount
+    news.id as id, editname, auditname, title, subtitle, content, author, posttime, categoryid, news.status as status, viewcount
   </sql>
     <sql id="Column_List_Listview">
-        news.id as id, editname, auditname, title, author, posttime, categoryid, news.status as status
+        news.id as id, editname, auditname, title, subtitle, author, posttime, categoryid, news.status as status
     </sql>
   <select id="selectByExample" parameterType="com.kun.flow.model.NewsExample" resultMap="BaseResultMap">
     <!--
@@ -198,11 +199,11 @@
       This element was generated on Fri Aug 08 15:55:10 CST 2014.
     -->
     insert into news (editname, auditname,
-      title, content, author, 
+      title, subtitle, content, author,
       posttime, categoryid, status
       )
     values ( #{object.editname,jdbcType=VARCHAR}, #{object.auditname,jdbcType=VARCHAR},
-      #{object.title,jdbcType=VARCHAR}, #{object.content,jdbcType=VARCHAR}, #{object.author,jdbcType=VARCHAR},
+      #{object.title,jdbcType=VARCHAR}, #{object.subtitle,jdbcType=VARCHAR}, #{object.content,jdbcType=VARCHAR}, #{object.author,jdbcType=VARCHAR},
       #{object.posttime,jdbcType=TIMESTAMP}, #{object.categoryid,jdbcType=BIGINT}, #{object.status,jdbcType=INTEGER}
       )
   </insert>
@@ -409,6 +410,7 @@
             set editname = #{object.editname,jdbcType=VARCHAR},
             auditname = #{object.auditname,jdbcType=VARCHAR},
             title = #{object.title,jdbcType=VARCHAR},
+            subtitle = #{object.subtitle,jdbcType=VARCHAR},
             content = #{object.content,jdbcType=VARCHAR},
             author = #{object.author,jdbcType=VARCHAR},
             posttime = #{object.posttime,jdbcType=TIMESTAMP},

@@ -135,6 +135,7 @@ public class NewsControl extends BaseControl<News> {
             Long nid = news.getId();
             News cur = this.getService().getByKey(nid);
             cur.setTitle(news.getTitle());
+            cur.setSubtitle(news.getSubtitle());
             cur.setAuthor(news.getAuthor());
             cur.setPosttime(new Date(news.getPosttime1()));
             cur.setCategoryid(news.getCategoryid());

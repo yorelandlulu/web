@@ -24,6 +24,7 @@ function loadArticle(newsid){
         type : 'POST',
         success: function (d){
             $(".news h1").html(d.title);
+            $(".news h2").html(d.subtitle);
             $("#posttime").html(d.posttime);
             $("#audit").html(d.auditname);
             $("#author").html(d.author);

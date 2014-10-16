@@ -16,6 +16,7 @@ function loadFormData(){
             $("#editdiv").hide();
             $("#idh").val(d.id);
             $("input[name='title']").val(d.title);
+            $("input[name='subtitle']").val(d.subtitle);
             $('#dd').datetimebox({
                 value: d.posttime1,
                 required: true,
