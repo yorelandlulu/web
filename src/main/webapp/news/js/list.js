@@ -171,20 +171,27 @@ function LoadRightContent(cid, text, pageno){
         url:'news/listbycategory.do',
         dataType : 'json',
         async: false,
-        data : {cid: cid, page: pageno, rows: 10},
+        data : {cid: cid, page: pageno, rows: 15},
         type : 'POST',
         success: function (data){
             $(".news_list ul").empty();
             for(var i in data.rows){
-                $(".news_list ul").append("<li><a href='javascript:gotoview("+data.rows[i].id+")'>"+data.rows[i].title+"</a><span>"+data.rows[i].posttime+"</span></li>");
+                $(".news_list ul").append("<li><a href='javascript:gotoview("+data.rows[i].id+")'>"+data.rows[i].title.replace("<br/>","")+"</a><span>"+data.rows[i].posttime+"</span></li>");
             }
             $(".pages span").empty();
-			if(pageno>1)
-				$(".btn_prev").attr("href","javascript:LoadRightContent("+cid+",'"+text+"',"+(pageno-1)+")");
-			if(pageno<=(data.total/10))
-				$(".btn_next").attr("href","javascript:LoadRightContent("+cid+",'"+text+"',"+(pageno+1)+")");
-            for(var i=0; i <data.total/10; i++ ){
-                if(i==pageno-1){
+			if(pageno>1) {
+                               var pre_page_no = parseInt(pageno) - 1;
+				$(".btn_prev").attr("href","javascript:LoadRightContent("+cid+",'"+text+"',"+pre_page_no+")");
+}
+			if(pageno<(parseInt(data.total/15)+1)) {
+                                var next_page_no =parseInt(pageno) + 1;
+				$(".btn_next").attr("href","javascript:LoadRightContent("+cid+",'"+text+"',"+next_page_no+")");
+} else {
+$(".btn_next").attr("href","#");
+}
+            var max_pageno = (data.total/15);
+            for(var i=0; i < max_pageno; i++ ){
+                if(i==pageno - 1){
                     $(".pages span").append("<a class='on' href=javascript:LoadRightContent("+cid+",'"+text+"',"+(i+1)+")>"+(i+1)+"</a>");
                 }
                 else{
