@@ -42,6 +42,7 @@ function MM_swapImage() { //v3.0
                 window.location.href = "viewList.html";
             }
             function gotoview(nid){
+                recordCookie('oldnewsid',$.cookie('newsid'));
                 recordCookie('newsid',nid);
                 window.location.href = "viewArticle.html";
             }
