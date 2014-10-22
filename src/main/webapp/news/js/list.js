@@ -2,6 +2,7 @@ var categoryid = $.cookie('categoryid');
 var publicpageno = $.cookie('pageno');
 var cobj;
 var expid = 0;
+var numberperpage = 10;
 loadMe(categoryid);
 function expendMenu(){
     var str = $("#tc ul a:first-child").attr("href");
@@ -171,7 +172,7 @@ function LoadRightContent(cid, text, pageno){
         url:'news/listbycategory.do',
         dataType : 'json',
         async: false,
-        data : {cid: cid, page: pageno, rows: 15},
+        data : {cid: cid, page: pageno, rows: numberperpage},
         type : 'POST',
         success: function (data){
             $(".news_list ul").empty();
@@ -180,17 +181,21 @@ function LoadRightContent(cid, text, pageno){
             }
             $(".pages span").empty();
 			if(pageno>1) {
-                               var pre_page_no = parseInt(pageno) - 1;
+                var pre_page_no = parseInt(pageno) - 1;
 				$(".btn_prev").attr("href","javascript:LoadRightContent("+cid+",'"+text+"',"+pre_page_no+")");
-}
-			if(pageno<(parseInt(data.total/15)+1)) {
-                                var next_page_no =parseInt(pageno) + 1;
+			}
+			if(pageno<(parseInt(data.total/numberperpage)+1)) {
+                var next_page_no =parseInt(pageno) + 1;
 				$(".btn_next").attr("href","javascript:LoadRightContent("+cid+",'"+text+"',"+next_page_no+")");
-} else {
-$(".btn_next").attr("href","#");
-}
-            var max_pageno = (data.total/15);
-            for(var i=0; i < max_pageno; i++ ){
+			} else {
+				$(".btn_next").attr("href","#");
+			}
+            var max_pageno = (data.total/numberperpage);
+			var offset = 0;
+			if(pageno > 7){
+				offset = pageno - 7;
+			}
+            for(var i = offset; i < max_pageno && i < 8+offset; i++ ){
                 if(i==pageno - 1){
                     $(".pages span").append("<a class='on' href=javascript:LoadRightContent("+cid+",'"+text+"',"+(i+1)+")>"+(i+1)+"</a>");
                 }
