@@ -140,5 +140,5 @@ function toggleLeft(id){
 
 
 function goPrint(id){
-    window.open ('print.html','newwindow','height=800,width=900,top=0,left=0,toolbar=no,menubar=no,scrollbars=vertical, resizable=no,location=no, status=no');
+    window.open ('print.html','newwindow','height=800,width=950,top=0,left=0,toolbar=no,menubar=yes,scrollbars=yes, resizable=yes,location=no, status=no');
 }

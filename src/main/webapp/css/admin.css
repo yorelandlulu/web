@@ -149,8 +149,8 @@ body{ font-family:"Microsoft Yahei",  Arial, Helvetica, sans-serif;  padding:0; 
 #container .center_contect .left_news .left_menu .bottom{ background:url(../images/left_menu_bottom.jpg) no-repeat; height:25px; }
 #container .center_contect .left_news .left_menu .center ul { margin-left:30px; }
 #container .center_contect .left_news .left_menu .center ul li { border-bottom:1px solid #a77c49; width:200px;  padding-top:6px; padding-bottom:5px;}
-#container .center_contect .left_news .left_menu .center ul li a{ padding-left:29px; color:#666; margin-left:10px; font-size:16px; color:#666; font-weight:bold;  }
-#container .center_contect .left_news .left_menu .center ul li a:hover{background:url(../images/point_big.jpg) no-repeat left center; padding-left:29px; color:#967a64; margin-left:10px; font-size:16px;  font-weight:bold; text-decoration:none;}
+#container .center_contect .left_news .left_menu .center ul li a{ padding-left:20px; color:#666; margin-left:10px; font-size:16px; color:#666; font-weight:bold; display:block; line-height:24px;}
+#container .center_contect .left_news .left_menu .center ul li a:hover{background:url(../images/point_big.jpg) no-repeat left center; padding-left:20px; color:#967a64; margin-left:10px; font-size:16px;  font-weight:bold; text-decoration:none;display:block;line-height:24px;}
 #container .center_contect .left_news .left_menu .center ul li ul{ margin-bottom:5px; margin-top:5px; }
 #container .center_contect .left_news .left_menu .center ul li ul li{ border-bottom:0px; width:175px;  padding:3px 0;}
 #container .center_contect .left_news .left_menu .center ul li ul li a{ color:#666; font-size:12px; padding-left:0px; background-image:none;}

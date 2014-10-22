@@ -5,8 +5,8 @@
  * Time: 2:01 PM
  * To change this template use File | Settings | File Templates.
  */
-//var domain_name = "web.shanghai3fx.com";
-var domain_name = "221.133.227.242";
+//var domain_name = "www.sdx3fx.sh.cn";
+var domain_name = window.location.host;
 function recordCookie(key, value){
     $.cookie(key, value, {expires:7, path:'/',domain:domain_name,secure:false});
 }

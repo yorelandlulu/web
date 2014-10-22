@@ -40,17 +40,17 @@
         </init-param>
         <init-param>
             <param-name>vips</param-name>
-            <param-value>building.html,404.html,sitemap,print.html,ckfinder.html,.css,.js,viewList.html,searchList.html,viewArticle.html,viewArticle1.html,login.html,home.html,survey.html,listAll.html,index.html,login.do,jquery,easyui,validater,listAll.do,listbycategory.do,listByPid.do,view.do,listTree.do,search.do,redirect.do</param-value>
+            <param-value>building.html,404.html,sitemap,print.html,ckfinder.html,.css,.js,viewList.html,searchList.html,viewArticle.html,viewArticlePop.html,viewArticle1.html,login.html,home.html,survey.html,listAll.html,login.do,jquery,easyui,validater,listAll.do,listbycategory.do,listByPid.do,view.do,listTree.do,search.do,redirect.do</param-value>
         </init-param>
     </filter>
 
     <filter-mapping>
         <filter-name>FreeIpFilter</filter-name>
-        <url-pattern>*.do</url-pattern>
+        <url-pattern>/index.do</url-pattern>
     </filter-mapping>
     <filter-mapping>
         <filter-name>FreeIpFilter</filter-name>
-        <url-pattern>*.html</url-pattern>
+        <url-pattern>/index.html</url-pattern>
     </filter-mapping>
 
 	<filter>
@@ -58,7 +58,7 @@
 		<filter-class>com.kun.flow.web.filter.SessionTimeoutCheckFilter</filter-class>
 		<init-param>
 			<param-name>vips</param-name>
-			<param-value>building.html,404.html,sitemap,print.html,ckfinder.html,.css,.js,viewList.html,searchList.html,viewArticle.html,viewArticle1.html,login.html,home.html,survey.html,listAll.html,index.html,login.do,jquery,easyui,validater,listAll.do,listbycategory.do,listByPid.do,view.do,listTree.do,search.do,redirect.do</param-value>
+			<param-value>building.html,404.html,sitemap,print.html,ckfinder.html,.css,.js,viewList.html,searchList.html,viewArticle.html,viewArticlePop.html,viewArticle1.html,login.html,home.html,survey.html,listAll.html,index.html,login.do,jquery,easyui,validater,listAll.do,listbycategory.do,listByPid.do,view.do,listTree.do,search.do,redirect.do</param-value>
 		</init-param>
 	</filter>
 	<filter-mapping>
@@ -169,4 +169,9 @@
 	<welcome-file-list>
 		<welcome-file>home.html</welcome-file>
 	</welcome-file-list>
+	<error-page>
+	         <error-code>404</error-code>
+	                  <location>/404.html</location>
+	                         </error-page>
+
 </web-app>
