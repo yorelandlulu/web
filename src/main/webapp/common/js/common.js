@@ -11,6 +11,7 @@ function recordCookie(key, value){
     $.cookie(key, value, {expires:7, path:'/',domain:domain_name,secure:false});
 }
 function redirect(cid){
+    recordCookie('pageno',1);
     $.ajax({
         url: 'newscategory/redirect.do',
         data: {cid: cid},
