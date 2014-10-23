@@ -146,14 +146,15 @@
     </select>
     <select id="search" resultMap="BaseResultMap" parameterType="map">
         select
-        distinct title, news.id as id, editname, auditname, subtitle, author, posttime, categoryid, news.status as status, viewcount, news_category.name as category
+        title, max(news.id) as id, max(news.posttime) as posttime
         from news
         inner join news_category on  news.categoryid = news_category.id
+        group by title
         <if test="object != null">
             <bind name="objName" value="'%'+object.getTitle()+'%'" />
-            where news.title like #{objName}
+        having news.title like #{objName}
         </if>
-        order by news.posttime desc
+        order by posttime desc
     </select>
 
     <select id="getCountForSearch" resultType="int" parameterType="map">
