@@ -18,7 +18,7 @@ function goback(){
 }
 function loadArticle(newsid){
     $.ajax({
-        url:'news/view.do',
+        url:'../news/view.do',
         data: {nid: newsid},
         dataType : 'json',
         type : 'POST',
@@ -29,6 +29,7 @@ function loadArticle(newsid){
             $("#audit").html(d.auditname);
             $("#author").html(d.author);
             $("#viewcount").html(d.viewcount);
+            $("#sort").html(d.sort);
             if(d.editname!=null&&d.editname!=""){
                 $("#editbox").show();
                 $("#edit").html(d.editname);
@@ -44,7 +45,7 @@ function loadArticle(newsid){
 }
 function gotoNode(i){
     $.ajax({
-        url:'newscategory/view.do',
+        url:'../newscategory/view.do',
         data: {cid: i},
         dataType : 'json',
         async: false,
@@ -58,7 +59,7 @@ function gotoNode(i){
 
 
     $.ajax({
-        url:'newscategory/listTree.do',
+        url:'../newscategory/listTree.do',
         data: {cid: i},
         dataType : 'json',
         async: false,
@@ -93,7 +94,7 @@ function gotoNode(i){
 }
 function loadMenus(cid){
     $.ajax({
-        url:'newscategory/view.do',
+        url:'../newscategory/view.do',
         data: {cid: cid},
         async: false,
         dataType : 'json',
@@ -113,7 +114,7 @@ function expendMenu(cid){
 }
 function loadsubMenus(cid){
     $.ajax({
-        url:'newscategory/view.do',
+        url:'../newscategory/view.do',
         data: {cid: cid},
         async: false,
         dataType : 'json',

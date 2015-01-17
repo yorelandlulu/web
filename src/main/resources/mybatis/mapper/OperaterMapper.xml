@@ -24,17 +24,16 @@
 		? -->
 
 	<!-- 增加 -->
-	<insert id="save" parameterType="com.kun.flow.model.Operater" useGeneratedKeys="true" keyProperty="object.id">
-		<if test="object.name != null and object.name != ''">
+	<insert id="save" parameterType="com.kun.flow.model.Operater">
 			insert into operater (
-			type, code, name, password, superUser, email, phone, createTime,
+			type, code, name, password, superUser, createTime,
 			updateTime,operaterId,operaterCode,status
 			)
-			values (#{object.type}, #{object.code}, #{object.name}, #{object.password},
-			#{object.superUser}, #{object.email},
-			#{object.phone}, #{object.createTime}, #{object.updateTime},
-			#{object.operaterId}, #{object.operaterCode}, #{object.status})
-		</if>
+			values (#{object.type,jdbcType=INTEGER}, #{object.code,jdbcType=VARCHAR},
+            #{object.name,jdbcType=VARCHAR}, #{object.password,jdbcType=VARCHAR},
+			#{object.superUser,jdbcType=INTEGER}, #{object.createTime,jdbcType=TIMESTAMP},
+            #{object.updateTime,jdbcType=TIMESTAMP},#{object.operaterId,jdbcType=BIGINT},
+            #{object.operaterCode,jdbcType=VARCHAR}, #{object.status,jdbcType=INTEGER})
 	</insert>
 	<!-- 修改 -->
 	<update id="update" parameterType="com.kun.flow.model.Operater">

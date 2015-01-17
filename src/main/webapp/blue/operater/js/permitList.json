@@ -1,0 +1,101 @@
+{"rows": [
+    {
+        "categoryid": 1,
+        "editable": true,
+        "auditable": true,
+        "name": "学校概况",
+        "id": 42,
+        "permitId": null,
+        "roleId": null,
+        "createTime": "2014-05-11 22:22:06",
+        "updateTime": "2014-05-11 22:22:06",
+        "operaterId": 1,
+        "operaterCode": "admin",
+        "status": 1,
+        "role": {
+            "id": 1,
+            "name": "厂商",
+            "remark": null,
+            "createTime": null,
+            "updateTime": null,
+            "operaterId": null,
+            "operaterCode": null,
+            "status": null
+        },
+        "permit": {
+            "id": 1,
+            "name": "学校概况",
+            "code": null,
+            "leaf": null,
+            "status": null,
+            "ordinal": null,
+            "roleId": null
+        }
+    },
+    {
+        "categoryid": 1,
+        "editable": true,
+        "auditable": true,
+        "name": "学校概况",
+        "id": 43,
+        "permitId": null,
+        "roleId": null,
+        "createTime": "2014-05-11 22:22:06",
+        "updateTime": "2014-05-11 22:22:06",
+        "operaterId": 1,
+        "operaterCode": "admin",
+        "status": 1,
+        "role": {
+            "id": 1,
+            "name": "厂商",
+            "remark": null,
+            "createTime": null,
+            "updateTime": null,
+            "operaterId": null,
+            "operaterCode": null,
+            "status": null
+        },
+        "permit": {
+            "id": 2,
+            "name": "学校概况",
+            "code": null,
+            "leaf": null,
+            "status": null,
+            "ordinal": null,
+            "roleId": null
+        }
+    },
+    {
+        "categoryid": 1,
+        "editable": true,
+        "auditable": true,
+        "name": "学校概况",
+        "id": 44,
+        "permitId": null,
+        "roleId": null,
+        "createTime": "2014-05-11 22:22:06",
+        "updateTime": "2014-05-11 22:22:06",
+        "operaterId": 1,
+        "operaterCode": "admin",
+        "status": 1,
+        "role": {
+            "id": 1,
+            "name": "厂商",
+            "remark": null,
+            "createTime": null,
+            "updateTime": null,
+            "operaterId": null,
+            "operaterCode": null,
+            "status": null
+        },
+        "permit": {
+            "id": 3,
+            "name": "学校概况",
+            "code": null,
+            "leaf": null,
+            "status": null,
+            "ordinal": null,
+            "roleId": null
+        }
+    }
+], "message": null, "total": -7, "success": true}

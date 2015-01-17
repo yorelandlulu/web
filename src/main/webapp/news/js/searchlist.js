@@ -18,7 +18,7 @@ function gotosearch(id){
 
 function search(cid, pageno){
     $.ajax({
-        url:'news/search.do',
+        url:'../news/search.do',
         dataType : 'json',
         data : {keyword: cid, page: pageno, rows: 10},
         type : 'POST',

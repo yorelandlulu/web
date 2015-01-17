@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="../js/jquery.min.js" type=text/javascript></script>
+<script src="../js/ui.core.js" type="text/javascript"></script>
+<script src="../js/ui.tabs.js" type="text/javascript"></script>
+<script src="../js/jquery.cookie.js" type="text/javascript"></script>
+<script src="../common/js/common.js" type="text/javascript"></script>
+<script src="../js/loopedslider.min.js" type=text/javascript></script>
+<script src="../Scripts/swfobject_modified.js" type="text/javascript"></script>
+<script type=text/javascript>
+	$(function(){
+		 $('#imgtest').loopedSlider({
+		 	autoStart: 4000
+			});
+		$('.validate_Slider').loopedSlider({
+			autoStart: 4000
+			});
+	$("#enter_lab").click(function(){
+	  window.location=$(this).find("a").attr("href"); return false;});
+	});
+</script>
+        <script type="text/javascript">
+            $(function() {
+                $('.l_c > ul').tabs({ fx: { opacity: 'toggle' } }).tabs('l_c', 0);
+			 
+            });
+            function gotolist(cid){
+                recordCookie('categoryid',cid);
+                window.location.href = "viewList.html";
+            }
+            function gotoview(nid){
+                recordCookie('newsid',nid);
+                window.location.href = "viewArticle.html";
+            }
+        </script>  
+<script type="text/javascript">
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+</script>
+<script language="javascript">
+$(function(){
+var offsetX=1-$("#imgtest").offset().left;
+var offsetY=1-$("#imgtest").offset().top;
+var size=4*$('#imgtest ul li img').width();
+$("#imgtest ul li").mouseover(function(event) {
+var $target=$(event.target);
+if($target.is('img'))
+{
+$("<img id='tip' src='"+$target.attr("src")+"'>").css({
+"height":size,
+"width":size,
+"top":event.pageX+offsetX,
+"left":event.pageY+offsetY,
+}).appendTo($("#imgtest"));
+}
+}).mouseout(function() {
+$("#tip").remove();
+}).mousemove(function(event) {
+$("#tip").css(
+{
+"left":event.pageX+offsetX,
+"top":event.pageY+offsetY
+});
+});
+})
+</script>
+<style type="text/css">
+img{ height:71px; width:150px; position:absolute; border:5px solid #FFF;}
+#imgtest{ height:auto;width:840px; margin:0 auto; position:absolute; }
+#imgtest ul{ position:relative;width:840px; height:auto; background:#00F;}
+#imgtest ul li{ position:relative; height:276px; width:410px; list-style:none; float:left; margin:3px; border:1px solid #999;}
+</style> 
+</head>
+<body>
+<div class="pic"><div id="newsSlider">
+<div id="imgtest" class="container" >
+<ul class="slides">
+  <li><a href="#" target="_blank"><IMG src="images/01.jpg"><p>应勇同志来我校调研</p></a>
+  
+  </li>
+	
+  <li><a href="#" target="_blank"><IMG src="images/02.jpg"><p>应勇同志与学校中层以上干部合影</p></a>
+ 
+  </li>
+      <li><a href="#" target="_blank"><IMG src="images/07.jpg"><p>徐泽州同志来我校考察指导工作</p></a>
+ 
+  </li>
+      <li><a href="#" target="_blank"><IMG src="images/08.jpg"><p>徐泽洲同志考察我校开放式图书阅览区</p></a>
+ 
+  </li>
+
+  
+    <li><a href="#" target="_blank"><IMG src="images/03.jpg"><p>王国平同志来我校调研</p></a>
+  
+  </li>
+      <li><a href="#" target="_blank"><IMG src="images/06.jpg"><p>王国平同志给我校青干班<br/>学员和全体党员上党课</p></a>
+  
+  </li>
+  
+    <li><a href="#" target="_blank"><IMG src="images/04.jpg"><p>陈皓同志来我校调研</p></a>
+  
+  </li>
+  
+    <li><a href="#" target="_blank"><IMG src="images/05.jpg"><p>社会主义核心价值观与习近平总书记<br/>中国梦重要思想学术研讨会会场</p></a>
+ 
+  </li>
+
+  
+ 
+
+</ul></div>
+
+
+
+<ul class="pagination">
+  <li><a href="#">1</a> </li>
+  <li><a href="#">2</a> </li>
+  <li><a href="#">3</a> </li>
+  <li><a href="#">4</a> </li>
+  <li><a href="#">5</a> </li>
+  <li><a href="#">6</a> </li>
+  <li><a href="#">7</a> </li>
+  <li><a href="#">8</a> </li>
+</ul>
+
+</div></div>
+</body>
+<script type="text/javascript">
+swfobject.registerObject("FLVPlayer");
+</script>
+</body>
+<script type="text/javascript">
+
+function gotosearch(id){
+    recordCookie('search',id);
+    window.location.href = "searchList.html";
+}
+loadcontent();
+function trimtitle(str){
+    if(str!=null && str.length>19)
+        return str.substring(0,18)+"...";
+    else
+        return str;
+}
+function loadcontent(){
+//校园动态 232
+    $.ajax({
+        url:'../news/listbycategory.do',
+        dataType : 'json',
+        data : {cid: 232, page: 1, rows: 6},
+        type : 'POST',
+        success: function (data){
+            $(".campus ul").empty();
+            for(var i in data.rows){
+                $(".campus ul").append("<li><a href='javascript:gotoview("+data.rows[i].id+")'>"+trimtitle(data.rows[i].title)+"</a><span>"+data.rows[i].posttime+"</span></li>");
+            }
+        }
+    });
+//主体班次 47
+$.ajax({
+    url:'../news/listbycategory.do',
+    dataType : 'json',
+    data : {cid: 47, page: 1, rows: 10},
+    type : 'POST',
+    success: function (data){
+        $(".classes #fragment-1 ul").empty();
+        for(var i in data.rows){
+            $(".classes #fragment-1 ul").append("<li><a href='javascript:gotoview("+data.rows[i].id+")'>"+trimtitle(data.rows[i].title)+"</a></li>");
+        }
+    }
+});
+//特色培训 48
+    $.ajax({
+        url:'../news/listbycategory.do',
+        dataType : 'json',
+        data : {cid: 48, page: 1, rows: 10},
+        type : 'POST',
+        success: function (data){
+            $(".classes #fragment-2 ul").empty();
+            for(var i in data.rows){
+                $(".classes #fragment-2 ul").append("<li><a href='javascript:gotoview("+data.rows[i].id+")'>"+trimtitle(data.rows[i].title)+"</a></li>");
+            }
+        }
+    });
+//通知公告 12
+    $.ajax({
+        url:'../news/listbycategory.do',
+        dataType : 'json',
+        data : {cid: 12, page: 1, rows: 5},
+        type : 'POST',
+        success: function (data){
+            $("#newslist ul").empty();
+            for(var i in data.rows){
+                $("#newslist ul").append("<li><a href='javascript:gotoview("+data.rows[i].id+")'>"+trimtitle(data.rows[i].title)+"</a></li>");
+            }
+        }
+    });
+//要闻回放 31
+    $.ajax({
+        url:'../news/listbycategory.do',
+        dataType : 'json',
+        data : {cid: 31, page: 1, rows: 10},
+        type : 'POST',
+        success: function (data){
+            $("#recall ul").empty();
+            for(var i in data.rows){
+                $("#recall ul").append("<li><a target='_blank'' href='javascript:gotoview("+data.rows[i].id+")'>"+trimtitle(data.rows[i].title)+"</a></li>");
+            }
+        }
+    });
+}
+</script>
+</html> 

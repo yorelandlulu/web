@@ -22,17 +22,16 @@
 	</select>
 
 	<!-- 增加 -->
-	<insert id="save" parameterType="com.kun.flow.model.Role" useGeneratedKeys="true" keyProperty="object.id">
-		<if test="object.name != null and object.name != ''">
+	<insert id="save" parameterType="com.kun.flow.model.Role">
 			insert into role ( name, remark, createTime, updateTime, operaterId,
 			operaterCode, status)
 			values
 			(
-			#{object.name},
-			#{object.remark}, #{object.createTime}, #{object.updateTime}, #{object.operaterId},
-			#{object.operaterCode},
-			#{object.status})
-		</if>
+			#{object.name,jdbcType=VARCHAR},#{object.remark,jdbcType=VARCHAR},
+			#{object.createTime,jdbcType=TIMESTAMP}, #{object.updateTime,jdbcType=TIMESTAMP},
+			#{object.operaterId,jdbcType=BIGINT},#{object.operaterCode,jdbcType=VARCHAR},
+			#{object.status,jdbcType=INTEGER}
+			)
 	</insert>
 	<!-- 修改 -->
 	<update id="update" parameterType="com.kun.flow.model.Role">

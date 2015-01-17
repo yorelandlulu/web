@@ -4,7 +4,7 @@ function setIframe(src1, src2){
 }
 function listuser(pid){
     $.ajax({
-        url:'../role/list.do',
+        url:'../../role/list.do',
         dataType : 'json',
         data : {pid :pid },
         type : 'POST',
@@ -28,7 +28,7 @@ function showType(i){
 
 function saveUser(){
     $('#fm').form('submit',{
-        url: '../role/add.do',
+        url: '../../role/add.do',
         onSubmit: function(){
             return $(this).form('validate');
         },

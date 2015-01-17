@@ -5,7 +5,7 @@ function setIframe(src1, src2){
 }
 function listuser(pid){
     $.ajax({
-        url:'list.do',
+        url:'../../operater/list.do',
         dataType : 'json',
         data : {pid :pid },
         type : 'POST',
@@ -28,7 +28,7 @@ function showType(i){
 
 function saveUser(){
     $('#fm').form('submit',{
-        url: 'add.do',
+        url: '../../operater/add.do',
         onSubmit: function(){
             return $(this).form('validate');
         },
@@ -68,7 +68,7 @@ function gotoNode(id){
 
 
     $.ajax({
-        url:'newscategory/listRootPremission.do',
+        url:'../../newscategory/listRootPremission.do',
         dataType : 'json',
         type : 'POST',
         success: function (d) {

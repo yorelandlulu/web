@@ -15,7 +15,7 @@ function expendMenu(){
 }
 function loadTop(cid, text){
      $.ajax({
-        url: 'newscategory/view.do',
+        url:'../newscategory/view.do',
         data: {cid: cid},
         dataType: 'json',
 	async: false,
@@ -32,7 +32,7 @@ function loadFromTop(cid, text){
     if(cobj.parentid==0){
         recordCookie('categoryid',cid);
         $.ajax({
-            url:'newscategory/listByPid.do',
+            url:'../newscategory/listByPid.do',
             dataType : 'json',
             async: false,
             data : {pid :cid },
@@ -44,7 +44,7 @@ function loadFromTop(cid, text){
                     }
                     else{
                         $.ajax({
-                            url:'newscategory/listByPid.do',
+                            url:'../newscategory/listByPid.do',
                             dataType : 'json',
                             async: false,
                             data : {pid :data.rows[0].id },
@@ -72,7 +72,7 @@ function loadFromTop(cid, text){
 }
 function loadMe(){
     $.ajax({
-        url: 'newscategory/view.do',
+        url:'../newscategory/view.do',
         data: {cid: categoryid},
         dataType: 'json',
         type: 'POST',
@@ -97,7 +97,7 @@ function loadMe(){
 }
 function loadsubMenus(cid){
     $.ajax({
-        url: 'newscategory/view.do',
+        url:'../newscategory/view.do',
         async: false,
         data: {cid: cid},
         dataType: 'json',
@@ -112,7 +112,7 @@ function loadsubMenus(cid){
 }
 function loadTitle(cid){
     $.ajax({
-        url:'newscategory/view.do',
+        url:'../newscategory/view.do',
         data: {cid: cid},
         dataType : 'json',
         async: false,
@@ -127,7 +127,7 @@ function loadLeftMenu(cid, text){
     $(".menu a").removeClass("select");
     $("#li"+cid).addClass("select");
     $.ajax({
-        url:'newscategory/listTree.do',
+        url:'../newscategory/listTree.do',
         data: {cid: cid},
         async:false,
         dataType : 'json',
@@ -169,7 +169,7 @@ function LoadRightContent(cid, text, pageno){
     recordCookie('categoryid',cid);
     recordCookie('pageno',pageno);
     $.ajax({
-        url:'news/listbycategory.do',
+        url:'../news/listbycategory.do',
         dataType : 'json',
         async: false,
         data : {cid: cid, page: pageno, rows: numberperpage},

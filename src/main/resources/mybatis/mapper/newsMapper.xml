@@ -202,11 +202,11 @@
     -->
     insert into news (editname, auditname,
       title, subtitle, content, author,
-      posttime, categoryid, status, sort
+      posttime, categoryid, status, sort, viewcount
       )
     values ( #{object.editname,jdbcType=VARCHAR}, #{object.auditname,jdbcType=VARCHAR},
       #{object.title,jdbcType=VARCHAR}, #{object.subtitle,jdbcType=VARCHAR}, #{object.content,jdbcType=VARCHAR}, #{object.author,jdbcType=VARCHAR},
-      #{object.posttime,jdbcType=TIMESTAMP}, #{object.categoryid,jdbcType=BIGINT}, #{object.status,jdbcType=INTEGER}, #{object.sort,jdbcType=BIGINT}
+      #{object.posttime,jdbcType=TIMESTAMP}, #{object.categoryid,jdbcType=BIGINT}, #{object.status,jdbcType=INTEGER}, #{object.sort,jdbcType=BIGINT}, #{object.viewcount,jdbcType=BIGINT}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.kun.flow.model.News">

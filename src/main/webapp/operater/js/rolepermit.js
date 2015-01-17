@@ -110,7 +110,7 @@ function bandRoles() {
     }
     $.messager.confirm('提 示', '确定绑定?', function(r) {
         if (r) {
-            $.post('../roleBindPermit/update.do', {
+            $.post('../../roleBindPermit/update.do', {
                 'rbp' : editnewsid,
                 ids : ids
             }, function(data) {
@@ -125,10 +125,10 @@ function bandRoles() {
 
 function loadRolesTablebyid(id){
     $('#operater_role_rightDataGrid').datagrid({
-        url:"../roleBindPermit/listBindedPermit.do?roleId=" + id
+        url:"../../roleBindPermit/listBindedPermit.do?roleId=" + id
     });
     $('#operater_role_leftDataGrid').datagrid({
-        url:"../roleBindPermit/listUnbindRole.do?roleId=" + id
+        url:"../../roleBindPermit/listUnbindRole.do?roleId=" + id
     });
 }
 
@@ -138,7 +138,7 @@ function loadRolesTablebyid(id){
  */
 function searchPermits() {
     var formSer = $('#role_permit_searchForm').serializeObject();
-    $('#operater_role_leftDataGrid').datagrid('options').url = "../roleBindPermit/listUnbindRole.do?roleId="
+    $('#operater_role_leftDataGrid').datagrid('options').url = "../../roleBindPermit/listUnbindRole.do?roleId="
         + editnewsid;
     $('#operater_role_leftDataGrid').datagrid('options').queryParams = formSer;
     $('#operater_role_leftDataGrid').datagrid('options').method = 'post';

@@ -7,7 +7,7 @@ window.onload = function()
 };
 function loadFormData(){
     $.ajax({
-        url:'news/view.do',
+        url:'../news/view.do',
         async:false,
         data: {nid: editnewsid},
         dataType : 'json',
@@ -37,7 +37,7 @@ function loadFormData(){
 }
 function init(){
     $.ajax({
-        url:'newscategory/listRoot.do',
+        url:'../newscategory/listRoot.do',
         dataType : 'json',
         type : 'POST',
         success: function (data){
@@ -48,7 +48,7 @@ function init(){
 }
 function loadMe(cid){
     $.ajax({
-        url: 'newscategory/view.do',
+        url:'../newscategory/view.do',
         data: {cid: cid},
         dataType: 'json',
         type: 'POST',
@@ -62,7 +62,7 @@ function loadMe(cid){
 }
 function load2pre(cid1,cid2){
     $.ajax({
-        url: 'newscategory/view.do',
+        url:'../newscategory/view.do',
         data: {cid: cid1},
         dataType: 'json',
         type: 'POST',
@@ -80,7 +80,7 @@ function load1(cid1){
 }
 function load2by1(cid1){
     $.ajax({
-        url:'newscategory/listByPid.do',
+        url:'../newscategory/listByPid.do',
         dataType : 'json',
         data : {pid :cid1 },
         type : 'POST',
@@ -93,7 +93,7 @@ function load2by1(cid1){
 
 function load3by2(cid1){
     $.ajax({
-        url:'newscategory/listByPid.do',
+        url:'../newscategory/listByPid.do',
         dataType : 'json',
         data : {pid :cid1 },
         type : 'POST',
@@ -115,7 +115,7 @@ function load3(cid1,cid2,cid3){
 
 function update(){
     $('#fm').form('submit',{
-        url: 'news/modify.do',
+        url:'../news/modify.do',
         onSubmit: function(){
             validatecategory();
             return $(this).form('validate');
@@ -138,7 +138,7 @@ function update(){
 function del(){
     if(!confirm("确认删除？")) return;
     $('#fm').form('submit',{
-        url: 'news/delete.do',
+        url:'../news/delete.do',
         onSubmit: function(){
             validatecategory();
             return $(this).form('validate');

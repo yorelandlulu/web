@@ -4,7 +4,7 @@ var editroleid = $.cookie('editroleid');
 loadFormData();
 function loadFormData(){
     $.ajax({
-        url:'../role/getByKey.do',
+        url:'../../role/getByKey.do',
         data: {key: editroleid},
         dataType : 'json',
         type : 'POST',

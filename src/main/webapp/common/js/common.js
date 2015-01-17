@@ -6,14 +6,28 @@
  * To change this template use File | Settings | File Templates.
  */
 //var domain_name = "www.sdx3fx.sh.cn";
-var domain_name = window.location.host;
+var domain_name = window.location.hostname;
+var path_name = window.location.pathname.split('/')[3];
+
+function gobrown(){
+	window.location.href = "/website/brown/" + path_name;
+}
+function gored(){
+	window.location.href = "/website/red/" + path_name;
+}
+function goblue(){
+	window.location.href = "/website/blue/" + path_name;
+}
+function gogreen(){
+        window.location.href = "/website/blue/" + path_name;
+}
 function recordCookie(key, value){
     $.cookie(key, value, {expires:7, path:'/',domain:domain_name,secure:false});
 }
 function redirect(cid){
     recordCookie('pageno',1);
     $.ajax({
-        url: 'newscategory/redirect.do',
+        url: '../newscategory/redirect.do',
         data: {cid: cid},
         dataType: 'json',
         async: false,
@@ -42,7 +56,7 @@ function getContentTitle(cobj){
     if(cobj.parentid!=0)
     {
         $.ajax({
-            url:'newscategory/view.do',
+            url:'../newscategory/view.do',
             data: {cid: cobj.parentid},
             async: false,
             dataType : 'json',

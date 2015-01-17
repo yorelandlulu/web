@@ -4,7 +4,7 @@ var edituserid = $.cookie('edituserid');
 loadFormData();
 function loadFormData(){
     $.ajax({
-        url:'getByKey.do',
+        url:'../../operater/getByKey.do',
         data: {key: edituserid},
         dataType : 'json',
         type : 'POST',
@@ -18,7 +18,7 @@ function loadFormData(){
 
 function update(){
     $('#fm').form('submit',{
-        url: 'update.do',
+        url: '../../operater/update.do',
         onSubmit: function(){
             return $(this).form('validate');
         },
@@ -40,7 +40,7 @@ function update(){
 function del(){
     if(!confirm("确认删除？")) return;
     $('#fm').form('submit',{
-        url: 'delete.do',
+        url: '../../operater/delete.do',
         onSubmit: function(){
             return $(this).form('validate');
         },

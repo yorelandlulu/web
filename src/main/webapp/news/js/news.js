@@ -3,7 +3,7 @@ var firstLevelCategory;
 var editor = CKEDITOR.replace("TextArea1");
 function checkAdmin(){
     $.ajax({
-        url:'operater/getMyInfo.do',
+        url:'../operater/getMyInfo.do',
         dataType : 'json',
         type : 'POST',
         success: function (d) {
@@ -15,7 +15,7 @@ function checkAdmin(){
 }
 function listTopMenus(){
     $.ajax({
-        url:'newscategory/listRootPremission.do',
+        url:'../newscategory/listRootPremission.do',
         dataType : 'json',
         type : 'POST',
         success: function (d) {
@@ -70,7 +70,7 @@ function gotoNode(i, text){
     $("#li"+i).addClass("select");
     $("#ctitle").html(text);
     $.ajax({
-        url:'newscategory/listTreePermission.do',
+        url:'../newscategory/listTreePermission.do',
         data: {cid: i},
         dataType : 'json',
         type : 'POST',
@@ -102,7 +102,7 @@ function listnewsbycid(cid, text, pageno){
         $("#editdiv").hide();
     }
     $.ajax({
-        url:'news/listbycategory.do',
+        url:'../news/listbycategory.do',
         dataType : 'json',
         data : {cid: cid, page: pageno, rows: 10},
         type : 'POST',
@@ -130,7 +130,7 @@ function listnewsbycid(cid, text, pageno){
 function newUser(){
     url = 'add.do';
     $.ajax({
-        url:'newscategory/listRoot.do',
+        url:'../newscategory/listRoot.do',
         dataType : 'json',
         type : 'POST',
         success: function (data){
@@ -142,7 +142,7 @@ function newUser(){
 }
 function load2by1(cid1){
     $.ajax({
-        url:'newscategory/listByPid.do',
+        url:'../newscategory/listByPid.do',
         dataType : 'json',
         data : {pid :cid1 },
         type : 'POST',
@@ -170,7 +170,7 @@ function validatecategory(){
 }
 function saveUser(){
     $('#fm').form('submit',{
-        url: 'news/add.do',
+        url:'../news/add.do',
         onSubmit: function(){
             validatecategory();
             return $(this).form('validate');
@@ -239,7 +239,7 @@ function popupresetpass(){
 }
 function logout(){
         $.ajax({
-            url:'login/logout.do',
+            url:'../login/logout.do',
             type : 'get',
             success: function (data){
                 window.location.href = "index.html";

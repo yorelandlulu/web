@@ -6,6 +6,10 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>/WEB-INF/classes/application*.xml</param-value>
 	</context-param>
+<context-param>
+  <param-name>webAppRootKey</param-name>
+  <param-value>website</param-value>
+</context-param>
 	<context-param>
 		<param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
 		<param-value>classpath:messages</param-value>
@@ -40,17 +44,17 @@
         </init-param>
         <init-param>
             <param-name>vips</param-name>
-            <param-value>building.html,404.html,sitemap,print.html,ckfinder.html,.css,.js,viewList.html,searchList.html,viewArticle.html,viewArticlePop.html,viewArticle1.html,login.html,home.html,survey.html,listAll.html,login.do,jquery,easyui,validater,listAll.do,listbycategory.do,listByPid.do,view.do,listTree.do,search.do,redirect.do</param-value>
+            <param-value>*</param-value>
         </init-param>
     </filter>
 
     <filter-mapping>
         <filter-name>FreeIpFilter</filter-name>
-        <url-pattern>/index.do</url-pattern>
+        <url-pattern>*.do</url-pattern>
     </filter-mapping>
     <filter-mapping>
         <filter-name>FreeIpFilter</filter-name>
-        <url-pattern>/index.html</url-pattern>
+        <url-pattern>*.html</url-pattern>
     </filter-mapping>
 
 	<filter>
@@ -58,7 +62,7 @@
 		<filter-class>com.kun.flow.web.filter.SessionTimeoutCheckFilter</filter-class>
 		<init-param>
 			<param-name>vips</param-name>
-			<param-value>building.html,404.html,sitemap,print.html,ckfinder.html,.css,.js,viewList.html,searchList.html,viewArticle.html,viewArticlePop.html,viewArticle1.html,login.html,home.html,survey.html,listAll.html,index.html,login.do,jquery,easyui,validater,listAll.do,listbycategory.do,listByPid.do,view.do,listTree.do,search.do,redirect.do</param-value>
+			<param-value>.flv,building.html,404.html,sitemap,print.html,ckfinder.html,.css,.js,viewList.html,searchList.html,viewArticle.html,viewArticlePop.html,viewArticle1.html,login.html,home.html,survey.html,listAll.html,index.html,login.do,jquery,easyui,validater,listAll.do,listbycategory.do,listByPid.do,view.do,listTree.do,search.do,redirect.do</param-value>
 		</init-param>
 	</filter>
 	<filter-mapping>
