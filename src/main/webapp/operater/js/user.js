@@ -3,16 +3,29 @@ function setIframe(src1, src2){
     $("#flist").attr("src",src1);
     $("#fadd").attr("src",src2);
 }
-function listuser(pid){
+function listuser(pid, pageno){
     $.ajax({
         url:'../../operater/list.do',
         dataType : 'json',
-        data : {pid :pid },
+        data : {pid :pid, page: pageno, rows: 10},
         type : 'POST',
         success: function (data){
             $(".news_list ul").empty();
             for(var i in data.rows){
                 $(".news_list ul").append("<li><a href='#'>"+data.rows[i].name+"</a><span>&nbsp;</span><span><a href='javascript:gotorole("+data.rows[i].id+")' class='edit'>配置角色</a><a href='javascript:gotoedit("+data.rows[i].id+")' class='edit'>编 辑</a></span></li>");
+            }
+            $("#container .pages span").empty();
+            if(pageno>1)
+                $(".btn_prev").attr("href","javascript:listuser("+pid+","+(pageno-1)+")");
+            if(pageno<(data.total/10-1))
+                $(".btn_next").attr("href","javascript:listuser("+pid+","+(pageno+1)+")");
+            for(var i=0; i <data.total/10; i++ ){
+                if(i==pageno-1){
+                    $("#container .pages span").append("<a class='on' href=javascript:listuser("+pid+","+(i+1)+")>"+(i+1)+"</a>");
+                }
+                else{
+                    $("#container .pages span").append("<a href=javascript:listuser("+pid+","+(i+1)+")>"+(i+1)+"</a>");
+                }
             }
         }
     });

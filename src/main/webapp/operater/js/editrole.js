@@ -18,7 +18,7 @@ function loadFormData(){
 
 function update(){
     $('#fm').form('submit',{
-        url: '../role/update.do',
+        url: '../../role/update.do',
         onSubmit: function(){
             return $(this).form('validate');
         },
@@ -40,10 +40,7 @@ function update(){
 function del(){
     if(!confirm("确认删除？")) return;
     $('#fm').form('submit',{
-        url: '../role/delete.do',
-        onSubmit: function(){
-            return $(this).form('validate');
-        },
+        url: '../../role/delete.do',
         success: function(result){
             var result = eval('('+result+')');
             if (!result.success){

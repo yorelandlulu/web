@@ -110,7 +110,7 @@ function bandRoles() {
     }
     $.messager.confirm('提 示', '确定绑定?', function(r) {
         if (r) {
-            $.post('../operaterBindRole/update.do', {
+            $.post('../../operaterBindRole/update.do', {
                 'userId' : editnewsid,
                 ids : ids
             }, function(data) {
@@ -125,9 +125,9 @@ function bandRoles() {
 
 function loadRolesTablebyid(id){
     $('#operater_role_rightDataGrid').datagrid({
-        url:"../operaterBindRole/listBindedRole.do?userId=" + id
+        url:"../../operaterBindRole/listBindedRole.do?userId=" + id
     });
     $('#operater_role_leftDataGrid').datagrid({
-        url:"../operaterBindRole/listUnbindRole.do?userId=" + id
+        url:"../../operaterBindRole/listUnbindRole.do?userId=" + id
     });
 }

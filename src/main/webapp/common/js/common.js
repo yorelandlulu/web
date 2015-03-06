@@ -7,19 +7,27 @@
  */
 //var domain_name = "www.sdx3fx.sh.cn";
 var domain_name = window.location.hostname;
-var path_name = window.location.pathname.split('/')[3];
+var patharray = window.location.pathname.split('/');
+var path_name="";
+path_name += window.location.pathname.split('/')[3];
+if(patharray.length>3){
+	path_name = patharray[2]+"/"+patharray[3];
+}
+else{
+	path_name = patharray[2];
+}
 
 function gobrown(){
-	window.location.href = "/website/brown/" + path_name;
+	window.location.href = "/brown/" + path_name;
 }
 function gored(){
-	window.location.href = "/website/red/" + path_name;
+	window.location.href = "/red/" + path_name;
 }
 function goblue(){
-	window.location.href = "/website/blue/" + path_name;
+	window.location.href = "/blue/" + path_name;
 }
 function gogreen(){
-        window.location.href = "/website/blue/" + path_name;
+        window.location.href = "/blue/" + path_name;
 }
 function recordCookie(key, value){
     $.cookie(key, value, {expires:7, path:'/',domain:domain_name,secure:false});
